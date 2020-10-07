@@ -54,7 +54,7 @@ class Urmin extends CI_Controller
     public function tambah_Poltabes()
     {
         $nrp = $this->input->post('nrp', true);
-        $level = 'personel';
+        // $level = 'personel';
         $personel = $this->Personel_model->detailitu($nrp);
 
         if ($personel) {
@@ -94,7 +94,7 @@ class Urmin extends CI_Controller
     public function ganti_Password()
     {
         $this->load->model('Kabag_model');
-        $data = $this->Kabag_model->ubahPassAdmin();
+        // $data = $this->Kabag_model->ubahPassAdmin();
         echo json_encode('success');
     }
 
@@ -192,7 +192,7 @@ class Urmin extends CI_Controller
 
         $dompdf->render();
 
-        $pdf = $dompdf->output();
+        // $pdf = $dompdf->output();
 
         $dompdf->stream("Data Personel Polrestabes Semarang.pdf", array('Attachment' => 0));
 
