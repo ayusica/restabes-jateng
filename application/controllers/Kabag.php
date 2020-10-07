@@ -120,8 +120,7 @@ class Kabag extends CI_Controller
     {
         if ($this->session->userdata('akses') == 'kabag') {
 
-            $data = $this->Kabag_model->update_editPersonel();
-
+            // $data = $this->Kabag_model->update_editPersonel();
             echo json_encode('success');
         } else {
             echo "Anda tidak berhak mengakses halaman ini";
@@ -132,7 +131,7 @@ class Kabag extends CI_Controller
     public function ubah_PassAdmin()
     {
         if ($this->session->userdata('akses') != 'personel') {
-            $data = $this->Kabag_model->ubahPassAdmin();
+            // $data = $this->Kabag_model->ubahPassAdmin();
             echo json_encode('success');
         } else {
             echo "Anda tidak berhak mengakses halaman ini";
@@ -143,7 +142,7 @@ class Kabag extends CI_Controller
     public function tambah_Admin()
     {
         $nrp = $this->input->post('nrp', true);
-        $level = $this->input->post('level', true);
+        // $level = $this->input->post('level', true);
 
         $this->load->model('Personel_model');
         $admin = $this->Personel_model->detailitu($nrp);
@@ -253,7 +252,7 @@ class Kabag extends CI_Controller
     //tambah instansi db
     public function tambah_kesatuan()
     {
-        $id_instansi = $this->input->post('id_instansi', true);
+        // $id_instansi = $this->input->post('id_instansi', true);
 
         $upload_image = $_FILES['image']['name'];
 
