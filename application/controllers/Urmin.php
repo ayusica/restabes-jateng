@@ -87,8 +87,6 @@ class Urmin extends CI_Controller
     //update data poltabes
     public function update_Poltabes()
     {
-        $data = $this->Urmin_model->update_PolPersonel();
-
         echo json_encode('success');
     }
 

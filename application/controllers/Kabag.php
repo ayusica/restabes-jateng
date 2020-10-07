@@ -252,8 +252,6 @@ class Kabag extends CI_Controller
     //tambah instansi db
     public function tambah_kesatuan()
     {
-        // $id_instansi = $this->input->post('id_instansi', true);
-
         $upload_image = $_FILES['image']['name'];
 
         if ($upload_image) {
@@ -273,7 +271,6 @@ class Kabag extends CI_Controller
             }
         }
         $data = [
-            // "id_instansi" => $this->input->post('instansi_id', true),
             "nama_instansi" => $this->input->post('instansi_nama', true),
             "alamat" => $this->input->post('instansi_alamat', true)
         ];
