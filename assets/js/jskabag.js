@@ -1,8 +1,8 @@
-var url_kabag = "http://localhost/restabes-jateng/kabag/"
+var url_kabag = "http://localhost/restabes-jateng/kabag/";
 
 $('document').ready(function () {
     $('#password-button').click(function () {
-        $('#editModal').modal('hide'); //nanti
+        $('#editModal').modal('hide');
         $('#reset-password-modal').modal('show');
     });
 
@@ -32,17 +32,17 @@ $.post(url_kabag + "grafik",
         var colorgrafik = [];
         for (i = 0; i <= data_jumlah.length; i++) {
             if (data_jumlah[i] < 20) {
-                colorgrafik[i] = 'rgba(255, 99, 132,1)'
+                colorgrafik[i] = 'rgba(255, 99, 132,1)';
             } else {
-                colorgrafik[i] = 'rgba(72, 209, 204, 1)'
+                colorgrafik[i] = 'rgba(72, 209, 204, 1)';
             }
         }
         var colorborder = [];
         for (i = 0; i <= data_nama.length; i++) {
             if (data_jumlah[i] < 20) {
-                colorborder[i] = 'rgba(255,99,132,1)'
+                colorborder[i] = 'rgba(255,99,132,1)';
             } else {
-                colorborder[i] = 'rgba(72, 209, 204, 1)'
+                colorborder[i] = 'rgba(72, 209, 204, 1)';
             }
         }
 
