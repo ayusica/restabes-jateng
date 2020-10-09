@@ -167,7 +167,7 @@ footer{
 /*desktop version = responsive breakpoint*/
 @media (min-width: 992px) { 
     .navbar-brand, .nav-link{
-        color: white !important;
+        color: white;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
     }
 
