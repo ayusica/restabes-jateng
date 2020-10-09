@@ -5,9 +5,8 @@
         color: black;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
         text-transform: uppercase;
-        margin-right:   30px;
-    }
-    
+        margin-right: 30px;
+    } 
     .nav-link:hover::after {
         content: '';
         display: block;
@@ -15,23 +14,23 @@
         width: 50%;
         margin: auto;
         padding-bottom: 5px;
-        margin-bottom:  -8px;
+        margin-bottom: -8px;
     }
 }
 
 .navbar {
-    position: relative;
-    z-index: 1;
-    color: black;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+        position: relative;
+        z-index: 1;
+        color: black;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
 }
 
 html,body {
-    background-image:   url(../img/gambar2.png);
-    background-size:    cover;
-    background-repeat:  no-repeat;
+    background-image: url(../img/gambar2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100%;
-    font-family:    'Numans', sans-serif;
+    font-family: 'Numans', sans-serif;
 }
 
 .container {

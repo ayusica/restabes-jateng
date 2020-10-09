@@ -187,7 +187,7 @@ function ganti_password(nrp) {
 			},
 			success: function () {
 				alert("Password berhasil diubah!");
-				$('#new_password').val('');
+				$("#new_password").val('');
 
 			},
 			error: function (jqXHR, textStatus, errorThrown) {
