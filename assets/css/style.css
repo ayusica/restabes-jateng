@@ -1,25 +1,22 @@
-body{
-    /* background-color: #dfa144; */
-    /* background: repeating-radial-gradient(#dfa144, rgba(161, 115, 27, 0.6)); */
-    /* background: linear-gradient(#dfa144, #2d2d30); */ /*pakai ini*/
-    background: linear-gradient(rgb(209, 191, 164), #2d2d30);
+body {
+       background: linear-gradient(rgb(209, 191, 164), #2d2d30);
 
 
 }
 
 /* Navbar */
-.navbar{
+.navbar {
     position: relative;
     z-index: 1;
 }
 
-.navbar-brand{
+.navbar-brand {
     font-family: Viga;
     font-size: 25px;
 }
 
 /* jumbotron */
-.jumbotron{
+.jumbotron {
     background-image: url(../img/jumbotron-ky.jpg);
     background-size: cover;
     height: 540px;
@@ -27,12 +24,12 @@ body{
     position: relative;
 }
 
-.jumbotron .container{
+.jumbotron .container {
     z-index: 1;
     position: relative;
 }
 
-.jumbotron::after{
+.jumbotron::after {
     content: '';
     display: block;
     width: 100%;
@@ -42,7 +39,7 @@ body{
     bottom: 0;
 }
 
-.jumbotron .display-4{
+.jumbotron .display-4 {
     color: white;
     margin-top: 150px;
     font-weight: 200;
@@ -51,14 +48,14 @@ body{
     margin-bottom: 30px;
 }
 
-.jumbotron .display-4 span{
+.jumbotron .display-4 span {
     font-weight: 500;
 
 }
 
 
 /* info panel */
-.info-panel{
+.info-panel {
     box-shadow: 0 3px 20px rgba(0,0,0,0.5);
     border-radius: 12px;
     margin-top: -120px;
@@ -69,21 +66,21 @@ body{
     padding: 30px;
 }
 
-.info-panel img{
+.info-panel img {
     width: 80px;
     height: 80px;
     margin-right: 20px;
     margin-bottom: 20px;
 }
 
-.info-panel h4{
+.info-panel h4 {
     font-size: 16px;
     text-transform: uppercase;
     font-weight: bold;
     margin-top: 5px;
 }
 
-.info-panel p{
+.info-panel p {
     font-size: 14px;
     color: #acacac;
     margin-top: -5px;
@@ -92,30 +89,30 @@ body{
 
 
 /* workingspace */
-.workingspace{
+.workingspace {
     margin-top: 120px;
     text-align: center;
 }
 
-.workingspace img{
+.workingspace img {
     border-radius: 5%;
     height: 280px;
     width: 700px;
     box-shadow: 0 3px 20px rgba(0,0,0,0.5);
 }
 
-.workingspace h3{
+.workingspace h3 {
     font-size: 52px;
     font-weight: 200;
     text-transform: uppercase;
     margin-top: 30px;
 }
 
-.workingspace h3 span{
+.workingspace h3 span {
     font-weight: 500;
 }
 
-.workingspace p{
+.workingspace p {
     font-size: 18px;
     color: #000000;
     font-weight: 200;
@@ -124,42 +121,37 @@ body{
 }
 
 /* utility */
-.tombol{
+.tombol {
     text-transform: uppercase;
     border-radius: 30px;
     background-color: none;
 }
 
-footer{
+footer {
     background-color: #e8e8ec;
 }
 
 /* card */
 
-.card{
+.card {
     background-color: rgb(204, 189, 183);
-    /* background-color: rgb(221, 214, 203); */
-    /* background: linear-gradient(#DEB887, #CD853F); pakai ini  */
-    /* background: linear-gradient(rgb(196, 187, 175), rgb(124, 100, 76)); */
-
 }
 
-.card1{
+.card1 {
     border-radius: 5px;
 }
 
-.alert-danger{
+.alert-danger {
     background-color: #cab58f;
 }
 
 
-.card h4{
+.card h4 {
     text-align: center;
     text-transform: uppercase;
-    /* text-decoration: underline; */
 }
 
-.card p{
+.card p {
     text-align: justify;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -171,14 +163,14 @@ footer{
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
     }
 
-    .nav-link{
+    .nav-link {
         text-transform: uppercase;
         margin-right: 30px;
     }
     
     /* before after */
     .nav-link:hover::after,
-    .nav-link.active::after{
+    .nav-link.active::after {
         content: '';
         display: block ;
         border-bottom: 5px solid #0B63DC;
@@ -188,17 +180,17 @@ footer{
         margin-bottom: -8px;
     }
 
-    .jumbotron{
+    .jumbotron {
         height: 640;
         margin-top: -75px;
     }
 
-    .jumbotron .display-4{
+    .jumbotron .display-4 {
         font-size: 62px;
 
     }
 
-    .workingspace{
+    .workingspace {
         text-align: left;
     }
  }
