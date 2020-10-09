@@ -139,7 +139,6 @@ class Personel extends CI_Controller
 
             $dompdf->render();
 
-            $pdf = $dompdf->output();
 
             $dompdf->stream("Data Profil.pdf", array('Attachment' => 0));
         } else {
