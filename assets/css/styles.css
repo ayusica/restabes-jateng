@@ -7,6 +7,7 @@
         text-transform: uppercase;
         margin-right:   30px;
     }
+    
     .nav-link:hover::after {
         content: '';
         display: block;
@@ -21,9 +22,6 @@
 .navbar {
     position: relative;
     z-index: 1;
-}
-
-.navbar {
     color: black;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
 }

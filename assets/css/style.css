@@ -56,10 +56,7 @@ body {
     box-shadow: 0 3px 20px rgba(0,0,0,0.5);
     border-radius: 12px;
     margin-top: -120px;
-    /* background-color: chocolate; */
     background: linear-gradient(rgb(209, 191, 164), #3f3426);
-    /* background: linear-gradient(#dfa144, #000046); */
-    /* background: linear-gradient(#dfa144, #2d2d30); */ /*sebelumnya pakai ini*/
     padding: 30px;
 }
 
