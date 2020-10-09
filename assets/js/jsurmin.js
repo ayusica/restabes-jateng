@@ -41,9 +41,6 @@ $("document").ready(function () {
 						"http://localhost/restabes-jateng/urmin/pdf_bagian/" +
 						$("#selectBagian").val(), "_blank"
 					);
-					// window.location.href =
-					// 	"http://localhost/restabes-jateng/urmin/pdf_bagian/" +
-					// 	$("#selectBagian").val();
 				} else {
 					alert("maaf");
 				}
@@ -140,7 +137,7 @@ function update_Poltabes() {
 	} else if ($("#poltabes_jab").val() == '') {
 		alert("Isi Jabatan");
 	} else if ($("#poltabes_tmt").val() == '') {
-		alert("Isi Tmt Jab")
+		alert("Isi Tmt Jab");
 	} else {
 		$.ajax({
 			url: url_urmin + "update_Poltabes",
@@ -160,8 +157,6 @@ function update_Poltabes() {
 			},
 			success: function () {
 				alert("Data Berhasil Diubah!");
-				// window.location.reload();
-				// history.go(0);
 				tabelperBagian();
 			},
 			error: function (jqXHR, textStatus, errorThrown) {
@@ -169,32 +164,6 @@ function update_Poltabes() {
 			}
 		});
 	}
-	// $.ajax({
-	// 	url: url_urmin + "update_Poltabes",
-	// 	type: "POST",
-	// 	dataType: "JSON",
-	// 	data: {
-	// 		nama: $("#poltabes_nama").val(),
-	// 		nrp: $("#poltabes_nrp").val(),
-	// 		pkt: $("#poltabes_pkt").val(),
-	// 		jab: $("#poltabes_jab").val(),
-	// 		tempat: $("#poltabes_tmpt").val(),
-	// 		tgl_lahir: $("#poltabes_tgl").val(),
-	// 		suku: $("#poltabes_suku").val(),
-	// 		tmt_jab: $("#poltabes_tmt").val(),
-	// 		id_instansi: $("#poltabes_instansi").val(),
-	// 		id_bagian: $("#poltabes_bagian").val()
-	// 	},
-	// 	success: function () {
-	// 		alert("Data Berhasil Diubah!");
-	// 		// window.location.reload();
-	// 		// history.go(0);
-	// 		tabelperBagian();
-	// 	},
-	// 	error: function (jqXHR, textStatus, errorThrown) {
-	// 		alert("error!");
-	// 	}
-	// });
 }
 
 //get password dr nrp
@@ -206,7 +175,7 @@ function get_nrpPass(nrp) {
 //ganti password urmin
 function ganti_password(nrp) {
 	if ($('#new_password').val() == '') {
-		alert("Password Baru Harus Diisi!")
+		alert("Password Baru Harus Diisi!");
 	} else {
 		$.ajax({
 			url: url_urmin + "ganti_Password",
@@ -218,7 +187,7 @@ function ganti_password(nrp) {
 			},
 			success: function () {
 				alert("Password berhasil diubah!");
-				$('#new_password').val('')
+				$('#new_password').val('');
 
 			},
 			error: function (jqXHR, textStatus, errorThrown) {
