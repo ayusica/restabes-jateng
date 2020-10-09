@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
-@media (min-width: 992px) { 
+@media (min-width: 992px){ 
     .nav-link {
         color: black;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
