@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 @media (min-width: 992px) { 
-    .nav-link{
+    .nav-link {
         color: black;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
         text-transform: uppercase;
         margin-right: 30px;
     }
     /* before after */
-    .nav-link:hover::after{
+    .nav-link:hover::after {
         content: '';
         display: block ;
         border-bottom: 3px solid #0B63DC;
@@ -19,17 +19,17 @@
     }
 }
 
-.navbar{
+.navbar {
     position: relative;
     z-index: 1;
 }
 
-.navbar{
+.navbar {
     color: black;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
 }
 
-html,body{
+html,body {
 background-image: url(../img/gambar2.png);
 background-size: cover;
 background-repeat: no-repeat;
@@ -37,12 +37,12 @@ height: 100%;
 font-family: 'Numans', sans-serif;
 }
 
-.container{
+.container {
 height: 100%;
 align-content: center;
 }
 
-.card{
+.card {
 height: 530px;
 margin-top: auto;
 margin-bottom: auto;
@@ -50,24 +50,24 @@ width: 350px;
 background-color: rgba(0,0,0,0.5);
 }
 
-.card-header h3{
+.card-header h3 {
 color: white;
 }
 
-.social_icon{
+.social_icon {
 position: absolute;
 right: 20px;
 top: -45px;
 }
 
-.input-group-prepend span{
+.input-group-prepend span {
 width: 50px;
 background-color: #FFC312;
 color: black;
 border:0;
 }
 
-input:focus{
+input:focus {
 outline: 0 0 0 0;
 box-shadow: 0 0 0 0;
 
@@ -77,29 +77,28 @@ box-shadow: 0 0 0 0;
 color: white;
 }
 
-.remember input
-{
+.remember input {
 width: 20px;
 height: 20px;
 margin-left: 15px;
 margin-right: 5px;
 }
 
-.login_btn{
+.login_btn {
 color: black;
 background-color: #FFC312;
 width: 100px;
 }
 
-.login_btn:hover{
+.login_btn:hover {
 color: black;
 background-color: white;
 }
 
-.links{
+.links {
 color: white;
 }
 
-.links a{
+.links a {
 margin-left: 4px;
 }
