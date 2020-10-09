@@ -2,7 +2,7 @@
 
 @media (min-width: 992px) { 
     .nav-link{
-        color: black !important;
+        color: black;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
         text-transform: uppercase;
         margin-right: 30px;
