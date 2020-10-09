@@ -105,7 +105,7 @@ function gantiPass() {
         new_password == "" ||
         re_new_password == ""
     ) {
-        if ($(".gantiPassword").children().hasClass("alert") != true) {
+        if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
                 '<div class="alert alert-danger">Form Masih Kosong!</div>'
             );
@@ -121,7 +121,7 @@ function gantiPass() {
             $("#re-new-password").val("");
         }
     } else if (old_password == new_password) {
-        if ($(".gantiPassword").children().hasClass("alert") != true) {
+        if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
                 '<div class="alert alert-danger">Password Lama dan Baru Tidak Boleh Sama!</div>'
             );
@@ -137,7 +137,7 @@ function gantiPass() {
             $("#re-new-password").val("");
         }
     } else if (new_password != re_new_password) {
-        if ($(".gantiPassword").children().hasClass("alert") != true) {
+        if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
                 '<div class="alert alert-danger">Password Baru dan Konfirmasi Password Tidak Sama!</div>'
             );
@@ -168,7 +168,7 @@ function gantiPass() {
                     alert('Password behasil diubah!');
                     window.location.href = "http://localhost/restabes-jateng/login/logout";
                 } else {
-                    if ($(".gantiPassword").children().hasClass("alert") != true) {
+                    if ($(".gantiPassword").children().hasClass("alert") !== true) {
                         $(".gantiPassword").prepend(
                             '<div class="alert alert-danger">Password Lama Salah!</div>'
                         );
