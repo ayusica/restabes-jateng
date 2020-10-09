@@ -1,4 +1,4 @@
-var url_personel = "http://localhost/restabes-jateng/personel/"
+var url_personel = "http://localhost/restabes-jateng/personel/";
 
 $('document').ready(function () {
     //tampilkan modal ganti password
@@ -38,9 +38,7 @@ function E_Profil(nrp) {
         error: function (jqXHR, textStatus, errorThrown) {
             alert('error!');
         }
-
     });
-
 }
 
 // function gantiPass() {
@@ -87,9 +85,6 @@ function gantiPass() {
     var old_password = $("#old_password").val();
     var new_password = $("#new_password").val();
     var re_new_password = $("#re-new-password").val();
-    // console.log(old_password);
-    // console.log(new_password);
-    // console.log(re_new_password);
 
     if (old_password == "") {
         $("#lama").html('<div class="text text-danger">Password Lama Kosong!</div>');

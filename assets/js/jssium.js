@@ -1,4 +1,4 @@
-var url_sium = "http://localhost/restabes-jateng/sium/"
+var url_sium = "http://localhost/restabes-jateng/sium/";
 
 $('document').ready(function () {
     $('#tambah_personel_polsek').click(function () {
