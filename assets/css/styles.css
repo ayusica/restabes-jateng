@@ -9,7 +9,7 @@
     }
     .nav-link:hover::after {
         content: '';
-        display: block ;
+        display: block;
         border-bottom: 3px solid #0B63DC;
         width: 50%;
         margin: auto;
