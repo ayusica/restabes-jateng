@@ -96,7 +96,7 @@
 
       <?php if ($this->session->userdata('akses') != 'kasium') : ?>
           <li class="nav-item">
-              <a class="nav-link" href="<?= base_url() ?>sium/daftar_polsek">
+              <a class="nav-link" href="<?= base_url() ?>sium/daftarPolsek">
                   <i class="fas fa-fw fa-table"></i>
                   <span>Daftar Instansi</span>
               </a>
@@ -120,7 +120,7 @@
       <?php if ($this->session->userdata('akses') == 'kasium') : ?>
           <!-- Nav Item - Tables -->
           <li class="nav-item">
-              <a class="nav-link" href="<?= base_url() ?>sium/daftar_polsek">
+              <a class="nav-link" href="<?= base_url() ?>sium/daftarPolsek">
                   <i class="fas fa-fw fa-users-cog"></i>
                   <span>Kelola Data Personel Polsek</span></a>
           </li>

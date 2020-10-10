@@ -34,7 +34,7 @@ function tambah_polsek() {
             id_bagian: $("#bagian_polsek").val()
         },
         success: function (respon) {
-            if (respon == "sudah") {
+            if (respon === "sudah") {
                 alert("Data Personel Sudah Terekam!");
             } else {
                 alert("Data Berhasil Terekam!");

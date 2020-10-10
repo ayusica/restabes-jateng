@@ -32,7 +32,7 @@ class Sium extends CI_Controller
     {
         $data = $this->Personel_model->geteditPersonel($nrp);
 
-        echo json_encode($data);
+        print_r (json_encode($data));
     }
 
     //tambah personel polsek
@@ -55,10 +55,9 @@ class Sium extends CI_Controller
         $data['judul'] = "Daftar Polsek";
         if ($this->session->userdata('akses') == 'kasium') {
             $data['instansi'] = $this->Instansi_model->daftar_polsek();
-        } else {
-            $data['instansi'] = $this->Instansi_model->daftar_instansi();
         }
-
+        $data['instansi'] = $this->Instansi_model->daftar_instansi();
+        
         $this->load->view('templates/user/header_user', $data);
         $this->load->view('templates/user/sidebar', $data);
         $this->load->view('templates/user/topbar', $data);
@@ -71,7 +70,7 @@ class Sium extends CI_Controller
     public function polsek()
     {
         if (($this->session->userdata('akses') == 'kasium') && $this->uri->segment(3) == 1) {
-            redirect('sium/daftar_polsek');
+            redirect('sium/daftarPolsek');
         }
 
         $data['judul'] = "Instansi";
@@ -102,8 +101,7 @@ class Sium extends CI_Controller
     public function gantiPassword()
     {
         $this->load->model('Kabag_model');
-        // $data = $this->Kabag_model->ubahPassAdmin();
-        echo json_encode('success');
+        echo json_encode("success");
     }
 
     //untuk hapus data personel polsek
@@ -115,7 +113,7 @@ class Sium extends CI_Controller
 
             echo json_encode('success');
         } else {
-            echo "Anda tidak berhak mengakses halaman ini";
+            print_r( "Anda tidak berhak mengakses halaman ini");
         }
     }
 
@@ -164,11 +162,10 @@ class Sium extends CI_Controller
                 // Masukan variabel $sheet ke dalam array data yang nantinya akan di kirim ke file form.php
                 // Variabel $sheet tersebut berisi data-data yang sudah diinput di dalam excel yang sudha di upload sebelumnya
                 $data['sheet'] = $sheet;
-            } else { // Jika proses upload gagal
-                $data['upload_error'] = $upload['error']; // Ambil pesan error uploadnya untuk dikirim ke file form dan ditampilkan
             }
+            // Jika proses upload gagal
+            $data['upload_error'] = $upload['error']; // Ambil pesan error uploadnya untuk dikirim ke file form dan ditampilkan
         }
-
         $data['instansi'] = $this->input->get('id');
         $this->load->view('page/form_polsek', $data);
     }
