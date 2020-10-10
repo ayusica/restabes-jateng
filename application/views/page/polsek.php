@@ -45,7 +45,7 @@
                                             <button type="submit" class="badge badge-success" id="edit" onclick="detailPolsek('<?= $personel['nrp']; ?>')"><i class="fas fa-edit"></i></button>
                                             <?php if ($this->uri->segment(3) == $this->session->userdata('id_instansi')) : ?>
                                                 <button type="submit" class="badge badge-danger" id="hapus" onclick="hapusPersonelpolsek('<?= $personel['nrp']; ?>')"><i class="fas fa-fw fa-trash"></i></button>
-                                                <button type="submit" class="badge badge-warning" onclick="get_nrpPass('<?= $personel['nrp']; ?>')"><i class="fas fa-fw fa-key"></i></button>
+                                                <button type="submit" class="badge badge-warning" onclick="getNrpPass('<?= $personel['nrp']; ?>')"><i class="fas fa-fw fa-key"></i></button>
                                                 <a href="<?= base_url('personel/pdf_profil/') . $personel['nrp'] ?>" target="_blank"><button type="button" class="badge badge-info"><i class="fas fa-fw fa-print"></i></button></a>
                                             <?php endif; ?>
                                         <?php endif; ?>

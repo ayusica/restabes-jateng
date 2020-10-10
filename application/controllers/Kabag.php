@@ -92,7 +92,7 @@ class Kabag extends CI_Controller
     }
 
     //pilih instansi
-    public function pilih_instansi()
+    public function pilihInstansi()
     {
         $this->load->model('Instansi_model');
         $data = $this->Instansi_model->daftar_instansi();
@@ -127,7 +127,7 @@ class Kabag extends CI_Controller
     }
 
     //untuk ubah pass admin
-    public function ubah_PassAdmin()
+    public function ubahPassadmin()
     {
         if ($this->session->userdata('akses') != 'personel') {
             $this->Kabag_model->ubahPassAdmin();
@@ -138,7 +138,7 @@ class Kabag extends CI_Controller
     }
 
     //tambah admin
-    public function tambah_Admin()
+    public function tambahAdmin()
     {
         $nrp = $this->input->post('nrp', true);
         // $level = $this->input->post('level', true);
@@ -161,7 +161,7 @@ class Kabag extends CI_Controller
     }
 
     //untuk hapus data admin
-    public function hapus_Admin()
+    public function hapusAdmin()
     {
         if ($this->session->userdata('akses') == 'kabag') {
             $this->Kabag_model->hapusAdmin();
@@ -173,7 +173,7 @@ class Kabag extends CI_Controller
     }
 
     //tambah instansi polsek
-    public function tambah_instansi_polsek()
+    public function tambahInstansiPolsek()
     {
         if ($this->session->userdata('akses') == 'kabag') {
             $data['judul'] = 'Polsek';
@@ -190,7 +190,7 @@ class Kabag extends CI_Controller
     }
 
     //get instansi berdasarkan id
-    public function get_Instansi($id_instansi)
+    public function getInstansi($id_instansi)
     {
         $this->load->model('Instansi_model');
         $data = $this->Instansi_model->get_editInstansi($id_instansi);
@@ -199,7 +199,7 @@ class Kabag extends CI_Controller
     }
 
     //update instansi
-    public function update_instansi()
+    public function updateInstansi()
     {
         $id_instansi = $this->input->post('instansi_hid', true);
 
@@ -240,7 +240,7 @@ class Kabag extends CI_Controller
 
 
     //hapus instansi
-    public function hapus_Instansi()
+    public function hapusInstansi()
     {
         $this->Personel_model->hapus_Instansi();
 
@@ -248,7 +248,7 @@ class Kabag extends CI_Controller
     }
 
     //tambah instansi db
-    public function tambah_kesatuan()
+    public function tambahKesatuan()
     {
         $upload_image = $_FILES['image']['name'];
 
@@ -274,6 +274,6 @@ class Kabag extends CI_Controller
         ];
         $this->db->insert('instansi', $data);
 
-        redirect('kabag/tambah_instansi_polsek');
+        redirect('kabag/tambahInstansiPolsek');
     }
 }

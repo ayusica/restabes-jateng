@@ -30,7 +30,7 @@
                                 <td><?= $inst['alamat']; ?></td>
                                 <td><img src="<?= base_url('assets/img/g_instansi/') . $inst['foto'] ?>" style="width:145px;" alt="foto"></td>
                                 <td align="center" width="100px">
-                                    <button type="button" class="badge badge-success" style="height: 2.5rem; width: 5rem;" id="edit_instansi" onclick="get_editInstansi(<?= $inst['id_instansi'] ?>)"><i class="fas fa-fw fa-edit"></i> Edit</button>
+                                    <button type="button" class="badge badge-success" style="height: 2.5rem; width: 5rem;" id="edit_instansi" onclick="getEditInstansi(<?= $inst['id_instansi'] ?>)"><i class="fas fa-fw fa-edit"></i> Edit</button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -50,7 +50,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="ed-instansi" method="POST" action="<?= base_url('kabag/update_instansi') ?>" enctype="multipart/form-data">
+                    <form id="ed-instansi" method="POST" action="<?= base_url('kabag/updateInstansi') ?>" enctype="multipart/form-data">
                         <div class="form-group">
                             <p style="color: red">*Maksimal Ukuran Foto 2Mb</p>
                             <img class="image" style="width: 50%" alt="foto" id="foto">
@@ -108,7 +108,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="tambah-poltabes" method="POST" action="<?= base_url('kabag/tambah_kesatuan') ?>" enctype="multipart/form-data">
+                    <form id="tambah-poltabes" method="POST" action="<?= base_url('kabag/tambahKesatuan') ?>" enctype="multipart/form-data">
                         <div class="form-group">
                             <p style="color: red">*Maksimal Ukuran Foto 2Mb</p>
                             <label for="Foto">Foto Instansi</label>

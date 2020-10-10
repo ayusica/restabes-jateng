@@ -130,7 +130,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button id="save" type="button" class="btn btn-success" data-dismiss="modal" onclick="changepassword()">Simpan</button>
+                    <button id="save" type="button" class="btn btn-success" data-dismiss="modal" onclick="changePassword()">Simpan</button>
                 </div>
             </div>
         </div>
@@ -193,7 +193,7 @@
                         </div>
                         <div class="modal-footer">
                             <div class="col-auto mt-10">
-                                <button type="submit" class="btn btn-success" id="tambahAA" name="update" onclick="success_tambahAdmin()">Simpan</button>
+                                <button type="submit" class="btn btn-success" id="tambahAA" name="update" onclick="successTambahAdmin()">Simpan</button>
                             </div>
                         </div>
                     </form>
