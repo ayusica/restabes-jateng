@@ -84,9 +84,9 @@ function edit(nrp) {
             $("#nrp").val(data.nrp);
             $("#jab").val(data.jabatan);
             // $("#pass").val(data.pass);
-            if (data.level == "kabag") {
+            if (data.level === "kabag") {
                 document.getElementById("level").selectedIndex = "1";
-            } else if (data.level == "kaurmin") {
+            } else if (data.level === "kaurmin") {
                 document.getElementById("level").selectedIndex = "2";
             } else {
                 document.getElementById("level").selectedIndex = "3";
@@ -102,7 +102,7 @@ function edit(nrp) {
 }
 
 function updateEdit() {
-    if ($("#level").val() == "") {
+    if ($("#level").val() === "") {
         alert("level kosong");
     } else {
         $.ajax({
@@ -127,8 +127,8 @@ function updateEdit() {
 }
 
 function changePassword() {
-    if ($("#new_password").val() == "") {
-        alert("Password Baru Harus Diisi!")
+    if ($("#new_password").val() === "") {
+        alert("Password Baru Harus Diisi!");
     } else {
         $.ajax({
             url: urlKabag + "ubahPassadmin",
@@ -185,12 +185,12 @@ function successTambahAdmin() {
             level: $("#levelAdmin").val()
         },
         success: function (respon) {
-            if (respon == "berhasil") {
+            if (respon === "berhasil") {
                 alert("Data Admin berhasil ditambahkan");
                 // history.go(0);
                 $("#dataTable");
             }
-            if (respon == "sudah") {
+            if (respon === "sudah") {
                 alert("Personel Sudah Menjadi Admin!");
             }
         },
@@ -209,13 +209,13 @@ function pilInstansi() {
         dataType: "JSON",
         success: function (data) {
 
-            if ($("#levelAdmin").val() == "kasium") {
+            if ($("#levelAdmin").val() === "kasium") {
                 isi += '<option value="">--Pilih Instansi--</option>';
                 for (var i = 1; i < Object.keys(data).length; i++) {
                     isi += '<option value="' + data[i]['id_instansi'] + '">' + data[i]['nama_instansi'] + '</option>';
                 }
                 $("#selectInstansi").html(isi);
-            } else if ($("#levelAdmin").val() == "") {
+            } else if ($("#levelAdmin").val() === "") {
                 isi += '<option value="">--Pilih Instansi--</option>';
                 $("#selectInstansi").html(isi);
             } else {
