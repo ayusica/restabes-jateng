@@ -1,4 +1,4 @@
-var url_urmin = "http://localhost/restabes-jateng/urmin/";
+var urlUrmin = "http://localhost/restabes-jateng/urmin/";
 
 $("document").ready(function () {
 	$("#tambah_personel_button").click(function () {
@@ -11,7 +11,7 @@ $("document").ready(function () {
 	});
 
 	$.ajax({
-		url: url_urmin + "selectBagian",
+		url: urlUrmin + "selectBagian",
 		type: "GET",
 		dataType: "JSON",
 		success: function (data) {
@@ -32,7 +32,7 @@ $("document").ready(function () {
 
 	$("#pdf_bagian").click(function () {
 		$.ajax({
-			url: url_urmin + "getPersonelBagian/" + $("#selectBagian").val(),
+			url: urlUrmin + "getPersonelBagian/" + $("#selectBagian").val(),
 			type: "GET",
 			dataType: "JSON",
 			success: function (data) {
@@ -55,7 +55,7 @@ $("document").ready(function () {
 //urmin
 function poltabes() {
 	$.ajax({
-		url: url_urmin + "tambah_Poltabes",
+		url: urlUrmin + "tambah_Poltabes",
 		type: "POST",
 		dataType: "JSON",
 		data: {
@@ -85,7 +85,7 @@ function poltabes() {
 
 function detailPoltabes(nrp) {
 	$.ajax({
-		url: url_urmin + "detail_poltabes/" + nrp,
+		url: urlUrmin + "detail_poltabes/" + nrp,
 		type: "GET",
 		dataType: "JSON",
 		success: function (data) {
@@ -112,7 +112,7 @@ function hapusAja(nrp) {
 	$("#hapus-poltabes-modal").modal("show");
 	$("#konfirmasi_hapus_modal").click(function () {
 		$.ajax({
-			url: url_urmin + "hapus_Pol",
+			url: urlUrmin + "hapus_Pol",
 			type: "POST",
 			dataType: "JSON",
 			data: {
@@ -140,7 +140,7 @@ function update_Poltabes() {
 		alert("Isi Tmt Jab");
 	} else {
 		$.ajax({
-			url: url_urmin + "update_Poltabes",
+			url: urlUrmin + "update_Poltabes",
 			type: "POST",
 			dataType: "JSON",
 			data: {
@@ -149,11 +149,11 @@ function update_Poltabes() {
 				pkt: $("#poltabes_pkt").val(),
 				jab: $("#poltabes_jab").val(),
 				tempat: $("#poltabes_tmpt").val(),
-				tgl_lahir: $("#poltabes_tgl").val(),
+				tglLahir: $("#poltabes_tgl").val(),
 				suku: $("#poltabes_suku").val(),
-				tmt_jab: $("#poltabes_tmt").val(),
-				id_instansi: $("#poltabes_instansi").val(),
-				id_bagian: $("#poltabes_bagian").val()
+				tmtJab: $("#poltabes_tmt").val(),
+				idInstansi: $("#poltabes_instansi").val(),
+				idBagian: $("#poltabes_bagian").val()
 			},
 			success: function () {
 				alert("Data Berhasil Diubah!");
@@ -178,12 +178,12 @@ function ganti_password(nrp) {
 		alert("Password Baru Harus Diisi!");
 	} else {
 		$.ajax({
-			url: url_urmin + "ganti_Password",
+			url: urlUrmin + "ganti_Password",
 			type: "POST",
 			dataType: "JSON",
 			data: {
 				nrp: nrp,
-				new_password: $("#new_password").val()
+				newPassword: $("#new_password").val()
 			},
 			success: function () {
 				alert("Password berhasil diubah!");
@@ -200,7 +200,7 @@ function ganti_password(nrp) {
 function tabelperBagian() {
 	$("#dataTable_wrapper").remove();
 	$.ajax({
-		url: url_urmin + "getPersonelBagian/" + $("#selectBagian").val(),
+		url: urlUrmin + "getPersonelBagian/" + $("#selectBagian").val(),
 		type: "GET",
 		dataType: "JSON",
 		success: function (data) {

@@ -136,7 +136,7 @@ function changepassword() {
             dataType: "JSON",
             data: {
                 nrp: $('#nrp').val(),
-                new_password: $('#new_password').val()
+                newPassword: $('#new_password').val()
             },
             success: function () {
                 alert('Password berhasil diubah!');

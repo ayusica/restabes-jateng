@@ -26,12 +26,12 @@ function tambah_polsek() {
             pkt: $("#pkt_polsek").val(),
             jabatan: $("#jab_polsek").val(),
             tempat: $("#tmpt_lahir_polsek").val(),
-            tgl_lahir: $("#tgl_lahir_polsek").val(),
+            tglLahir: $("#tgl_lahir_polsek").val(),
             agama: $("#agama_polsek").val(),
             suku: $("#suku_polsek").val(),
-            tmt_jab: $("#tmt_jab_polsek").val(),
-            id_instansi: $("#instansi_polsek").val(),
-            id_bagian: $("#bagian_polsek").val()
+            tmtJab: $("#tmt_jab_polsek").val(),
+            idInstansi: $("#instansi_polsek").val(),
+            idBagian: $("#bagian_polsek").val()
         },
         success: function (respon) {
             if (respon === "sudah") {
@@ -85,11 +85,11 @@ function update_Polsek() {
             pkt: $("#polsek_pkt").val(),
             jab: $("#polsek_jab").val(),
             tempat: $("#polsek_tmpt").val(),
-            tgl_lahir: $("#polsek_tgl").val(),
+            tglLahir: $("#polsek_tgl").val(),
             suku: $("#polsek_suku").val(),
-            tmt_jab: $("#polsek_tmt").val(),
-            id_instansi: $("#polsek_instansi").val(),
-            id_bagian: $("#polsek_bagian").val()
+            tmtJab: $("#polsek_tmt").val(),
+            idInstansi: $("#polsek_instansi").val(),
+            idBagian: $("#polsek_bagian").val()
 
         },
         success: function () {
@@ -120,7 +120,7 @@ function ganti_password(nrp) {
             dataType: "JSON",
             data: {
                 nrp: nrp,
-                new_password: $("#new_password").val()
+                newPassword: $("#new_password").val()
             },
             success: function () {
                 alert("Password berhasil diubah!");

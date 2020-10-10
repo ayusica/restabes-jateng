@@ -63,7 +63,7 @@ class Kabag_model extends CI_Model
     public function ubahPassAdmin()
     {
         $data = [
-            "pass" => md5($this->input->post('new_password', true))
+            "pass" => md5($this->input->post('newPassword', true))
         ];
 
         $this->db->where('nrp', $this->input->post('nrp'));

@@ -48,11 +48,11 @@ class Urmin_model extends CI_Model
             "pkt" => $this->input->post('pkt', true),
             "jabatan" => $this->input->post('jab', true),
             "tempat" => $this->input->post('tempat', true),
-            "tgl_lahir" => $this->input->post('tgl_lahir', true),
+            "tgl_lahir" => $this->input->post('tglLahir', true),
             "suku" => $this->input->post('suku', true),
-            "tmt_jab" => $this->input->post('tmt_jab', true),
-            "id_bagian" => $this->input->post('id_bagian', true),
-            "id_instansi" => $this->input->post('id_instansi', true)
+            "tmt_jab" => $this->input->post('tmtJab', true),
+            "id_bagian" => $this->input->post('idBagian', true),
+            "id_instansi" => $this->input->post('idInstansi', true)
         ];
 
         $this->db->where('nrp', $this->input->post('nrp'));
