@@ -1,4 +1,3 @@
-<!-- <?= var_dump($inst['nama_instansi']); ?> -->
 <div class="container-fluid">
     <!--DATA PERSONEL POLRESTABES SEMARANG -->
     <div class="card shadow mb-4">

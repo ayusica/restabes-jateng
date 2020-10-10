@@ -112,7 +112,7 @@ function get_nrpPass(nrp) {
 //ganti password 
 function ganti_password(nrp) {
     if ($("#new_password").val() === "") {
-        alert("Password Baru Harus Diisi!")
+        alert("Password Baru Harus Diisi!");
     } else {
         $.ajax({
             url: urlSium + "gantiPassword",

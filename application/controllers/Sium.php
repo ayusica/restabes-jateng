@@ -32,7 +32,7 @@ class Sium extends CI_Controller
     {
         $data = $this->Personel_model->geteditPersonel($nrp);
 
-        print_r (json_encode($data));
+        return json_encode($data);
     }
 
     //tambah personel polsek
@@ -42,10 +42,10 @@ class Sium extends CI_Controller
         $personel = $this->Personel_model->detailitu($nrp);
 
         if ($personel) {
-            echo json_encode('sudah');
-        } 
+            return json_encode('sudah');
+        }
         $this->Sium_model->tambah_personel_polsek();
-        echo json_encode('sukses');
+        return json_encode('sukses');
     }
 
     //daftar polsek
@@ -57,7 +57,7 @@ class Sium extends CI_Controller
             $data['instansi'] = $this->Instansi_model->daftar_polsek();
         }
         $data['instansi'] = $this->Instansi_model->daftar_instansi();
-        
+
         $this->load->view('templates/user/header_user', $data);
         $this->load->view('templates/user/sidebar', $data);
         $this->load->view('templates/user/topbar', $data);
@@ -94,14 +94,14 @@ class Sium extends CI_Controller
     {
         $this->load->model('Urmin_model');
 
-        echo json_encode('success');
+        return json_encode("success");
     }
 
     //ganti password
     public function gantiPassword()
     {
         $this->load->model('Kabag_model');
-        echo json_encode("success");
+        return json_encode("success");
     }
 
     //untuk hapus data personel polsek
@@ -111,10 +111,9 @@ class Sium extends CI_Controller
             $this->load->model('Urmin_model');
             $this->Urmin_model->hapusAja();
 
-            echo json_encode('success');
-        } else {
-            print_r( "Anda tidak berhak mengakses halaman ini");
+            return json_encode('success');
         }
+        return ("Anda tidak berhak mengakses halaman ini");
     }
 
     //download data pdf
