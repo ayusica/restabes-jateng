@@ -15,7 +15,7 @@ $("document").ready(function () {
 
 
 // Kasium
-function tambah_polsek() {
+function tambahPolsek() {
     $.ajax({
         url: urlSium + "tambahPolsek",
         type: "POST",
@@ -74,7 +74,7 @@ function detailPolsek(nrp) {
 
 }
 
-function update_Polsek() {
+function updatePolsek() {
     $.ajax({
         url: urlSium + "updatePolsek",
         type: "POST",
@@ -104,13 +104,13 @@ function update_Polsek() {
 }
 
 //get nrp untuk ganti password
-function get_nrpPass(nrp) {
+function getNrpPass(nrp) {
     $("#reset-pass").modal("show");
     $("#save_password").attr("onclick", "ganti_password(" + nrp + ")");
 }
 
 //ganti password 
-function ganti_password(nrp) {
+function gantiPassword(nrp) {
     if ($("#new_password").val() === "") {
         alert("Password Baru Harus Diisi!");
     } else {
@@ -133,7 +133,7 @@ function ganti_password(nrp) {
 }
 
 //hapus personel polsek
-function hapus_personel_polsek(nrp) {
+function hapusPersonelpolsek(nrp) {
     $("#hapus-polsek-modal").modal("show");
     $("#konfirmasi_hapus_modal").click(function () {
         $.ajax({

@@ -44,7 +44,7 @@
                                         <?php if ($personel['level'] == 'personel') : ?>
                                             <button type="submit" class="badge badge-success" id="edit" onclick="detailPolsek('<?= $personel['nrp']; ?>')"><i class="fas fa-edit"></i></button>
                                             <?php if ($this->uri->segment(3) == $this->session->userdata('id_instansi')) : ?>
-                                                <button type="submit" class="badge badge-danger" id="hapus" onclick="hapus_personel_polsek('<?= $personel['nrp']; ?>')"><i class="fas fa-fw fa-trash"></i></button>
+                                                <button type="submit" class="badge badge-danger" id="hapus" onclick="hapusPersonelpolsek('<?= $personel['nrp']; ?>')"><i class="fas fa-fw fa-trash"></i></button>
                                                 <button type="submit" class="badge badge-warning" onclick="get_nrpPass('<?= $personel['nrp']; ?>')"><i class="fas fa-fw fa-key"></i></button>
                                                 <a href="<?= base_url('personel/pdf_profil/') . $personel['nrp'] ?>" target="_blank"><button type="button" class="badge badge-info"><i class="fas fa-fw fa-print"></i></button></a>
                                             <?php endif; ?>
@@ -212,7 +212,7 @@
                         </div>
                         <div class="modal-footer">
                             <div class="col-auto mt-10">
-                                <button type="submit" class="btn btn-success" id="tambahpolsek" name="update" onclick="tambah_polsek()">Simpan</button>
+                                <button type="submit" class="btn btn-success" id="tambahpolsek" name="update" onclick="tambahPolsek()">Simpan</button>
                             </div>
                         </div>
                     </form>
@@ -316,7 +316,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                    <button id="save" type="button" class="btn btn-success" data-dismiss="modal" onclick="update_Polsek()">Simpan</button>
+                    <button id="save" type="button" class="btn btn-success" data-dismiss="modal" onclick="updatePolsek()">Simpan</button>
                 </div>
             </div>
         </div>
@@ -357,7 +357,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                    <button id="save_password" type="button" class="btn btn-success" data-dismiss="modal" onclick="ganti_password(<?= $personel['nrp']; ?>)">Simpan</button>
+                    <button id="save_password" type="button" class="btn btn-success" data-dismiss="modal" onclick="gantiPassword(<?= $personel['nrp']; ?>)">Simpan</button>
                 </div>
             </div>
         </div>
