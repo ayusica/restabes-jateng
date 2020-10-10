@@ -12,8 +12,8 @@
                         <div class="col">
                             <div class="tambah">
                                 <button type="button" class="badge btn-success" style="height: 2.5rem" id="tambah_personel_polsek"><i class="fas fa-plus"></i> Tambah Personel</button>
-                                <a href="<?= base_url('sium/pdf_polsek/') . $instansi['id_instansi'] ?>" target="_blank"><button type="button" class="badge btn-warning" style="height: 2.5rem"><i class="fas fa-fw fa-print"></i> Cetak PDF</button></a>
-                                <a href="<?= base_url("sium/form_polsek/") . $instansi['id_instansi'] ?>" target="_blank"><button type="button" class="badge btn-primary" style="height: 2.5rem"><i class="fas fa-fw fa-file"></i> Impor Data</button></a>
+                                <a href="<?= base_url('sium/pdfPolsek/') . $instansi['id_instansi'] ?>" target="_blank"><button type="button" class="badge btn-warning" style="height: 2.5rem"><i class="fas fa-fw fa-print"></i> Cetak PDF</button></a>
+                                <a href="<?= base_url("sium/formPolsek/") . $instansi['id_instansi'] ?>" target="_blank"><button type="button" class="badge btn-primary" style="height: 2.5rem"><i class="fas fa-fw fa-file"></i> Impor Data</button></a>
                             </div>
                         </div>
                     </div>

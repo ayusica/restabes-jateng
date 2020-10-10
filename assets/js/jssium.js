@@ -1,13 +1,13 @@
 var urlSium = "http://localhost/restabes-jateng/sium/";
 
-$('document').ready(function () {
+$("document").ready(function () {
     $("#tambah_personel_polsek").click(function () {
-        $("#tambah_polsek_modal").modal('show');
+        $("#tambah_polsek_modal").modal("show");
     });
 
     $("#Polsek-edit").click(function () {
-        $("#Detail_Modal").modal('hide');
-        $("#polsek-edit-modal").modal('show');
+        $("#Detail_Modal").modal("hide");
+        $("#polsek-edit-modal").modal("show");
     });
 
 });
@@ -17,7 +17,7 @@ $('document').ready(function () {
 // Kasium
 function tambah_polsek() {
     $.ajax({
-        url: urlSium + "tambah_polsek",
+        url: urlSium + "tambahPolsek",
         type: "POST",
         dataType: "JSON",
         data: {
@@ -34,7 +34,7 @@ function tambah_polsek() {
             id_bagian: $("#bagian_polsek").val()
         },
         success: function (respon) {
-            if (respon == 'sudah') {
+            if (respon == "sudah") {
                 alert("Data Personel Sudah Terekam!");
             } else {
                 alert("Data Berhasil Terekam!");
@@ -48,7 +48,7 @@ function tambah_polsek() {
 
 function detailPolsek(nrp) {
     $.ajax({
-        url: urlSium + "detail_polsek/" + nrp,
+        url: urlSium + "detailPolsek/" + nrp,
         type: "GET",
         dataType: "JSON",
         success: function (data) {
@@ -64,7 +64,7 @@ function detailPolsek(nrp) {
             $("#polsek_instansi").val(data.id_instansi);
             $("#polsek_bagian").val(data.id_bagian);
 
-            $("#Detail_Modal").modal('show');
+            $("#Detail_Modal").modal("show");
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert("error!");
@@ -76,7 +76,7 @@ function detailPolsek(nrp) {
 
 function update_Polsek() {
     $.ajax({
-        url: urlSium + "update_Polsek",
+        url: urlSium + "updatePolsek",
         type: "POST",
         dataType: "JSON",
         data: {
@@ -105,17 +105,17 @@ function update_Polsek() {
 
 //get nrp untuk ganti password
 function get_nrpPass(nrp) {
-    $("#reset-pass").modal('show');
+    $("#reset-pass").modal("show");
     $("#save_password").attr("onclick", "ganti_password(" + nrp + ")");
 }
 
 //ganti password 
 function ganti_password(nrp) {
-    if ($("#new_password").val() == '') {
+    if ($("#new_password").val() === "") {
         alert("Password Baru Harus Diisi!")
     } else {
         $.ajax({
-            url: url + "ganti_Password",
+            url: urlSium + "gantiPassword",
             type: "POST",
             dataType: "JSON",
             data: {
@@ -134,10 +134,10 @@ function ganti_password(nrp) {
 
 //hapus personel polsek
 function hapus_personel_polsek(nrp) {
-    $("#hapus-polsek-modal").modal('show');
+    $("#hapus-polsek-modal").modal("show");
     $("#konfirmasi_hapus_modal").click(function () {
         $.ajax({
-            url: urlSium + "hapus_Pol",
+            url: urlSium + "hapusPol",
             type: "POST",
             dataType: "JSON",
             data: {

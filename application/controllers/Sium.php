@@ -28,7 +28,7 @@ class Sium extends CI_Controller
      * -----------------------------------------------------*/
 
     //detail polsek
-    public function detail_polsek($nrp)
+    public function detailPolsek($nrp)
     {
         $data = $this->Personel_model->geteditPersonel($nrp);
 
@@ -36,21 +36,20 @@ class Sium extends CI_Controller
     }
 
     //tambah personel polsek
-    public function tambah_polsek()
+    public function tambahPolsek()
     {
         $nrp = $this->input->post('nrp', true);
         $personel = $this->Personel_model->detailitu($nrp);
 
         if ($personel) {
             echo json_encode('sudah');
-        } else {
-            $this->Sium_model->tambah_personel_polsek();
-            echo json_encode('sukses');
-        }
+        } 
+        $this->Sium_model->tambah_personel_polsek();
+        echo json_encode('sukses');
     }
 
     //daftar polsek
-    public function daftar_polsek()
+    public function daftarPolsek()
     {
 
         $data['judul'] = "Daftar Polsek";
@@ -92,7 +91,7 @@ class Sium extends CI_Controller
     }
 
     //update record personel polsek setelah edit
-    public function update_Polsek()
+    public function updatePolsek()
     {
         $this->load->model('Urmin_model');
 
@@ -100,7 +99,7 @@ class Sium extends CI_Controller
     }
 
     //ganti password
-    public function ganti_Password()
+    public function gantiPassword()
     {
         $this->load->model('Kabag_model');
         // $data = $this->Kabag_model->ubahPassAdmin();
@@ -108,7 +107,7 @@ class Sium extends CI_Controller
     }
 
     //untuk hapus data personel polsek
-    public function hapus_Pol()
+    public function hapusPol()
     {
         if ($this->session->userdata('akses') != 'personel') {
             $this->load->model('Urmin_model');
@@ -121,7 +120,7 @@ class Sium extends CI_Controller
     }
 
     //download data pdf
-    public function pdf_polsek()
+    public function pdfPolsek()
     {
         require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
 
@@ -145,7 +144,7 @@ class Sium extends CI_Controller
     }
 
     //impor data polsek
-    public function form_polsek()
+    public function formPolsek()
     {
         $data = array(); // Buat variabel $data sebagai array
 
@@ -174,7 +173,7 @@ class Sium extends CI_Controller
         $this->load->view('page/form_polsek', $data);
     }
 
-    public function import_polsek()
+    public function importPolsek()
     {
         $data['instansi'] = $this->Instansi_model->instansiID($this->uri->segment(3));
 
