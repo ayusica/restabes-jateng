@@ -41,7 +41,7 @@ class Kabag extends CI_Controller
             $this->load->view('page/dashboard', $data);
             $this->load->view('templates/user/footer');
         } else {
-            echo "Anda tidak berhak mengakses halaman ini";
+            return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
     }
 
@@ -49,7 +49,7 @@ class Kabag extends CI_Controller
     public function grafik()
     {
         $data = $this->Kabag_model->jumperInstansi();
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
         // print_r($cek);
         // exit();
     }
@@ -69,7 +69,7 @@ class Kabag extends CI_Controller
             $this->load->view('page/detail', $data);
             $this->load->view('templates/user/footer');
         } else {
-            echo "Anda tidak berhak mengakses halaman ini";
+            return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
     }
 
@@ -87,7 +87,7 @@ class Kabag extends CI_Controller
             $this->load->view('page/keladmin', $data);
             $this->load->view('templates/user/footer');
         } else {
-            echo "Anda tidak berhak mengakses halaman ini";
+            return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
     }
 
@@ -97,7 +97,7 @@ class Kabag extends CI_Controller
         $this->load->model('Instansi_model');
         $data = $this->Instansi_model->daftar_instansi();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     //untuk edit admin
@@ -111,7 +111,7 @@ class Kabag extends CI_Controller
 
             echo json_encode($data);
         } else {
-            echo "Anda tidak berhak mengakses halaman ini";
+            return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
     }
 
@@ -119,11 +119,10 @@ class Kabag extends CI_Controller
     public function update_Admin()
     {
         if ($this->session->userdata('akses') == 'kabag') {
-
-            // $data = $this->Kabag_model->update_editPersonel();
-            echo json_encode('success');
+            $this->Kabag_model->update_editPersonel();
+            return $this->output->set_output(json_encode('success'));
         } else {
-            echo "Anda tidak berhak mengakses halaman ini";
+            return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
     }
 
@@ -131,10 +130,10 @@ class Kabag extends CI_Controller
     public function ubah_PassAdmin()
     {
         if ($this->session->userdata('akses') != 'personel') {
-            // $data = $this->Kabag_model->ubahPassAdmin();
-            echo json_encode('success');
+            $this->Kabag_model->ubahPassAdmin();
+            return $this->output->set_output(json_encode('success'));
         } else {
-            echo "Anda tidak berhak mengakses halaman ini";
+            return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
     }
 
@@ -150,14 +149,14 @@ class Kabag extends CI_Controller
         if ($admin) {
             if ($admin['level'] == 'personel') {
                 $this->Kabag_model->update_admin();
-                echo json_encode('berhasil');
+                return $this->output->set_output(json_encode('berhasil'));
             } else {
-                echo json_encode('sudah');
+                return $this->output->set_output(json_encode('sudah'));
             }
             // }else if(NOT $admin){
         } else {
             $this->Kabag_model->tambahAdmin();
-            echo json_encode('berhasil');
+            return $this->output->set_output(json_encode('berhasil'));
         }
     }
 
@@ -167,9 +166,9 @@ class Kabag extends CI_Controller
         if ($this->session->userdata('akses') == 'kabag') {
             $this->Kabag_model->hapusAdmin();
 
-            echo json_encode('success');
+            return $this->output->set_output(json_encode('success'));
         } else {
-            echo "Anda tidak berhak mengakses halaman ini";
+            return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
     }
 
@@ -186,9 +185,8 @@ class Kabag extends CI_Controller
             $this->load->view('templates/user/topbar', $data);
             $this->load->view('page/tambah_instansi_polsek', $data);
             $this->load->view('templates/user/footer');
-        } else {
-            "Anda tidak berhak mengakses halaman ini!";
         }
+        return $this->output->set_output("Anda tidak berhak mengakses halaman ini!");
     }
 
     //get instansi berdasarkan id
@@ -197,7 +195,7 @@ class Kabag extends CI_Controller
         $this->load->model('Instansi_model');
         $data = $this->Instansi_model->get_editInstansi($id_instansi);
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     //update instansi
@@ -225,7 +223,7 @@ class Kabag extends CI_Controller
                 $this->db->set('foto', $new_image);
             } else {
                 //notifikasi foto gagal upload
-                echo $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>');
+                return $this->output->set_output($this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>'));
             }
         }
         $data = [
@@ -246,7 +244,7 @@ class Kabag extends CI_Controller
     {
         $this->Personel_model->hapus_Instansi();
 
-        echo json_encode('success');
+        return $this->output->set_output(json_encode('success'));
     }
 
     //tambah instansi db
@@ -267,7 +265,7 @@ class Kabag extends CI_Controller
                 $this->db->set('foto', $new_image);
             } else {
                 //notifikasi foto gagal upload
-                echo $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>');
+                return $this->output->set_output($this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>'));
             }
         }
         $data = [

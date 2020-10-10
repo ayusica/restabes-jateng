@@ -32,7 +32,7 @@ class Sium extends CI_Controller
     {
         $data = $this->Personel_model->geteditPersonel($nrp);
 
-        return json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     //tambah personel polsek
@@ -42,10 +42,10 @@ class Sium extends CI_Controller
         $personel = $this->Personel_model->detailitu($nrp);
 
         if ($personel) {
-            return json_encode('sudah');
+            return $this->output->set_output(json_encode("sudah"));
         }
         $this->Sium_model->tambah_personel_polsek();
-        return json_encode('sukses');
+        return $this->output->set_output(json_encode("sukses"));
     }
 
     //daftar polsek
@@ -55,8 +55,9 @@ class Sium extends CI_Controller
         $data['judul'] = "Daftar Polsek";
         if ($this->session->userdata('akses') == 'kasium') {
             $data['instansi'] = $this->Instansi_model->daftar_polsek();
+        } else {
+            $data['instansi'] = $this->Instansi_model->daftar_instansi();
         }
-        $data['instansi'] = $this->Instansi_model->daftar_instansi();
 
         $this->load->view('templates/user/header_user', $data);
         $this->load->view('templates/user/sidebar', $data);
@@ -93,15 +94,18 @@ class Sium extends CI_Controller
     public function updatePolsek()
     {
         $this->load->model('Urmin_model');
+        $this->Urmin_model->update_PolPersonel();
 
-        return json_encode("success");
+        return $this->output->set_output(json_encode("success"));
     }
 
     //ganti password
     public function gantiPassword()
     {
         $this->load->model('Kabag_model');
-        return json_encode("success");
+        $this->Kabag_model->ubahPassAdmin();
+
+        return $this->output->set_output(json_encode("success"));
     }
 
     //untuk hapus data personel polsek
@@ -111,9 +115,9 @@ class Sium extends CI_Controller
             $this->load->model('Urmin_model');
             $this->Urmin_model->hapusAja();
 
-            return json_encode('success');
+            return $this->output->set_output(json_encode("success"));
         }
-        return ("Anda tidak berhak mengakses halaman ini");
+        return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
     }
 
     //download data pdf

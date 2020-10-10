@@ -58,10 +58,10 @@ class Urmin extends CI_Controller
         $personel = $this->Personel_model->detailitu($nrp);
 
         if ($personel) {
-            echo json_encode('sudah');
+            return $this->output->set_output(json_encode('sudah'));
         } else {
             $this->Urmin_model->tambah_personel_polrestabes();
-            echo json_encode('sukses');
+            return $this->output->set_output(json_encode('sukses'));
         }
     }
 
@@ -69,7 +69,7 @@ class Urmin extends CI_Controller
     {
         $data = $this->Personel_model->geteditPersonel($nrp);
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     //untuk hapus data personel poltabes
@@ -78,24 +78,27 @@ class Urmin extends CI_Controller
         if ($this->session->userdata('akses') != 'personel') {
             $this->Urmin_model->hapusAja();
 
-            echo json_encode('success');
-        } else {
-            echo "Anda tidak berhak mengakses halaman ini";
+            return $this->output->set_output(json_encode('success'));
         }
+        return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
     }
 
     //update data poltabes
     public function update_Poltabes()
     {
-        echo json_encode('success');
+        $this->load->model('Urmin_model');
+        $this->Urmin_model->update_PolPersonel();
+
+        return $this->output->set_output(json_encode('success'));
     }
 
     //ganti password
     public function ganti_Password()
     {
         $this->load->model('Kabag_model');
-        // $data = $this->Kabag_model->ubahPassAdmin();
-        echo json_encode('success');
+        $this->Kabag_model->ubahPassAdmin();
+
+        return $this->output->set_output(json_encode('success'));
     }
 
     //impor data dari excel ke sistem
@@ -196,7 +199,7 @@ class Urmin extends CI_Controller
 
         $dompdf->stream("Data Personel Polrestabes Semarang.pdf", array('Attachment' => 0));
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     //select bagian
@@ -204,7 +207,7 @@ class Urmin extends CI_Controller
     {
         $data = $this->Instansi_model->unsur_bagian();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     // hasil personel per instansi
@@ -212,6 +215,6 @@ class Urmin extends CI_Controller
     {
         $data = $this->Urmin_model->getPersonelBagian($id_bagian);
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 }
