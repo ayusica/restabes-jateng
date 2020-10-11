@@ -4,7 +4,7 @@
   <title>Form Impor Data Personel Polsek</title>
 
   <!-- Load File jquery.min.js yang ada difolder js -->
-  <script src="<?php echo base_url('assets/js/jquery-3.4.1.min.js'); ?>"></script>
+  <script src="<?= filter_var(base_url('assets/js/jquery-3.4.1.min.js'), FILTER_DEFAULT); ?>"></script>
 
   <script>
     $(document).ready(function() {
@@ -18,13 +18,13 @@
   <h3>Form Impor Data Personel</h3>
   <hr>
 
-  <a href="<?php echo filter_var(base_url("assets/excel/format.xlsx"), FILTER_DEFAULT); ?>">Unduh Format</a>
+  <a href="<?= filter_var(base_url("assets/excel/format.xlsx"), FILTER_DEFAULT); ?>">Unduh Format</a>
   <br>
   <br>
 
   <!-- Buat sebuah tag form dan arahkan action nya ke controller ini lagi -->
 
-  <form method="post" action="<?= base_url("sium/form_polsek") . '?id=' . $this->uri->segment(3) ?>" enctype="multipart/form-data">
+  <form method="post" action="<?= filter_var(base_url("sium/form_polsek") . '?id=' . $this->uri->segment(3), FILTER_DEFAULT) ?>" enctype="multipart/form-data">
     <!-- 
     -- Buat sebuah input type file
     -- class pull-left berfungsi agar file input berada di sebelah kiri
@@ -45,7 +45,7 @@
     }
 
     // Buat sebuah tag form untuk proses import data ke database
-    echo "<form method='post' action='" . base_url("sium/import_polsek/") . $instansi . "'>";
+    echo "<form method='post' action='" . filter_var(base_url("sium/import_polsek/"), FILTER_DEFAULT) . $instansi . "'>";
 
     // Buat sebuah div untuk alert validasi kosong
     echo "<div style='color: red;' id='kosong'>
