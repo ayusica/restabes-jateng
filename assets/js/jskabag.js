@@ -30,7 +30,7 @@ $.post(urlKabag + "grafik",
         });
 
         var colorgrafik = [];
-        for (i = 0; i <= dataJumlah.length; i++) {
+        for (var i = 0; i <= dataJumlah.length; i++) {
             if (dataJumlah[i] < 20) {
                 colorgrafik[i] = "rgba(255, 99, 132,1)";
             } else {
@@ -38,7 +38,7 @@ $.post(urlKabag + "grafik",
             }
         }
         var colorborder = [];
-        for (i = 0; i <= dataNama.length; i++) {
+        for (var i = 0; i <= dataNama.length; i++) {
             if (dataJumlah[i] < 20) {
                 colorborder[i] = "rgba(255,99,132,1)";
             } else {
@@ -251,28 +251,28 @@ function getEditInstansi(idInstansi) {
 
 }
 
-function hapusInstansi(idInstansi) {
-    $("#hapus-instansi-modal").modal("show");
-    $("#konf_hapus_modal").click(function () {
-        $.ajax({
-            url: urlKabag + "hapusInstansi",
-            type: "POST",
-            dataType: "JSON",
-            data: {
-                idInstansi: idInstansi
-            },
-            success: function () {
-                alert("Data berhasil dihapus!");
-                location.reload();
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("error!");
-            }
+// function hapusInstansi(idInstansi) {
+//     $("#hapus-instansi-modal").modal("show");
+//     $("#konf_hapus_modal").click(function () {
+//         $.ajax({
+//             url: urlKabag + "hapusInstansi",
+//             type: "POST",
+//             dataType: "JSON",
+//             data: {
+//                 idInstansi: idInstansi
+//             },
+//             success: function () {
+//                 alert("Data berhasil dihapus!");
+//                 location.reload();
+//             },
+//             error: function (jqXHR, textStatus, errorThrown) {
+//                 alert("error!");
+//             }
 
-        });
-    });
+//         });
+//     });
 
-}
+// }
 
 
 

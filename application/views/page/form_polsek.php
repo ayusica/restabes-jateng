@@ -24,7 +24,7 @@
 
   <!-- Buat sebuah tag form dan arahkan action nya ke controller ini lagi -->
 
-  <form method="post" action="<?= filter_var(base_url("sium/form_polsek") . '?id=' . $this->uri->segment(3), FILTER_DEFAULT) ?>" enctype="multipart/form-data">
+  <form method="post" action="<?= filter_var(base_url("sium/formPolsek") . '?id=' . $this->uri->segment(3), FILTER_DEFAULT) ?>" enctype="multipart/form-data">
     <!-- 
     -- Buat sebuah input type file
     -- class pull-left berfungsi agar file input berada di sebelah kiri
@@ -45,7 +45,7 @@
     }
 
     // Buat sebuah tag form untuk proses import data ke database
-    echo "<form method='post' action='" . filter_var(base_url("sium/import_polsek/"), FILTER_DEFAULT) . $instansi . "'>";
+    echo "<form method='post' action='" . base_url("sium/importPolsek/") . $instansi . "'>";
 
     // Buat sebuah div untuk alert validasi kosong
     echo "<div style='color: red;' id='kosong'>
@@ -154,7 +154,7 @@
       // Buat sebuah tombol untuk mengimport data ke database
       echo "<button type='submit' name='import'>Kirim</button>";
       // echo "<a href='".base_url("sium/polsek")."'>Cancel</a>";
-      echo "<a href='" . base_url("sium/form_polsek/") . $instansi . "'>Batalkan</a>";
+      echo "<a href='" . base_url("sium/formPolsek/") . $instansi . "'>Batalkan</a>";
 
       //masih salah
 
