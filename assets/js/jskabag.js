@@ -30,7 +30,10 @@ $.post(urlKabag + "grafik",
         });
 
         var colorgrafik = [];
-        for (var i = 0; i <= dataJumlah.length; i++) {
+        var i = 0;
+        var j = 0;
+
+        for (i = 0; i <= dataJumlah.length; i++) {
             if (dataJumlah[i] < 20) {
                 colorgrafik[i] = "rgba(255, 99, 132,1)";
             } else {
@@ -38,11 +41,11 @@ $.post(urlKabag + "grafik",
             }
         }
         var colorborder = [];
-        for (var i = 0; i <= dataNama.length; i++) {
-            if (dataJumlah[i] < 20) {
-                colorborder[i] = "rgba(255,99,132,1)";
+        for (j = 0; j <= dataNama.length; j++) {
+            if (dataJumlah[j] < 20) {
+                colorborder[j] = "rgba(255,99,132,1)";
             } else {
-                colorborder[i] = "rgba(72, 209, 204, 1)";
+                colorborder[j] = "rgba(72, 209, 204, 1)";
             }
         }
 
