@@ -18,7 +18,7 @@
   <h3>Form Impor Data Personel</h3>
   <hr>
 
-  <a href="<?php echo base_url("assets/excel/format.xlsx"); ?>">Unduh Format</a>
+  <a href="<?php echo filter_var(base_url("assets/excel/format.xlsx"), FILTER_DEFAULT); ?>">Unduh Format</a>
   <br>
   <br>
 
