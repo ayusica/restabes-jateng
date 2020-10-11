@@ -52,11 +52,11 @@ class Instansi_model extends CI_Model
      * fungsi : mendapat instansi dg id_instansi
      * tanggal: 27 Januari 2020
      * -----------------------------------------------------*/
-    public function get_editInstansi($id_instansi)
+    public function get_editInstansi($idInstansi)
     {
         $this->db->select('*');
         $this->db->from('instansi');
-        $this->db->where('instansi.id_instansi=', $id_instansi);
+        $this->db->where('instansi.id_instansi=', $idInstansi);
         $query = $this->db->get();
 
         return $query->row();

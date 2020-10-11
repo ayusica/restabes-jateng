@@ -190,10 +190,10 @@ class Kabag extends CI_Controller
     }
 
     //get instansi berdasarkan id
-    public function getInstansi($id_instansi)
+    public function getInstansi($idInstansi)
     {
         $this->load->model('Instansi_model');
-        $data = $this->Instansi_model->get_editInstansi($id_instansi);
+        $data = $this->Instansi_model->get_editInstansi($idInstansi);
 
         return $this->output->set_output(json_encode($data));
     }

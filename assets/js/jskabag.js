@@ -18,28 +18,28 @@ $("document").ready(function () {
 
 //grafik
 var ctx = document.getElementById("myChart").getContext("2d");
-var data_nama = [];
-var data_jumlah = [];
+var dataNama = [];
+var dataJumlah = [];
 
 $.post(urlKabag + "grafik",
     function (data) {
         var obj = JSON.parse(data);
         $.each(obj, function (test, item) {
-            data_nama.push(item.kesatuan);
-            data_jumlah.push(item.jumlah);
+            dataNama.push(item.kesatuan);
+            dataJumlah.push(item.jumlah);
         });
 
         var colorgrafik = [];
-        for (i = 0; i <= data_jumlah.length; i++) {
-            if (data_jumlah[i] < 20) {
+        for (i = 0; i <= dataJumlah.length; i++) {
+            if (dataJumlah[i] < 20) {
                 colorgrafik[i] = "rgba(255, 99, 132,1)";
             } else {
                 colorgrafik[i] = "rgba(72, 209, 204, 1)";
             }
         }
         var colorborder = [];
-        for (i = 0; i <= data_nama.length; i++) {
-            if (data_jumlah[i] < 20) {
+        for (i = 0; i <= dataNama.length; i++) {
+            if (dataJumlah[i] < 20) {
                 colorborder[i] = "rgba(255,99,132,1)";
             } else {
                 colorborder[i] = "rgba(72, 209, 204, 1)";
@@ -49,10 +49,10 @@ $.post(urlKabag + "grafik",
         var myChart = new Chart(ctx, {
             type: "horizontalBar",
             data: {
-                labels: data_nama,
+                labels: dataNama,
                 datasets: [{
                     label: "Jumlah Personel",
-                    data: data_jumlah,
+                    data: dataJumlah,
                     backgroundColor: colorgrafik,
                     borderColor: colorborder,
                     borderWidth: 1,
@@ -228,9 +228,9 @@ function pilInstansi() {
 }
 
 
-function getEditInstansi(id_instansi) {
+function getEditInstansi(idInstansi) {
     $.ajax({
-        url: urlKabag + "getInstansi/" + id_instansi,
+        url: urlKabag + "getInstansi/" + idInstansi,
         type: "GET",
         dataType: "JSON",
         success: function (data) {
@@ -251,7 +251,7 @@ function getEditInstansi(id_instansi) {
 
 }
 
-function hapusInstansi(id_instansi) {
+function hapusInstansi(idInstansi) {
     $("#hapus-instansi-modal").modal("show");
     $("#konf_hapus_modal").click(function () {
         $.ajax({
@@ -259,7 +259,7 @@ function hapusInstansi(id_instansi) {
             type: "POST",
             dataType: "JSON",
             data: {
-                id_instansi: id_instansi
+                idInstansi: idInstansi
             },
             success: function () {
                 alert("Data berhasil dihapus!");
