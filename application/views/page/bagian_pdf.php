@@ -28,9 +28,9 @@
     <p style="text-align: left"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEPOLISIAN NEGARA REPUBLIK INDONESIA<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DAERAH JAWA TENGAH<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RESOR KOTA BESAR SEMARANG</b></p><hr width="40%" align ="left">
     <br><br><br>
 
-    <?php $nama_bagian=  $this->uri->segment(3)?>
+    <?php filter_var($nama_bagian=  $this->uri->segment(3),FILTER_DEFAULT?>
     <?php if ($nama_bagian !=0) {?>
-        <p style="text-align: center; text-transform:uppercase;"><?= $bag[$this->uri->segment(3)-1]['nama_bagian'] ?> POLRESTABES SEMARANG POLDA JATENG </p>
+        <p style="text-align: center; text-transform:uppercase;"><?= filter_var($bag[$this->uri->segment(3)-1]['nama_bagian'], FILTER_DEFAULT) ?> POLRESTABES SEMARANG POLDA JATENG </p>
     <?php }else{?>
         <p style="text-align: center; text-transform:uppercase;">SEMUA PERSONEL POLRESTABES SEMARANG POLDA JATENG </p>
     <?php }?>
@@ -48,11 +48,11 @@
         foreach ($personel as $personel) : ?>
 
             <tr style="text-transform: uppercase;">
-                <td align="center"><?= $no++ ?></td>
-                <td style="text-transform: inherit"><?= $personel['nama'] ?></td>
-                <td>&nbsp;<?= $personel['nrp'] ?></td>
-                <td>&nbsp;<?= $personel['pkt'] ?></td>
-                <td><?= $personel['jabatan'] ?></td>
+                <td align="center"><?= filter_var($no++, FILTER_DEFAULT) ?></td>
+                <td style="text-transform: inherit"><?= filter_var($personel['nama'], FILTER_DEFAULT) ?></td>
+                <td>&nbsp;<?= filter_var($personel['nrp'],FILTER_DEFAULT) ?></td>
+                <td>&nbsp;<?= filter_var($personel['pkt'], FILTER_DEFAULT) ?></td>
+                <td><?= filter_var($personel['jabatan'], FILTER_DEFAULT) ?></td>
             </tr>
         <?php endforeach; ?>
 
