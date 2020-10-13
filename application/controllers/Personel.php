@@ -110,14 +110,13 @@ class Personel extends CI_Controller
     {
         $user = $this->Personel_model->detailitu($this->session->userdata('nrp'));
 
-        $new_password = $this->input->post('new_password');
+        $newPassword = $this->input->post('newPassword');
 
-        if (md5($this->input->post('old_password')) == $user['pass']) {
-            $this->Personel_model->ubahPass($new_password);
+        if (md5($this->input->post('oldPassword')) == $user['pass']) {
+            $this->Personel_model->ubahPass($newPassword);
             return $this->output->set_output(json_encode('berhasil'));
-        } else {
-            return $this->output->set_output(json_encode('beda'));
         }
+        return $this->output->set_output(json_encode('beda'));
     }
 
     //download pdf profil

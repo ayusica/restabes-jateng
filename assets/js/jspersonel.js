@@ -42,23 +42,23 @@ function eProfil(nrp) {
 }
 
 function gantiPass() {
-    var old_password = $("#old_password").val();
-    var new_password = $("#new_password").val();
-    var re_new_password = $("#re-new-password").val();
+    var oldPassword = $("#old_password").val();
+    var newPassword = $("#new_password").val();
+    var reNewPassword = $("#re-new-password").val();
 
-    if (old_password === "") {
+    if (oldPassword === "") {
         $("#lama").html("<div class='text text-danger'>Password Lama Kosong!</div>");
     }
-    else if (new_password === "") {
+    else if (newPassword === "") {
         $("#baru").html("<div class='text text-danger'>Password Baru Kosong!</div>");
     }
-    else if (re_new_password === "") {
+    else if (reNewPassword === "") {
         $("#konf").html("<div class='text text-danger'>Password Konfirmasi Kosong!</div>");
     }
     else if (
-        old_password === "" ||
-        new_password === "" ||
-        re_new_password === ""
+        oldPassword === "" ||
+        newPassword === "" ||
+        reNewPassword === ""
     ) {
         if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
@@ -75,7 +75,7 @@ function gantiPass() {
             $("#new_password").val("");
             $("#re-new-password").val("");
         }
-    } else if (old_password === new_password) {
+    } else if (oldPassword === newPassword) {
         if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
                 "<div class='alert alert-danger'>Password Lama dan Baru Tidak Boleh Sama!</div>"
@@ -91,7 +91,7 @@ function gantiPass() {
             $("#new_password").val("");
             $("#re-new-password").val("");
         }
-    } else if (new_password !== re_new_password) {
+    } else if (newPassword !== reNewPassword) {
         if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
                 "<div class='alert alert-danger'>Password Baru dan Konfirmasi Password Tidak Sama!</div>"
@@ -113,9 +113,9 @@ function gantiPass() {
             type: "POST",
             dataType: "JSON",
             data: {
-                old_password: $("#old_password").val(),
-                new_password: $("#new_password").val(),
-                re_new_password: $("#re-new-password").val()
+                oldPassword: $("#old_password").val(),
+                newPassword: $("#new_password").val(),
+                reNewPassword: $("#re-new-password").val()
             },
             beforeSend: function () { },
             success: function (respon) {
