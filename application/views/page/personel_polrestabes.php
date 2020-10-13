@@ -204,7 +204,7 @@
                             <select class="form-control" id="bagian_poltabes" name="bagian" required>
                                 <option value="">--Pilih Bagian--</option>
                                 <?php foreach ($bagian as $bag) : ?>
-                                    <?= '<option value="' . $bag["id_bagian"] . '">' . $bag["nama_bagian"] . '</option>	'; ?>
+                                    <?= '<option value="' . filter_var($bag["id_bagian"], FILTER_DEFAULT) . '">' . filter_var($bag["nama_bagian"], FILTER_DEFAULT) . '</option>	'; ?>
                                 <?php endforeach; ?>
                             </select>
                         </div>

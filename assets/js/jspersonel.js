@@ -47,13 +47,13 @@ function gantiPass() {
     var re_new_password = $("#re-new-password").val();
 
     if (old_password === "") {
-        $("#lama").html('<div class="text text-danger">Password Lama Kosong!</div>');
+        $("#lama").html("<div class='text text-danger'>Password Lama Kosong!</div>");
     }
     else if (new_password === "") {
-        $("#baru").html('<div class="text text-danger">Password Baru Kosong!</div>');
+        $("#baru").html("<div class='text text-danger'>Password Baru Kosong!</div>");
     }
     else if (re_new_password === "") {
-        $("#konf").html('<div class="text text-danger">Password Konfirmasi Kosong!</div>');
+        $("#konf").html("<div class='text text-danger'>Password Konfirmasi Kosong!</div>");
     }
     else if (
         old_password === "" ||
@@ -62,14 +62,14 @@ function gantiPass() {
     ) {
         if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
-                '<div class="alert alert-danger">Form Masih Kosong!</div>'
+                "<div class='alert alert-danger'>Form Masih Kosong!</div>"
             );
             $("#old_password").val("");
             $("#new_password").val("");
             $("#re-new-password").val("");
         } else {
             $(".gantiPassword>.alert").replaceWith(
-                '<div class="alert alert-danger">Form Masih Kosong!</div>'
+                "<div class='alert alert-danger'>Form Masih Kosong!</div>"
             );
             $("#old_password").val("");
             $("#new_password").val("");
@@ -78,14 +78,14 @@ function gantiPass() {
     } else if (old_password === new_password) {
         if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
-                '<div class="alert alert-danger">Password Lama dan Baru Tidak Boleh Sama!</div>'
+                "<div class='alert alert-danger'>Password Lama dan Baru Tidak Boleh Sama!</div>"
             );
             $("#old_password").val("");
             $("#new_password").val("");
             $("#re-new-password").val("");
         } else {
             $(".gantiPassword>.alert").replaceWith(
-                '<div class="alert alert-danger">Password Lama dan Baru Tidak Boleh Sama!</div>'
+                "<div class='alert alert-danger'>Password Lama dan Baru Tidak Boleh Sama!</div>"
             );
             $("#old_password").val("");
             $("#new_password").val("");
@@ -94,14 +94,14 @@ function gantiPass() {
     } else if (new_password !== re_new_password) {
         if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
-                '<div class="alert alert-danger">Password Baru dan Konfirmasi Password Tidak Sama!</div>'
+                "<div class='alert alert-danger'>Password Baru dan Konfirmasi Password Tidak Sama!</div>"
             );
             $("#old_password").val("");
             $("#new_password").val("");
             $("#re-new-password").val("");
         } else {
             $(".gantiPassword>.alert").replaceWith(
-                '<div class="alert alert-danger">Password Baru dan Konfirmasi Password Tidak Sama!</div>'
+                "<div class='alert alert-danger'>Password Baru dan Konfirmasi Password Tidak Sama!</div>"
             );
             $("#old_password").val("");
             $("#new_password").val("");
@@ -173,9 +173,9 @@ function gantiPassPer() {
             type: "POST",
             dataType: "JSON",
             data: {
-                lama_password: $("#lama_password").val(),
-                baru_password: $("#baru_password").val(),
-                konf_password: $("#konf-password").val()
+                lamaPassword: $("#lama_password").val(),
+                baruPassword: $("#baru_password").val(),
+                konfPassword: $("#konf-password").val()
             },
             success: function (respon) {
                 if (respon === "berhasil") {

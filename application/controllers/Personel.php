@@ -76,10 +76,10 @@ class Personel extends CI_Controller
                 }
                 $new_image = $this->upload->data('file_name');
                 $this->db->set('gambar', $new_image);
-            } else {
-                //notifikasi foto gagal upload
-                return $this->output->set_output($this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>'));
             }
+            //notifikasi foto gagal upload
+            return $this->output->set_output($this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>'));
+
             // var_dump($upload_image);
             // die;
             // var_dump($config);
@@ -151,11 +151,11 @@ class Personel extends CI_Controller
     {
         $user = $this->Personel_model->detailitu($this->session->userdata('nrp'));
 
-        $baru_password = $this->input->post('baru_password');
+        $baruPassword = $this->input->post('baruPassword');
 
-        if (md5($this->input->post('lama_password')) == $user['pass']) {
-            if ($this->input->post('konf_password') == $baru_password) {
-                $this->Personel_model->ubahPassPer($baru_password);
+        if (md5($this->input->post('lamaPassword')) == $user['pass']) {
+            if ($this->input->post('konfPassword') == $baruPassword) {
+                $this->Personel_model->ubahPassPer($baruPassword);
                 return $this->output->set_output(json_encode('berhasil'));
             } else {
                 return $this->output->set_output(json_encode('tidak'));

@@ -213,16 +213,16 @@ function pilInstansi() {
         success: function (data) {
 
             if ($("#levelAdmin").val() === "kasium") {
-                isi += '<option value="">--Pilih Instansi--</option>';
+                isi += "<option value=''>--Pilih Instansi--</option>";
                 for (var i = 1; i < Object.keys(data).length; i++) {
-                    isi += '<option value="' + data[i]['id_instansi'] + '">' + data[i]['nama_instansi'] + '</option>';
+                    isi += "<option value='" + data[i]['id_instansi'] + "'>" + data[i]['nama_instansi'] + "</option>";
                 }
                 $("#selectInstansi").html(isi);
             } else if ($("#levelAdmin").val() === "") {
-                isi += '<option value="">--Pilih Instansi--</option>';
+                isi += "<option value=''>--Pilih Instansi--</option>";
                 $("#selectInstansi").html(isi);
             } else {
-                isi += '<option value="' + data[0]['id_instansi'] + '">' + data[0]['nama_instansi'] + '</option>';
+                isi += "<option value='" + data[0]['id_instansi'] + "'>" + data[0]['nama_instansi'] + "</option>";
                 $("#selectInstansi").html(isi);
             }
 

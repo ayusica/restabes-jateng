@@ -76,7 +76,7 @@ class Personel_model extends CI_Model
     public function ubahPassPer()
     {
         $data = [
-            "pass" => md5($this->input->post('baru_password', true))
+            "pass" => md5($this->input->post('baruPassword', true))
         ];
 
         $this->db->where('nrp', $this->session->userdata('nrp'));
