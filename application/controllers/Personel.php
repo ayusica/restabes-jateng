@@ -43,7 +43,7 @@ class Personel extends CI_Controller
     {
         $data = $this->Personel_model->geteditPersonel($nrp);
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     //update profil
@@ -78,7 +78,7 @@ class Personel extends CI_Controller
                 $this->db->set('gambar', $new_image);
             } else {
                 //notifikasi foto gagal upload
-                echo $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>');
+                return $this->output->set_output($this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>'));
             }
             // var_dump($upload_image);
             // die;
@@ -97,7 +97,7 @@ class Personel extends CI_Controller
         ];
         $this->db->where('nrp', $this->input->post('nrp_hid'));
         $this->db->update('personel', $data);
-        echo $this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"> Data telah diubah!</div>');
+        return $this->output->set_output($this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"> Data telah diubah!</div>'));
 
         // $this->Personel_model->update_Profil();
         // var_dump($data);
@@ -106,7 +106,7 @@ class Personel extends CI_Controller
     }
 
     //ubah password profil
-    public function ubah_Pass()
+    public function ubahPass()
     {
         $user = $this->Personel_model->detailitu($this->session->userdata('nrp'));
 
@@ -114,9 +114,9 @@ class Personel extends CI_Controller
 
         if (md5($this->input->post('old_password')) == $user['pass']) {
             $this->Personel_model->ubahPass($new_password);
-            echo json_encode('berhasil');
+            return $this->output->set_output(json_encode('berhasil'));
         } else {
-            echo json_encode('beda');
+            return $this->output->set_output(json_encode('beda'));
         }
     }
 
@@ -142,7 +142,7 @@ class Personel extends CI_Controller
 
             $dompdf->stream("Data Profil.pdf", array('Attachment' => 0));
         } else {
-            echo "Maaf Ini Bukan Halaman Anda!";
+            return $this->output->set_output("Maaf Ini Bukan Halaman Anda!");
         }
     }
 
@@ -156,12 +156,12 @@ class Personel extends CI_Controller
         if (md5($this->input->post('lama_password')) == $user['pass']) {
             if ($this->input->post('konf_password') == $baru_password) {
                 $this->Personel_model->ubahPassPer($baru_password);
-                echo json_encode('berhasil');
+                return $this->output->set_output(json_encode('berhasil'));
             } else {
-                echo json_encode('tidak');
+                return $this->output->set_output(json_encode('tidak'));
             }
         } else {
-            echo json_encode('beda');
+            return $this->output->set_output(json_encode('beda'));
         }
     }
 }

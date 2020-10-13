@@ -1,104 +1,64 @@
-var url_personel = "http://localhost/restabes-jateng/personel/";
+var urlPersonel = "http://localhost/restabes-jateng/personel/";
 
-$('document').ready(function () {
+$("document").ready(function () {
     //tampilkan modal ganti password
-    $('#pass-button').click(function () {
-        $('#editprofilModal').modal('hide');
-        $('#password-modal-profil').modal('show');
+    $("#pass-button").click(function () {
+        $("#editprofilModal").modal("hide");
+        $("#password-modal-profil").modal("show");
     });
-    $('#passwordreset').click(function () {
-        $('#password-top-bar').modal('show');
+    $("#passwordreset").click(function () {
+        $("#password-top-bar").modal("show");
     });
 });
 
 //edit profil
-function E_Profil(nrp) {
+function eProfil(nrp) {
     // alert(nrp);
     $.ajax({
-        url: url_personel + "edit_Profil/" + nrp,
+        url: urlPersonel + "edit_Profil/" + nrp,
         type: "GET",
         dataType: "JSON",
         success: function (data) {
             // alert(data);
-            $('#nrp').val(data.nrp);
-            $('#nama').val(data.nama);
-            $('#nrp_hid').val(data.nrp);
-            $('#pkt').val(data.pkt);
-            $('#jab').val(data.jabatan);
-            $('#tempat').val(data.tempat);
-            $('#tgl_lahir').val(data.tgl_lahir);
-            $('#agama').val(data.agama);
-            $('#suku').val(data.suku);
-            $('#tmt_jab').val(data.tmt_jab);
-            $('#nama_instansi').val(data.nama_instansi);
-            $('#alamat').val(data.alamat);
+            $("#nrp").val(data.nrp);
+            $("#nama").val(data.nama);
+            $("#nrp_hid").val(data.nrp);
+            $("#pkt").val(data.pkt);
+            $("#jab").val(data.jabatan);
+            $("#tempat").val(data.tempat);
+            $("#tgl_lahir").val(data.tgl_lahir);
+            $("#agama").val(data.agama);
+            $("#suku").val(data.suku);
+            $("#tmt_jab").val(data.tmt_jab);
+            $("#nama_instansi").val(data.nama_instansi);
+            $("#alamat").val(data.alamat);
 
-            $('#editprofilModal').modal('show');
+            $("#editprofilModal").modal("show");
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            alert('error!');
+            alert("error!");
         }
     });
 }
-
-// function gantiPass() {
-//     if ($('#old_password').val() == '') {
-//         alert("Password Lama Harus Diisi!")
-//     }
-//     else if ($('#new_password').val() == '') {
-//         alert("Password Baru Harus Diisi!")
-//     } else if ($('#re-new-password').val() == '') {
-//         alert("Konfirmasi Password Harus Diisi!")
-//     } else {
-//         $.ajax({
-//             url: url_personel + "ubah_Pass",
-//             type: "POST",
-//             dataType: "JSON",
-//             data: {
-//                 old_password: $('#old_password').val(),
-//                 new_password: $('#new_password').val(),
-//                 re_new_password: $('#re-new-password').val()
-//             },
-//             success: function (respon) {
-//                 if (respon == 'berhasil') {
-//                     alert('Password behasil diubah!');
-//                     window.location.href = "http://localhost/restabes-jateng/login/logout";
-//                 } else if (respon == 'tidak') {
-//                     alert('Password Konfirmasi Salah!'); //password baru ga kaya konf
-//                 } else {
-//                     alert('Password Lama salah!');
-//                 }
-//                 // history.go(0);
-//                 $('#old_password').val(''),
-//                     $('#new_password').val(''),
-//                     $('#re-new-password').val('')
-//             },
-//             error: function (jqXHR, textStatus, errorThrown) {
-//                 alert('error!');
-//             }
-//         });
-//     }
-
-// }
 
 function gantiPass() {
     var old_password = $("#old_password").val();
     var new_password = $("#new_password").val();
     var re_new_password = $("#re-new-password").val();
 
-    if (old_password == "") {
+    if (old_password === "") {
         $("#lama").html('<div class="text text-danger">Password Lama Kosong!</div>');
     }
-    else if (new_password == "") {
+    else if (new_password === "") {
         $("#baru").html('<div class="text text-danger">Password Baru Kosong!</div>');
     }
-    else if (re_new_password == "") {
+    else if (re_new_password === "") {
         $("#konf").html('<div class="text text-danger">Password Konfirmasi Kosong!</div>');
     }
     else if (
-        old_password == "" ||
-        new_password == "" ||
-        re_new_password == ""
+        old_password === "" ||
+        new_password === "" ||
+        re_new_password === ""
     ) {
         if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
@@ -115,7 +75,7 @@ function gantiPass() {
             $("#new_password").val("");
             $("#re-new-password").val("");
         }
-    } else if (old_password == new_password) {
+    } else if (old_password === new_password) {
         if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
                 '<div class="alert alert-danger">Password Lama dan Baru Tidak Boleh Sama!</div>'
@@ -131,7 +91,7 @@ function gantiPass() {
             $("#new_password").val("");
             $("#re-new-password").val("");
         }
-    } else if (new_password != re_new_password) {
+    } else if (new_password !== re_new_password) {
         if ($(".gantiPassword").children().hasClass("alert") !== true) {
             $(".gantiPassword").prepend(
                 '<div class="alert alert-danger">Password Baru dan Konfirmasi Password Tidak Sama!</div>'
@@ -149,18 +109,18 @@ function gantiPass() {
         }
     } else {
         $.ajax({
-            url: url_personel + "ubah_Pass",
+            url: urlPersonel + "ubahPass",
             type: "POST",
             dataType: "JSON",
             data: {
-                old_password: $('#old_password').val(),
-                new_password: $('#new_password').val(),
-                re_new_password: $('#re-new-password').val()
+                old_password: $("#old_password").val(),
+                new_password: $("#new_password").val(),
+                re_new_password: $("#re-new-password").val()
             },
             beforeSend: function () { },
             success: function (respon) {
                 if (respon == "berhasil") {
-                    alert('Password behasil diubah!');
+                    alert("Password behasil diubah!");
                     window.location.href = "http://localhost/restabes-jateng/login/logout";
                 } else {
                     if ($(".gantiPassword").children().hasClass("alert") !== true) {
@@ -197,44 +157,44 @@ function balik() {
 }
 
 function gantiPassPer() {
-    if ($('#lama_password').val() == '') {
+    if ($("#lama_password").val() === "") {
         alert("Password Lama Harus Diisi!");
-        $('#password-top-bar').modal('show');
+        $("#password-top-bar").modal("show");
     }
-    else if ($('#baru_password').val() == '') {
+    else if ($("#baru_password").val() === "") {
         alert("Password Baru Harus Diisi!");
-        $('#password-top-bar').modal('show');
-    } else if ($('#konf-password').val() == '') {
+        $("#password-top-bar").modal("show");
+    } else if ($("#konf-password").val() === "") {
         alert("Konfirmasi Password Harus Diisi!");
-        $('#password-top-bar').modal('show');
+        $("#password-top-bar").modal("show");
     } else {
         $.ajax({
-            url: url_personel + "ubah_PassPer",
+            url: urlPersonel + "ubah_PassPer",
             type: "POST",
             dataType: "JSON",
             data: {
-                lama_password: $('#lama_password').val(),
-                baru_password: $('#baru_password').val(),
-                konf_password: $('#konf-password').val()
+                lama_password: $("#lama_password").val(),
+                baru_password: $("#baru_password").val(),
+                konf_password: $("#konf-password").val()
             },
             success: function (respon) {
-                if (respon == 'berhasil') {
-                    alert('Password behasil diubah!');
+                if (respon === "berhasil") {
+                    alert("Password behasil diubah!");
                     window.location.href = "http://localhost/restabes-jateng/login/logout";
-                } else if (respon == 'tidak') {
-                    alert('Password Konfirmasi Salah!'); //password baru ga kaya konf
-                    $('#password-top-bar').modal('show');
+                } else if (respon === "tidak") {
+                    alert("Password Konfirmasi Salah!"); //password baru ga kaya konf
+                    $("#password-top-bar").modal("show");
                 } else {
-                    alert('Password Lama salah!');
-                    $('#password-top-bar').modal('show');
+                    alert("Password Lama salah!");
+                    $("#password-top-bar").modal("show");
                 }
                 // history.go(0);
-                $('#lama_password').val(''),
-                    $('#baru_password').val(''),
-                    $('#konf-password').val('')
+                $("#lama_password").val(""),
+                    $("#baru_password").val(""),
+                    $("#konf-password").val("")
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                alert('error!');
+                alert("error!");
             }
         });
     }
