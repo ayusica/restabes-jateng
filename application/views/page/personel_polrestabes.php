@@ -10,7 +10,7 @@
                     <div class="tambah">
                         <button type="button" class="bagde btn-success" style="height: 2.5rem; border-radius:5px; font-size:12px;font-weight:bold;" id="tambah_personel_button"><i class="fas fa-fw fa-plus"></i> Tambah Personel</button>
                         <button type="button" class="badge btn-warning" style="height: 2.5rem" id="pdf_bagian"><i class="fas fa-fw fa-print"></i> Cetak PDF</button>
-                        <a href="<?php echo base_url("urmin/form_polrestabes"); ?>" target="_blank"><button type="button" class="badge btn-primary" style="height: 2.5rem"><i class="fas fa-fw fa-file"></i> Impor Data</button></a>
+                        <a href="<?= filter_var(base_url("urmin/form_polrestabes"), FILTER_DEFAULT); ?>" target="_blank"><button type="button" class="badge btn-primary" style="height: 2.5rem"><i class="fas fa-fw fa-file"></i> Impor Data</button></a>
                     </div>
                     <br>
                     <span style=" font-weight: bold; float:inherit;">Bagian :</span>
@@ -83,7 +83,7 @@
                             <!-- <input type="text" class="form-control" id="poltabes_instansi" name="nama_instansi"> -->
                             <select class="form-control" id="poltabes_instansi" name="nama_instansi" required style="text-transform: uppercase;">
                                 <?php foreach ($instansi as $instansi) : ?>
-                                    <?= '<option value="' . $instansi["id_instansi"] . '">' . $instansi["nama_instansi"] . '</option>	'; ?>
+                                    <?= '<option value="' . filter_var($instansi["id_instansi"], FILTER_DEFAULT) . '">' . filter_var($instansi["nama_instansi"], FILTER_DEFAULT) . '</option>	'; ?>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -92,12 +92,12 @@
                             <select class="form-control" id="poltabes_bagian" name="unsur_bagian" required>
                                 <option value="">--Pilih Bagian--</option>
                                 <?php foreach ($bagian as $bag) : ?>
-                                    <?= '<option value="' . $bag["id_bagian"] . '">' . $bag["nama_bagian"] . '</option>	'; ?>
+                                    <?= '<option value="' . filter_var($bag["id_bagian"], FILTER_DEFAULT) . '">' . filter_var($bag["nama_bagian"], FILTER_DEFAULT)  . '</option>	'; ?>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <a href="<?= base_url() ?>urmin/personel_polrestabes"><button class="btn btn-primary">Kembali</button></a>
+                            <a href="<?= filter_var(base_url("urmin/personel_polrestabes"), FILTER_DEFAULT) ?>"><button class="btn btn-primary">Kembali</button></a>
                             <button type="button" class="btn btn-success" id="Poltabes-edit">Edit</button>
                         </div>
                     </form>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                    <button id="save" type="button" class="btn btn-success" data-dismiss="modal" onclick="update_Poltabes()">Simpan</button>
+                    <button id="save" type="button" class="btn btn-success" data-dismiss="modal" onclick="updatePoltabes()">Simpan</button>
                 </div>
             </div>
         </div>

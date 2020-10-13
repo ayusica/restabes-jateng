@@ -129,7 +129,7 @@ function hapusAja(nrp) {
 	});
 }
 
-function update_Poltabes() {
+function updatePoltabes() {
 	if ($("#poltabes_nama").val() == '') {
 		alert("Isi Nama Personel!");
 	} else if ($("#poltabes_pkt").val() == '') {

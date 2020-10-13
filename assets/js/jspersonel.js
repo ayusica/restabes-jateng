@@ -148,11 +148,11 @@ function gantiPass() {
 }
 
 function balik() {
-    $(".gantiPassword>.alert").remove()
-    $("#password-modal-profil").find("input").val("").end()
-    $("#lama").remove()
-    $("#baru").remove()
-    $("#konf").remove()
+    $(".gantiPassword>.alert").remove();
+    $("#password-modal-profil").find("input").val("").end();
+    $("#lama").remove();
+    $("#baru").remove();
+    $("#konf").remove();
 
 }
 
@@ -202,7 +202,7 @@ function gantiPassPer() {
 }
 
 function kembali() {
-    $("#password-top-bar").find("input").val("").end()
+    $("#password-top-bar").find("input").val("").end();
 }
 
 
