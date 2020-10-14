@@ -29,7 +29,7 @@
     return false;
   }
 </script>
-<!-- <a href="<?= base_url(); ?>" id="back-to-top" title="Back to top" style="">↑</a> -->
+<!-- <a href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>" id="back-to-top" title="Back to top" style="">↑</a> -->
 <!-- End of Footer -->
 
 <!-- end copy right -->

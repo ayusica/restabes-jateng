@@ -68,10 +68,10 @@ class Login extends CI_Controller
                     redirect('personel/profil');
                 }
             } else {
-                echo $this->session->set_flashdata('msg', '<div class="text text-warning" role="alert"><small>Password Salah!</small></div>');
+                return $this->output->set_output($this->session->set_flashdata('msg', '<div class="text text-warning" role="alert"><small>Password Salah!</small></div>'));
             }
         } else {
-            echo $this->session->set_flashdata('msg', '<div class="text text-warning" role="alert"><small>NRP Belum Terdaftar!</small></div>');
+            return $this->output->set_output($this->session->set_flashdata('msg', '<div class="text text-warning" role="alert"><small>NRP Belum Terdaftar!</small></div>'));
         }
         redirect('login/index');
     }
@@ -86,7 +86,7 @@ class Login extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        $url = base_url('');
+        $url = base_url("");
         redirect($url);
     }
 }

@@ -7,9 +7,9 @@
             <div class="card-body profil">
                 <div class="row">
                     <div class="col-md-3" style="text-align: center;">
-                        <?php echo $this->session->flashdata('msg'); ?>
+                        <?= filter_var($this->session->flashdata("msg"), FILTER_DEFAULT); ?>
                         <div style="margin-bottom: 15px;">
-                            <img src="<?= base_url('assets/img/profil/') . $personel['gambar'] ?>" alt="Foto" style="max-width: 150px;">
+                            <img src="<?= filter_var(base_url("assets/img/profil/") . $personel["gambar"], FILTER_DEFAULT) ?>" alt="Foto" style="max-width: 150px;">
                         </div>
                         <p><span class="badge badge-success">AKTIF</span></p>
                     </div>
@@ -17,58 +17,54 @@
                         <div class="web_detailset">
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>NRP</b>:</div>
-                                <div class="col-sm-9"><?= $personel['nrp']; ?></div>
+                                <div class="col-sm-9"><?= filter_var($personel["nrp"], FILTER_DEFAULT); ?></div>
                             </div>
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>Nama</b>:</div>
-                                <div class="col-sm-9"><?= $personel['nama']; ?></div>
+                                <div class="col-sm-9"><?= filter_var($personel["nama"], FILTER_DEFAULT); ?></div>
                             </div>
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>Pangkat</b>:</div>
-                                <div class="col-sm-9"><?= $personel['pkt']; ?></div>
+                                <div class="col-sm-9"><?= filter_var($personel["pkt"], FILTER_DEFAULT); ?></div>
                             </div>
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>Jabatan</b>:</div>
-                                <div class="col-sm-9"><?= $personel['jabatan']; ?></div>
+                                <div class="col-sm-9"><?= filter_var($personel["jabatan"], FILTER_DEFAULT); ?></div>
                             </div>
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>Instansi</b>:</div>
-                                <div class="col-sm-9" style="text-transform: uppercase"><?= $personel['nama_instansi']; ?></div>
+                                <div class="col-sm-9" style="text-transform: uppercase"><?= filter_var($personel["nama_instansi"], FILTER_DEFAULT); ?></div>
                             </div>
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>Bagian</b>:</div>
-                                <div class="col-sm-9"><?= $personel['nama_bagian']; ?></div>
+                                <div class="col-sm-9"><?= filter_var($personel["nama_bagian"], FILTER_DEFAULT); ?></div>
                             </div>
-                            <!-- <div class="row web_rowdetail">
-                                <div class="col-sm-3"><b>Alamat</b>:</div>
-                                <div class="col-sm-9" style="text-transform: uppercase"><?= $personel['alamat']; ?></div>
-                            </div> -->
                         </div>
                         <div class="web_detailset">
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>Tempat Lahir</b>:</div>
-                                <div class="col-sm-9"><?= $personel['tempat']; ?></div>
+                                <div class="col-sm-9"><?= filter_var($personel["tempat"], FILTER_DEFAULT); ?></div>
                             </div>
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>Tanggal lahir</b>:</div>
-                                <div class="col-sm-9"><?= date("d/m/Y", strtotime($personel['tgl_lahir'])); ?></div>
+                                <div class="col-sm-9"><?= filter_var(date("d/m/Y", strtotime($personel["tgl_lahir"])), FILTER_DEFAULT); ?></div>
                             </div>
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>Agama</b>:</div>
-                                <div class="col-sm-9"><?= $personel['agama']; ?></div>
+                                <div class="col-sm-9"><?= filter_var($personel["agama"], FILTER_DEFAULT); ?></div>
                             </div>
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>Suku</b>:</div>
-                                <div class="col-sm-9"><?= $personel['suku']; ?></div>
+                                <div class="col-sm-9"><?= filter_var($personel["suku"], FILTER_DEFAULT); ?></div>
                             </div>
                             <div class="row web_rowdetail">
                                 <div class="col-sm-3"><b>Tmt.Jab</b>:</div>
-                                <div class="col-sm-9"><?= date("d/m/Y", strtotime($personel['tmt_jab'])); ?></div>
+                                <div class="col-sm-9"><?= filter_var(date("d/m/Y", strtotime($personel["tmt_jab"])), FILTER_DEFAULT); ?></div>
                             </div>
                         </div>
                     <?php endforeach; ?>
                     <div class="apa mt-3">
-                        <a href="<?= base_url('personel/pdf_profil/') . $personel['nrp'] ?>" target="_blank"><button type="button" class="badge btn-info" style="height:2rem;width:5rem;float:right;"><i class="fas fa-fw fa-print fa-sm"></i> Cetak</button></a>
+                        <a href="<?= filter_var(base_url("personel/pdf_profil/") . $personel["nrp"], FILTER_DEFAULT) ?>" target="_blank"><button type="button" class="badge btn-info" style="height:2rem;width:5rem;float:right;"><i class="fas fa-fw fa-print fa-sm"></i> Cetak</button></a>
                         <!-- <button type="button" class="badge btn-warning" id="gantipass" name="gantipass" style="height:2rem; float:right;"><i class="fas fa-fw fa-key"></i> Password</button> -->
                         <button type="button" class="badge btn-danger" id="editprofil" name="editprofil" onclick="eProfil('<?= $personel['nrp']; ?>')" style="height:2rem; width: 80px;float:right;"><i class="fas fa-fw fa-edit fa-sm"></i> Edit</button>
                     </div>
@@ -87,9 +83,9 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="edit-profil" method="POST" action="<?= base_url() ?>personel/update_Profil" enctype="multipart/form-data">
+                        <form id="edit-profil" method="POST" action="<?= filter_var(base_url("personel/update_Profil"), FILTER_DEFAULT) ?>" enctype="multipart/form-data">
                             <div class="form-group">
-                                <img class="image" src="<?= base_url('assets/img/profil/') . $personel['gambar'] ?>" style="width: 20%" alt="gambar">
+                                <img class="image" src="<?= filter_var(base_url("assets/img/profil/") . $personel["gambar"], FILTER_DEFAULT) ?>" style="width: 20%" alt="gambar">
                                 <input type="file" id="image" name="image" class="inputFile">
                                 <p style="color: red"> *Hanya untuk Foto Formal berukuran Max 2MB</p>
                             </div>
@@ -135,11 +131,11 @@
                                 <input type="text" class="form-control" id="suku" name="suku" placeholder="Suku" required minlength="3" required style="text-transform: uppercase;">
                             </div>
                             <div class="form-group">
-                                <?php if ($this->session->userdata('akses') != 'personel') : ?>
+                                <?php if ($this->session->userdata("akses") !== "personel") : ?>
                                     <label>Tmt.Jab</label>
                                     <input type="date" class="form-control" id="tmt_jab" name="tmt_jab" placeholder="Tmt.Jab" style="text-transform: uppercase;">
                                 <?php endif; ?>
-                                <?php if ($this->session->userdata('akses') == 'personel') : ?>
+                                <?php if ($this->session->userdata("akses") === "personel") : ?>
                                     <label>Tmt.Jab</label>
                                     <input type="date" class="form-control" id="tmt_jab" name="tmt_jab" placeholder="Tmt.Jab" style="text-transform: uppercase;" required disabled />
                                 <?php endif; ?>
