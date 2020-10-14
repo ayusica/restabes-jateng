@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Sumda-Polrestabes Semarang &copy; <?= date('Y'); ?> Dev.Informatics-UndipTech</span>
+            <span>Sumda-Polrestabes Semarang &copy; <?= filter_var(date("Y"), FILTER_DEFAULT); ?> Dev.Informatics-UndipTech</span>
         </div>
     </div>
 </footer>
@@ -32,30 +32,30 @@
             <div class="modal-body">Klik tombol "Keluar" untuk keluar dan klik "Batal" untuk tetap di halaman ini!</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                <a class="btn btn-primary" href="<?= base_url('login/logout') ?>">Keluar</a>
+                <a class="btn btn-primary" href="<?= filter_var(base_url('login/logout'), FILTER_DEFAULT) ?>">Keluar</a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="<?= base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
-<script src="<?= base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/vendor/jquery/jquery.min.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="<?= base_url(); ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="<?= base_url(); ?>assets/js/sb-admin-2.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/sb-admin-2.js"></script>
 
 <!-- Page level plugins -->
-<script src="<?= base_url(); ?>assets/vendor/datatables/jquery.dataTables.js"></script>
-<script src="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.js"></script>
-<script src="<?= base_url() ?>assets/chartjs/Chart.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/vendor/datatables/jquery.dataTables.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/vendor/datatables/dataTables.bootstrap4.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/chartjs/Chart.js"></script>
 
 <script>
     $(document).ready(function() {
-        var table = $('#example1').DataTable({
+        var table = $("#example1").DataTable({
             scrollY: "300px",
             scrollX: true,
             scrollCollapse: true,
@@ -110,7 +110,7 @@
 <script>
     $(function() {
         $("#example1").DataTable();
-        $('#example2').DataTable({
+        $("#example2").DataTable({
             "paging": true,
             "lengthChange": false,
             "searching": false,
@@ -125,10 +125,10 @@
 </script>
 
 <!-- Js Edit -->
-<script src="<?= base_url(); ?>assets/js/jspersonel.js"></script>
-<script src="<?= base_url(); ?>assets/js/jssium.js"></script>
-<script src="<?= base_url(); ?>assets/js/jsurmin.js"></script>
-<script src="<?= base_url(); ?>assets/js/jskabag.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/jspersonel.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/jssium.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/jsurmin.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/jskabag.js"></script>
 </body>
 
 </html>
