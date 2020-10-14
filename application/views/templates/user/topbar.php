@@ -27,12 +27,12 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('nama'); ?></span>
-                            <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profil/' . $this->session->userdata('img')); ?>">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= filter_var($this->session->userdata("nama"), FILTER_DEFAULT); ?></span>
+                            <img class="img-profile rounded-circle" src="<?= filter_var(base_url("assets/img/profil/" . $this->session->userdata("img")), FILTER_DEFAULT); ?>">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="<?= base_url('personel/profil') ?>">
+                            <a class="dropdown-item" href="<?= filter_var(base_url("personel/profil"), FILTER_DEFAULT) ?>">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Lihat Profil
                             </a>

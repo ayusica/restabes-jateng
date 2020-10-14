@@ -5,15 +5,15 @@
             <div class="col-md-4 mb-5">
                 <div class="card h-100">
                     <div class="card-img-top">
-                        <img src="<?= base_url('assets/img/g_instansi/') . $instansi['foto'] ?> " width="100" height="250" class="card-img-top" alt="Gambar Instansi">
+                        <img src="<?= filter_var(base_url("assets/img/g_instansi/") . $instansi["foto"], FILTER_DEFAULT) ?> " width="100" height="250" class="card-img-top" alt="Gambar Instansi">
                     </div>
                     <div class="card-body">
-                        <h6 class="card-title"><?= $instansi['nama_instansi'] ?></h6>
-                        <p class="card-text"><?= $instansi['alamat'] ?></p>
+                        <h6 class="card-title"><?= filter_var($instansi['nama_instansi'], FILTER_DEFAULT) ?></h6>
+                        <p class="card-text"><?= filter_var($instansi['alamat'], FILTER_DEFAULT) ?></p>
                     </div>
                     <div class="card-footer">
                         <!-- <small class="text-muted">Kepolisian Jawa Tengah</small> -->
-                        <a href="<?= base_url('sium/polsek/') . $instansi['id_instansi'] ?>"><button type="button" class="badge badge-info" id="lihat-instansi" name="LI" style="height: 2.5rem">Lihat Data Personel &raquo;</button></a>
+                        <a href="<?= filter_var(base_url("sium/polsek/") . $instansi["id_instansi"], FILTER_DEFAULT) ?>"><button type="button" class="badge badge-info" id="lihat-instansi" name="LI" style="height: 2.5rem">Lihat Data Personel &raquo;</button></a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label>Foto</label>
-                        <img class="image" src="<?= base_url('assets/img/g_instansi/') . $instansi['foto'] ?>" style="width: 50%" alt="gambar">
+                        <img class="image" src="<?= filter_var(base_url("assets/img/g_instansi/") . $instansi["foto"], FILTER_DEFAULT) ?>" style="width: 50%" alt="gambar">
                         <input type="file" id="image" name="image" class="inputFile">
                     </div>
                     <div class="modal-footer">

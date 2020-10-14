@@ -66,7 +66,7 @@
                     <div class="apa mt-3">
                         <a href="<?= filter_var(base_url("personel/pdf_profil/") . $personel["nrp"], FILTER_DEFAULT) ?>" target="_blank"><button type="button" class="badge btn-info" style="height:2rem;width:5rem;float:right;"><i class="fas fa-fw fa-print fa-sm"></i> Cetak</button></a>
                         <!-- <button type="button" class="badge btn-warning" id="gantipass" name="gantipass" style="height:2rem; float:right;"><i class="fas fa-fw fa-key"></i> Password</button> -->
-                        <button type="button" class="badge btn-danger" id="editprofil" name="editprofil" onclick="eProfil('<?= $personel['nrp']; ?>')" style="height:2rem; width: 80px;float:right;"><i class="fas fa-fw fa-edit fa-sm"></i> Edit</button>
+                        <button type="button" class="badge btn-danger" id="editprofil" name="editprofil" onclick="eProfil('<?= filter_var($personel['nrp'], FILTER_DEFAULT); ?>')" style="height:2rem; width: 80px;float:right;"><i class="fas fa-fw fa-edit fa-sm"></i> Edit</button>
                     </div>
                     </div>
                 </div>

@@ -12,17 +12,17 @@
     <title><?= $judul; ?></title>
 
     <!-- Logo -->
-    <link href="<?= base_url(); ?>assets/img/favicon.png" rel="icon">
+    <link href="<?= filter_var(base_url("assets/img/favicon.png"), FILTER_DEFAULT); ?>" rel="icon">
 
     <!-- Custom fonts for this template-->
-    <link href="<?= base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= filter_var(base_url("assets/vendor/fontawesome-free/css/all.min.css"), FILTER_DEFAULT); ?>" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?= base_url(); ?>assets/css/sb-admin-2.css" rel="stylesheet">
+    <link href="<?= filter_var(base_url("assets/css/sb-admin-2.css"), FILTER_DEFAULT); ?>" rel="stylesheet">
 
     <!-- Table -->
-    <link rel="stylesheet" href="<?php echo base_url() . 'assets/vendor/datatables/dataTables.bootstrap4.css' ?>">
+    <link rel="stylesheet" href="<?= filter_var(base_url("assets/vendor/datatables/dataTables.bootstrap4.css"), FILTER_DEFAULT) ?>">
 </head>
 
 <body id="page-top">
