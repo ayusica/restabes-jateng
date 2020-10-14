@@ -16,7 +16,7 @@ $("document").ready(function () {
 		dataType: "JSON",
 		success: function (data) {
 			var bag = "";
-			bag += '<option value="0">' + "SEMUA</option>";
+			bag += "<option value='0'>" + "SEMUA</option>";
 			for (var i = 0; i < 19; i++) {
 				bag +=
 					'<option value="' +
@@ -64,14 +64,14 @@ function poltabes() {
 			pkt: $("#pkt_poltabes").val(),
 			jabatan: $("#jab_poltabes").val(),
 			tempat: $("#tmpt_lahir_poltabes").val(),
-			tgl_lahir: $("#tgl_lahir_poltabes").val(),
+			tglLahir: $("#tgl_lahir_poltabes").val(),
 			agama: $("#agama_poltabes").val(),
 			suku: $("#suku_poltabes").val(),
-			id_bagian: $("#bagian_poltabes").val(),
-			tmt_jab: $("#tmt_jab_poltabes").val()
+			idBagian: $("#bagian_poltabes").val(),
+			tmtJab: $("#tmt_jab_poltabes").val()
 		},
 		success: function (respon) {
-			if (respon == "sudah") {
+			if (respon === "sudah") {
 				alert("Data Personel Sudah Terekam!");
 			} else {
 				alert("Data Berhasil Terekam!");
@@ -130,13 +130,13 @@ function hapusAja(nrp) {
 }
 
 function updatePoltabes() {
-	if ($("#poltabes_nama").val() == '') {
+	if ($("#poltabes_nama").val() === "") {
 		alert("Isi Nama Personel!");
-	} else if ($("#poltabes_pkt").val() == '') {
+	} else if ($("#poltabes_pkt").val() === "") {
 		alert("Isi Pangkat!");
-	} else if ($("#poltabes_jab").val() == '') {
+	} else if ($("#poltabes_jab").val() === "") {
 		alert("Isi Jabatan");
-	} else if ($("#poltabes_tmt").val() == '') {
+	} else if ($("#poltabes_tmt").val() === "") {
 		alert("Isi Tmt Jab");
 	} else {
 		$.ajax({
@@ -174,7 +174,7 @@ function get_nrpPass(nrp) {
 
 //ganti password urmin
 function ganti_password(nrp) {
-	if ($('#new_password').val() == '') {
+	if ($("#new_password").val() === "") {
 		alert("Password Baru Harus Diisi!");
 	} else {
 		$.ajax({
@@ -187,7 +187,7 @@ function ganti_password(nrp) {
 			},
 			success: function () {
 				alert("Password berhasil diubah!");
-				$("#new_password").val('');
+				$("#new_password").val("");
 
 			},
 			error: function (jqXHR, textStatus, errorThrown) {

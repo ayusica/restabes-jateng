@@ -119,20 +119,20 @@ function gantiPass() {
             },
             beforeSend: function () { },
             success: function (respon) {
-                if (respon == "berhasil") {
+                if (respon === "berhasil") {
                     alert("Password behasil diubah!");
                     window.location.href = "http://localhost/restabes-jateng/login/logout";
                 } else {
                     if ($(".gantiPassword").children().hasClass("alert") !== true) {
                         $(".gantiPassword").prepend(
-                            '<div class="alert alert-danger">Password Lama Salah!</div>'
+                            "<div class='alert alert-danger'>Password Lama Salah!</div>"
                         );
                         $("#old_password").val("");
                         $("#new_password").val("");
                         $("#re-new-password").val("");
                     } else {
                         $(".gantiPassword>.alert").replaceWith(
-                            '<div class="alert alert-danger">Password Lama Salah!</div>'
+                            "<div class='alert alert-danger'>Password Lama Salah!</div>"
                         );
                         $("#old_password").val("");
                         $("#new_password").val("");
@@ -188,7 +188,6 @@ function gantiPassPer() {
                     alert("Password Lama salah!");
                     $("#password-top-bar").modal("show");
                 }
-                // history.go(0);
                 $("#lama_password").val(""),
                     $("#baru_password").val(""),
                     $("#konf-password").val("")
