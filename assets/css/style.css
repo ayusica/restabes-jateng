@@ -9,7 +9,7 @@ body {
 }
 
 .navbar-brand {
-  font-family: Arial, Verdana, Tahoma;
+  font-family: Helvetica, Arial, Verdana, Tahoma;
   font-size: 25px;
 }
 
@@ -147,7 +147,7 @@ footer {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-/*desktop version = responsive breakpoint*/
+/* desktop version = responsive breakpoint */
 @media (min-width: 992px) {
   .navbar-brand,
   .nav-link {
