@@ -20,9 +20,9 @@ $("document").ready(function () {
 			for (var i = 0; i < 19; i++) {
 				bag +=
 					'<option value="' +
-					data[i]["id_bagian"] +
+					data[parseInt(i)]["id_bagian"] +
 					'">' +
-					data[i]["nama_bagian"] +
+					data[parseInt(i)]["nama_bagian"] +
 					"</option>";
 			}
 			$("#selectBagian").html(bag);
