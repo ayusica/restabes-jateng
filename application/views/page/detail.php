@@ -9,54 +9,54 @@
         <?php foreach ($personel as $personel) : ?>
 
             <table class="table table hover table-bordered table-striped">
-                <img class="foto m-auto" src="<?= base_url('assets/img/profil/') . $personel['gambar'] ?>" style="width: 30%" alt="gambar">
+                <img class="foto m-auto" src="<?= filter_var(base_url('assets/img/profil/') . $personel['gambar'], FILTER_DEFAULT) ?>" style="width: 30%" alt="gambar">
                 <tr>
                     <td>NAMA</td>
-                    <td><?= $personel['nama']; ?></td>
+                    <td><?= filter_var($personel['nama'], FILTER_DEFAULT); ?></td>
                 </tr>
                 <tr>
                     <td>NRP</td>
-                    <td><?= $personel['nrp']; ?></td>
+                    <td><?= filter_var($personel['nrp'], FILTER_DEFAULT); ?></td>
                 </tr>
                 <tr>
                     <td>PANGKAT</td>
-                    <td><?= $personel['pkt']; ?></td>
+                    <td><?= filter_var($personel['pkt'], FILTER_DEFAULT); ?></td>
                 </tr>
                 <tr>
                     <td>JABATAN</td>
-                    <td><?= $personel['jabatan']; ?></td>
+                    <td><?= filter_var($personel['jabatan'], FILTER_DEFAULT); ?></td>
                 </tr>
                 <tr>
                     <td>TEMPAT</td>
-                    <td><?= $personel['tempat']; ?></td>
+                    <td><?= filter_var($personel['tempat'], FILTER_DEFAULT); ?></td>
                 </tr>
                 <tr>
                     <td>TGL.LAHIR</td>
-                    <td><?= date("d-m-Y", strtotime($personel['tgl_lahir'])); ?></td>
+                    <td><?= filter_var(date("d-m-Y", strtotime($personel['tgl_lahir'])), FILTER_DEFAULT); ?></td>
                 </tr>
                 <tr>
                     <td>AGAMA</td>
-                    <td><?= $personel['agama']; ?></td>
+                    <td><?= filter_var($personel['agama'], FILTER_DEFAULT); ?></td>
                 </tr>
                 <tr>
                     <td>SUKU</td>
-                    <td><?= $personel['suku']; ?></td>
+                    <td><?= filter_var($personel['suku'], FILTER_DEFAULT); ?></td>
                 </tr>
                 <tr>
                     <td>TMT.JAB</td>
-                    <td><?= date("d-m-Y", strtotime($personel['tmt_jab'])); ?></td>
+                    <td><?= filter_var(date("d-m-Y", strtotime($personel['tmt_jab'])), FILTER_DEFAULT); ?></td>
                 </tr>
                 <tr>
                     <td>INSTANSI</td>
-                    <td><?= $personel['nama_instansi']; ?></td>
+                    <td><?= filter_var($personel['nama_instansi'], FILTER_DEFAULT); ?></td>
                 </tr>
                 <tr>
                     <td>ALAMAT</td>
-                    <td><?= $personel['alamat']; ?></td>
+                    <td><?= filter_var($personel['alamat'], FILTER_DEFAULT); ?></td>
                 </tr>
             </table>
         <?php endforeach; ?>
 
-        <?= anchor('kabag/dashboard', '<div class="btn btn-sm btn-info" style="float:right">Kembali</div>') ?>
+        <?= filter_var(anchor("kabag/dashboard", '<div class="btn btn-sm btn-info" style="float:right">Kembali</div>'), FILTER_DEFAULT) ?>
     </div>
 </div>

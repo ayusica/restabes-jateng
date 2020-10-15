@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?= $judul; ?></title>
+    <title><?= filter_var($judul, FILTER_DEFAULT); ?></title>
 
     <!-- Logo -->
     <link href="<?= filter_var(base_url("assets/img/favicon.png"), FILTER_DEFAULT); ?>" rel="icon">
