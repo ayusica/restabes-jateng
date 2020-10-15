@@ -7,17 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Logo -->
-  <link href="<?= base_url(); ?>assets/img/favicon.png" rel="icon">
+  <link href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/img/favicon.png" rel="icon">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.min.css">
+  <link rel="stylesheet" href="<?= filter_var(base_url('assets/css/'), FILTER_DEFAULT) ?>bootstrap.min.css">
 
-  <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/styles.css">
+  <link rel="stylesheet" type="text/css" href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/css/styles.css">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
-  <title><?php echo $judul; ?></title>
+  <title><?= $judul, FILTER_DEFAULT); ?></title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" href="<?= base_url(); ?>"><img src="<?= base_url('assets/img/home.png') ?>" style="width: 30px"> Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active" href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>"><img src="<?= filter_var(base_url('assets/img/home.png'), FILTER_DEFAULT) ?>" style="width: 30px"> Home <span class="sr-only">(current)</span></a>
         </div>
       </div>
     </div>

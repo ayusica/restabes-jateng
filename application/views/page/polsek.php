@@ -2,17 +2,17 @@
     <!--DATA PERSONEL POLRESTABES SEMARANG -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-dark" style="text-transform:uppercase;">TABEL PERSONEL <?= $daftar_instansi[$this->uri->segment(3) - 1]['nama_instansi'] ?></h6>
+            <h6 class="m-0 font-weight-bold text-dark" style="text-transform:uppercase;">TABEL PERSONEL <?= filter_var($daftar_instansi[$this->uri->segment(3) - 1]["nama_instansi"], FILTER_DEFAULT) ?></h6>
         </div>
         <div class="card-body">
-            <?php if ($this->session->userdata('akses') == 'kasium') : ?>
-                <?php if (($this->uri->segment(3)) == ($this->session->userdata('id_instansi'))) : ?>
+            <?php if (filter_var($this->session->userdata("akses"), FILTER_DEFAULT) === "kasium") : ?>
+                <?php if ((filter_var($this->uri->segment(3), FILTER_DEFAULT)) === (filter_var($this->session->userdata("id_instansi"), FILTER_DEFAULT))) : ?>
                     <div class="row">
                         <div class="col">
                             <div class="tambah">
                                 <button type="button" class="badge btn-success" style="height: 2.5rem" id="tambah_personel_polsek"><i class="fas fa-plus"></i> Tambah Personel</button>
-                                <a href="<?= base_url('sium/pdfPolsek/') . $instansi['id_instansi'] ?>" target="_blank"><button type="button" class="badge btn-warning" style="height: 2.5rem"><i class="fas fa-fw fa-print"></i> Cetak PDF</button></a>
-                                <a href="<?= base_url("sium/formPolsek/") . $instansi['id_instansi'] ?>" target="_blank"><button type="button" class="badge btn-primary" style="height: 2.5rem"><i class="fas fa-fw fa-file"></i> Impor Data</button></a>
+                                <a href="<?= filter_var(base_url('sium/pdfPolsek/') . $instansi['id_instansi'], FILTER_DEFAULT) ?>" target="_blank"><button type="button" class="badge btn-warning" style="height: 2.5rem"><i class="fas fa-fw fa-print"></i> Cetak PDF</button></a>
+                                <a href="<?= filter_var(base_url("sium/formPolsek/") . $instansi['id_instansi'], FILTER_DEFAULT) ?>" target="_blank"><button type="button" class="badge btn-primary" style="height: 2.5rem"><i class="fas fa-fw fa-file"></i> Impor Data</button></a>
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
             <div class="table-responsive mt-3">
                 <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
 
-                    <?php if ($this->session->userdata('akses') == 'kasium') { ?>
+                    <?php if (filter_var($this->session->userdata("akses"), FILTER_DEFAULT) === "kasium") { ?>
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -35,25 +35,25 @@
                             <?php $no = 1;
                             foreach ($org_instansi as $personel) : ?>
                                 <tr style="text-transform: uppercase;">
-                                    <td><?php echo $no;
+                                    <td><?= filter_var($no, FILTER_DEFAULT);
                                         $no++ ?></td>
-                                    <td><?= $personel['nama']; ?></td>
-                                    <td><?= $personel['nrp']; ?></td>
-                                    <td><?= $personel['jabatan']; ?></td>
+                                    <td><?= filter_var($personel['nama'], FILTER_DEFAULT); ?></td>
+                                    <td><?= filter_var($personel['nrp'], FILTER_DEFAULT); ?></td>
+                                    <td><?= filter_var($personel['jabatan'], FILTER_DEFAULT); ?></td>
                                     <td width="80px">
                                         <?php if ($personel['level'] == 'personel') : ?>
-                                            <button type="submit" class="badge badge-success" id="edit" onclick="detailPolsek('<?= $personel['nrp']; ?>')"><i class="fas fa-edit"></i></button>
-                                            <?php if ($this->uri->segment(3) == $this->session->userdata('id_instansi')) : ?>
-                                                <button type="submit" class="badge badge-danger" id="hapus" onclick="hapusPersonelpolsek('<?= $personel['nrp']; ?>')"><i class="fas fa-fw fa-trash"></i></button>
-                                                <button type="submit" class="badge badge-warning" onclick="getNrpPass('<?= $personel['nrp']; ?>')"><i class="fas fa-fw fa-key"></i></button>
-                                                <a href="<?= base_url('personel/pdf_profil/') . $personel['nrp'] ?>" target="_blank"><button type="button" class="badge badge-info"><i class="fas fa-fw fa-print"></i></button></a>
+                                            <button type="submit" class="badge badge-success" id="edit" onclick="detailPolsek('<?= filter_var($personel['nrp'], FILTER_DEFAULT); ?>')"><i class="fas fa-edit"></i></button>
+                                            <?php if ($this->uri->segment(3) === $this->session->userdata("id_instansi")) : ?>
+                                                <button type="submit" class="badge badge-danger" id="hapus" onclick="hapusPersonelpolsek('<?= filter_var($personel['nrp'], FILTER_DEFAULT); ?>')"><i class="fas fa-fw fa-trash"></i></button>
+                                                <button type="submit" class="badge badge-warning" onclick="getNrpPass('<?= filter_var($personel['nrp'], FILTER_DEFAULT); ?>')"><i class="fas fa-fw fa-key"></i></button>
+                                                <a href="<?= filter_var(base_url('personel/pdf_profil/') . $personel['nrp'], FILTER_DEFAULT) ?>" target="_blank"><button type="button" class="badge badge-info"><i class="fas fa-fw fa-print"></i></button></a>
                                             <?php endif; ?>
                                         <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
-                    <?php } elseif ($this->session->userdata('akses') == 'kabag') { ?>
+                    <?php } elseif (filter_var($this->session->userdata("akses"), FILTER_DEFAULT) === "kabag") { ?>
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -68,25 +68,25 @@
                             <?php $no = 1;
                             foreach ($org_instansi as $personel) : ?>
                                 <tr style="text-transform: uppercase;">
-                                    <td><?php echo $no;
+                                    <td><?= filter_var($no, FILTER_DEFAULT);
                                         $no++ ?></td>
-                                    <td><img class="rounded-circle" width="45" src="<?= base_url('assets/img/profil/') . $personel['gambar'] ?>" alt="foto"></td>
-                                    <td><?= $personel['nama']; ?></td>
-                                    <td><?= $personel['nrp']; ?></td>
-                                    <td><?= $personel['jabatan']; ?></td>
+                                    <td><img class="rounded-circle" width="45" src="<?= filter_var(base_url('assets/img/profil/') . $personel['gambar'], FILTER_DEFAULT) ?>" alt="foto"></td>
+                                    <td><?= filter_var($personel['nama'], FILTER_DEFAULT); ?></td>
+                                    <td><?= filter_var($personel['nrp'], FILTER_DEFAULT); ?></td>
+                                    <td><?= filter_var($personel['jabatan'], FILTER_DEFAULT); ?></td>
                                     <td>
-                                        <a href="<?= base_url(); ?>kabag/detail/<?= $personel['nrp']; ?>" class="badge badge-success"><i class="fas fa-fw fa-search"></i> Detail</a>
+                                        <a href="<?= base_url(); ?>kabag/detail/<?= filter_var($personel['nrp'], FILTER_DEFAULT); ?>" class="badge badge-success"><i class="fas fa-fw fa-search"></i> Detail</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
-                    <?php } elseif ($this->session->userdata('akses') == 'kaurmin') { ?>
+                    <?php } elseif (filter_var($this->session->userdata("akses"), FILTER_DEFAULT) === "kaurmin") { ?>
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th width="80">Foto</th>
                                 <th>Nama</th>
-                                <?php if ($instansi['id_instansi'] == 1) : ?>
+                                <?php if (filter_var($instansi['id_instansi'], FILTER_DEFAULT) === 1) : ?>
                                     <th>NRP</th>
                                 <?php endif ?>
                                 <th>Jabatan</th>
@@ -96,14 +96,14 @@
                             <?php $no = 1;
                             foreach ($org_instansi as $personel) : ?>
                                 <tr style="text-transform: uppercase;">
-                                    <td><?php echo $no;
+                                    <td><?= filter_var($no, FILTER_DEFAULT);
                                         $no++ ?></td>
-                                    <td width="80" height="70" align="center"><img class="rounded" src="<?= base_url('assets/img/profil/') . $personel['gambar'] ?>" style="width:80px;" alt="foto"></td>
-                                    <td><?= $personel['nama']; ?></td>
-                                    <?php if ($instansi['id_instansi'] == 1) : ?>
-                                        <td><?= $personel['nrp']; ?></td>
+                                    <td width="80" height="70" align="center"><img class="rounded" src="<?= filter_var(base_url('assets/img/profil/') . $personel['gambar'], FILTER_DEFAULT) ?>" style="width:80px;" alt="foto"></td>
+                                    <td><?= filter_var($personel['nama'], FILTER_DEFAULT); ?></td>
+                                    <?php if (filter_var($instansi['id_instansi'], FILTER_DEFAULT) === 1) : ?>
+                                        <td><?= filter_var($personel['nrp'], FILTER_DEFAULT); ?></td>
                                     <?php endif ?>
-                                    <td><?= $personel['jabatan']; ?></td>
+                                    <td><?= filter_var($personel['jabatan'], FILTER_DEFAULT); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -120,11 +120,11 @@
                             <?php $no = 1;
                             foreach ($org_instansi as $personel) : ?>
                                 <tr style="text-transform: uppercase;">
-                                    <td><?php echo $no;
+                                    <td><?= filter_var($no, FILTER_DEFAULT);
                                         $no++ ?></td>
-                                    <td width="80" height="70" align="center"><img class="rounded" src="<?= base_url('assets/img/profil/') . $personel['gambar'] ?>" style="width:80px;" alt="foto"></td>
-                                    <td><?= $personel['nama']; ?></td>
-                                    <td><?= $personel['jabatan']; ?></td>
+                                    <td width="80" height="70" align="center"><img class="rounded" src="<?= filter_var(base_url('assets/img/profil/') . $personel['gambar'], FILTER_DEFAULT) ?>" style="width:80px;" alt="foto"></td>
+                                    <td><?= filter_var($personel['nama'], FILTER_DEFAULT); ?></td>
+                                    <td><?= filter_var($personel['jabatan'], FILTER_DEFAULT); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -138,7 +138,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Personel <?= $daftar_instansi[$this->uri->segment(3) - 1]['nama_instansi'] ?></h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Personel <?= filter_var($daftar_instansi[$this->uri->segment(3) - 1]['nama_instansi'], FILTER_DEFAULT) ?></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -207,7 +207,7 @@
                         <div class="form-group">
                             <label>Instansi</label>
                             <select class="form-control" id="instansi_polsek" name="nama_instansi">
-                                <?= '<option value="' . $daftar_instansi[$this->uri->segment(3) - 1]['id_instansi']  . '">' . $daftar_instansi[$this->uri->segment(3) - 1]['nama_instansi']  . '</option>	'; ?>
+                                <?= '<option value="' . filter_var($daftar_instansi[$this->uri->segment(3) - 1]['id_instansi'], FILTER_DEFAULT)  . '">' . filter_var($daftar_instansi[$this->uri->segment(3) - 1]['nama_instansi'], FILTER_DEFAULT)  . '</option>	'; ?>
                             </select>
                         </div>
                         <div class="modal-footer">
@@ -281,7 +281,7 @@
                             <select class="form-control" id="polsek_bagian" name="unsur_bagian">
                                 <option value="">--Pilih Bagian--</option>
                                 <?php foreach ($bagian as $bag) : ?>
-                                    <?= '<option value="' . $bag["id_bagian"] . '">' . $bag["nama_bagian"] . '</option>	'; ?>
+                                    <?= '<option value="' . filter_var($bag["id_bagian"] . '">' . $bag["nama_bagian"], FILTER_DEFAULT) . '</option>	'; ?>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -289,13 +289,13 @@
                             <label>Instansi</label>
                             <select class="form-control" id="polsek_instansi" name="nama_instansi">
                                 <?php foreach ($daftar_instansi as $instansi) : ?>
-                                    <?= '<option value="' . $instansi["id_instansi"] . '">' . $instansi["nama_instansi"] . '</option>	'; ?>
+                                    <?= '<option value="' . filter_var($instansi["id_instansi"], FILTER_DEFAULT) . '">' . filter_var($instansi["nama_instansi"], FILTER_DEFAULT) . '</option>	'; ?>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <a href="<?= base_url() ?>sium/polsek"><button class="btn btn-primary">Kembali</button></a>
-                            <?php if ($this->uri->segment(3) == $this->session->userdata('id_instansi')) : ?>
+                            <a href="<?= filter_var(base_url("sium/polsek"), FILTER_DEFAULT) ?>"><button class="btn btn-primary">Kembali</button></a>
+                            <?php if (filter_var($this->uri->segment(3), FILTER_DEFAULT) === filter_var($this->session->userdata('id_instansi'), FILTER_DEFAULT)) : ?>
                                 <button type="button" class="btn btn-success" id="Polsek-edit">Edit</button>
                             <?php endif ?>
                         </div>
@@ -357,7 +357,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                    <button id="save_password" type="button" class="btn btn-success" data-dismiss="modal" onclick="gantiPassword(<?= $personel['nrp']; ?>)">Simpan</button>
+                    <button id="save_password" type="button" class="btn btn-success" data-dismiss="modal" onclick="gantiPassword(<?= filter_var($personel['nrp'], FILTER_DEFAULT); ?>)">Simpan</button>
                 </div>
             </div>
         </div>

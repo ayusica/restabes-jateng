@@ -7,17 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Logo -->
-  <link href="<?= base_url(); ?>assets/img/favicon.png" rel="icon">
+  <link href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/img/favicon.png" rel="icon">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.min.css">
+  <link rel="stylesheet" href="<?= filter_var(base_url('assets/css/'), FILTER_DEFAULT) ?>bootstrap.min.css">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
 
   <!-- My CSS -->
-  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
-  <title><?php echo $judul; ?></title>
+  <link rel="stylesheet" href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/css/style.css">
+  <title><?= filter_var($judul, FILTER_DEFAULT); ?></title>
 </head>
 
 <body>
@@ -30,8 +30,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" href="<?= base_url(); ?>"> <img src="<?= base_url('assets/img/home.png') ?>" style="width: 30px">Home<span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="<?= base_url('#info') ?>"><img src="<?= base_url('assets/img/info.png') ?>" style="width: 30px">Informasi Lebih Lanjut</a></a>
+          <a class="nav-item nav-link active" href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>"> <img src="<?= filter_var(base_url('assets/img/home.png'), FILTER_DEFAULT) ?>" style="width: 30px">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="<?= filter_var(base_url('#info'), FILTER_DEFAULT) ?>"><img src="<?= filter_var(base_url('assets/img/info.png'), FILTER_DEFAULT) ?>" style="width: 30px">Informasi Lebih Lanjut</a></a>
         </div>
       </div>
     </div>

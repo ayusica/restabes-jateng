@@ -2,7 +2,6 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h4 class="display-4">Sistem Informasi Data Personel<br><span>Polrestabes Semarang</span></h4>
-    <!-- <a href="<?= base_url(); ?>login" class="btn btn-success tombol">Masuk</a> -->
   </div>
 </div>
 <!-- akhir jumbotron -->
@@ -16,31 +15,31 @@
     <div class="col-10 info-panel">
       <div class="row">
         <div class="col-lg">
-          <a href="<?= base_url('panduan'); ?>">
-            <img src="<?= base_url(); ?>assets/img/user.png" alt="petunjuk" class="float-left">
+          <a href="<?= filter_var(base_url('panduan'), FILTER_DEFAULT); ?>">
+            <img src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/img/user.png" alt="petunjuk" class="float-left">
           </a>
           <h4>Panduan Penggunaan Sistem</h4>
-          <a href="<?= base_url('panduan'); ?>">
+          <a href="<?= filter_var(base_url('panduan'), FILTER_DEFAULT); ?>">
             <button class="btn-warning tombol"><small>Baca Lebih Lanjut</small></button>
           </a>
         </div>
         <div class="col-lg">
-          <a href="<?= base_url(); ?>login">
-            <img src="<?= base_url(); ?>assets/img/login.png" alt="login" class="float-left">
+          <a href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>login">
+            <img src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/img/login.png" alt="login" class="float-left">
           </a>
           <h4>Login SIPODA</h4>
           <!-- <p>Masuk untuk Informasi Lebih Lanjut Personel</p> -->
-          <a href="<?= base_url(); ?>login/index">
+          <a href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>login/index">
             <button class="btn-warning tombol"><small>Masuk</small> </button>
           </a>
         </div>
         <div class="col-lg">
-          <a href="<?= base_url('sium/daftar_polsek'); ?>">
-            <img src="<?= base_url(); ?>assets/img/polisi2.png" alt="personel" class="float-left">
+          <a href="<?= filter_var(base_url('sium/daftar_polsek'), FILTER_DEFAULT); ?>">
+            <img src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/img/polisi2.png" alt="personel" class="float-left">
           </a>
           <h4>Lihat Data Personel</h4>
           <!-- <p>Daftar instansi dan Data Personel</p> -->
-          <a href="<?= base_url(); ?>sium/daftar_polsek">
+          <a href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>sium/daftar_polsek">
             <button class="btn-warning tombol"><small>Data Personel</small></button>
           </a>
         </div>
@@ -52,7 +51,7 @@
   <!-- workingspace -->
   <div class="row workingspace">
     <div class="col-lg-6">
-      <img src="<?= base_url('assets/img/jumbotron-ky.jpg') ?>" alt="workingspace" class="img-fluid">
+      <img src="<?= filter_var(base_url('assets/img/jumbotron-ky.jpg'), FILTER_DEFAULT) ?>" alt="workingspace" class="img-fluid">
     </div>
     <div class="col-lg-6">
       <h3><span>Polrestabes Semarang</span></h3>
@@ -114,7 +113,7 @@
           <p>2. Masukkan password default (misal nrp = 12345, password = 54321)</p>
           <br>
           <p style="color: red">Catatan : Ganti Password setelah masuk sistem untuk pertama kali!</p>
-          <p>Lebih lengkapnya silakan masuk ke sistem. Klik <a target="_blank" href="<?= base_url() ?>login">Masuk</a></p>
+          <p>Lebih lengkapnya silakan masuk ke sistem. Klik <a target="_blank" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>login">Masuk</a></p>
         </div>
       </div>
     </div>

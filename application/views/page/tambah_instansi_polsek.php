@@ -8,7 +8,7 @@
                 <button class="badge btn-primary" style="height: 2.5rem;" id="tambah_instansi_button"><i class="fas fa-plus"></i> Tambah Instansi</button>
             </div>
             <div class="mt-3">
-                <?php echo $this->session->flashdata('msg'); ?>
+                <?= filter_var($this->session->flashdata('msg'), FILTER_DEFAULT); ?>
             </div>
             <div class="table-responsive mt-3">
                 <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
@@ -28,9 +28,9 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $inst['nama_instansi']; ?></td>
                                 <td><?= $inst['alamat']; ?></td>
-                                <td><img src="<?= base_url('assets/img/g_instansi/') . $inst['foto'] ?>" style="width:145px;" alt="foto"></td>
+                                <td><img src="<?= filter_var(base_url('assets/img/g_instansi/') . $inst['foto'], FILTER_DEFAULT) ?>" style="width:145px;" alt="foto"></td>
                                 <td align="center" width="100px">
-                                    <button type="button" class="badge badge-success" style="height: 2.5rem; width: 5rem;" id="edit_instansi" onclick="getEditInstansi(<?= $inst['id_instansi'] ?>)"><i class="fas fa-fw fa-edit"></i> Edit</button>
+                                    <button type="button" class="badge badge-success" style="height: 2.5rem; width: 5rem;" id="edit_instansi" onclick="getEditInstansi(<?= filter_var($inst['id_instansi'], FILTER_DEFAULT) ?>)"><i class="fas fa-fw fa-edit"></i> Edit</button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -50,7 +50,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="ed-instansi" method="POST" action="<?= base_url('kabag/updateInstansi') ?>" enctype="multipart/form-data">
+                    <form id="ed-instansi" method="POST" action="<?= filter_var(base_url('kabag/updateInstansi'), FILTER_DEFAULT) ?>" enctype="multipart/form-data">
                         <div class="form-group">
                             <p style="color: red">*Maksimal Ukuran Foto 2Mb</p>
                             <img class="image" style="width: 50%" alt="foto" id="foto">
@@ -108,7 +108,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="tambah-poltabes" method="POST" action="<?= base_url('kabag/tambahKesatuan') ?>" enctype="multipart/form-data">
+                    <form id="tambah-poltabes" method="POST" action="<?= filter_var(base_url('kabag/tambahKesatuan'), FILTER_DEFAULT) ?>" enctype="multipart/form-data">
                         <div class="form-group">
                             <p style="color: red">*Maksimal Ukuran Foto 2Mb</p>
                             <label for="Foto">Foto Instansi</label>

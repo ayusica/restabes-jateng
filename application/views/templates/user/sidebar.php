@@ -2,9 +2,9 @@
   <ul class="navbar-nav bg-gradient-custom sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url() ?>personel/profil">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= filter_var(base_url("personel/profil"), FILTER_DEFAULT) ?>">
           <div class="sidebar-brand-icon">
-              <img src="<?= base_url('assets/img/') ?>poldaa.png" alt="polda">
+              <img src="<?= filter_var(base_url('assets/img/'), FILTER_DEFAULT) ?>poldaa.png" alt="polda">
           </div>
           <div class="sidebar-brand-text mx-3">SIPODA POLRESTABES</div>
       </a>
@@ -12,9 +12,8 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- <?= var_dump($this->session->userdata('akses')); ?> -->
       <!-- Kondisi untuk Kabag Sumda -->
-      <?php if ($this->session->userdata('akses') == 'kabag') : ?>
+      <?php if (filter_var($this->session->userdata('akses'), FILTER_DEFAULT) === 'kabag') : ?>
           <!-- Nav Item - Dashboard -->
           <div class="sidebar-heading">
               Kabag SUMDA
@@ -22,7 +21,7 @@
 
           <!-- Kondisi untuk Kabag -->
           <li class="nav-item active">
-              <a class="nav-link" href="<?= base_url(); ?>kabag/dashboard">
+              <a class="nav-link" href="<?= filter_var(base_url("kabag/dashboard"), FILTER_DEFAULT); ?>">
                   <i class="fas fa-fw fa-tachometer-alt"></i>
                   <span>Dashboard</span></a>
           </li>
@@ -30,7 +29,7 @@
       <?php endif; ?>
 
       <!-- Kondisi untuk Kaurmin -->
-      <?php if ($this->session->userdata('akses') == 'kaurmin') : ?>
+      <?php if (filter_var($this->session->userdata('akses'), FILTER_DEFAULT) === 'kaurmin') : ?>
           <!-- Nav Item - Dashboard -->
           <div class="sidebar-heading">
               URMIN-SUMDA
@@ -39,7 +38,7 @@
       <?php endif; ?>
 
       <!-- Kondisi untuk Kaurmin -->
-      <?php if ($this->session->userdata('akses') == 'kasium') : ?>
+      <?php if (filter_var($this->session->userdata('akses'), FILTER_DEFAULT)  === 'kasium') : ?>
           <!-- Nav Item - Dashboard -->
           <div class="sidebar-heading">
               SIUM POLSEK
@@ -54,13 +53,13 @@
           User
       </div>
       <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('personel/profil'); ?>">
+          <a class="nav-link" href="<?= filter_var(base_url('personel/profil'), FILTER_DEFAULT); ?>">
               <i class="fas fa-fw fa-user"></i>
               <span>Profil</span></a>
       </li>
 
       <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('login/logout'); ?>">
+          <a class="nav-link" href="<?= filter_var(base_url('login/logout'), FILTER_DEFAULT); ?>">
               <i class="fas fa-fw fa-sign-out-alt"></i>
               <span>Keluar</span></a>
       </li>
@@ -73,54 +72,42 @@
           Aksi
       </div>
 
-      <?php if ($this->session->userdata('akses') == 'kaurmin') : ?>
+      <?php if (filter_var($this->session->userdata('akses'), FILTER_DEFAULT)  === 'kaurmin') : ?>
           <li class="nav-item">
-              <a class="nav-link" href="<?= base_url() ?>urmin/personel_polrestabes">
+              <a class="nav-link" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>urmin/personel_polrestabes">
                   <i class="fas fa-fw fa-users-cog"></i>
                   <span>Kelola Data Personel Polrestabes</span>
               </a>
           </li>
-          <!-- <li class="nav-item">
-              <a class="nav-link" aria-expanded="true" aria-controls="collapseBagian" href="#" data-target="#collapseBagian" data-toggle="collapse">
-                  <i class="fas fa-fw fa-cog"></i>
-                  <span>Unsur Bagian</span>
-              </a>
-              <div class="collapse show" id="collapseBagian" aria-labelledby="headingBagian" data-parent="#accordionSidebar">
-                  <div class="bg-white py-2 collapse-inner rounded">
-                      <h6 class="collapse-header">Unsur Bagian Polrestabes:</h6>
-                      <a class="collapse-item" href="">Buttons</a>
-                  </div>
-              </div>
-          </li> -->
       <?php endif; ?>
 
-      <?php if ($this->session->userdata('akses') != 'kasium') : ?>
+      <?php if ($this->session->userdata('akses') !== 'kasium') : ?>
           <li class="nav-item">
-              <a class="nav-link" href="<?= base_url() ?>sium/daftarPolsek">
+              <a class="nav-link" href="<?= filter_var(base_url(), FILTER_DEFAULT)  ?>sium/daftarPolsek">
                   <i class="fas fa-fw fa-table"></i>
                   <span>Daftar Instansi</span>
               </a>
           </li>
       <?php endif; ?>
 
-      <?php if ($this->session->userdata('akses') == 'kabag') : ?>
+      <?php if (filter_var($this->session->userdata('akses'), FILTER_DEFAULT) === 'kabag') : ?>
           <!-- Nav Item - Charts -->
           <li class="nav-item">
-              <a class="nav-link" href="<?= base_url() ?>kabag/kelola_admin">
+              <a class="nav-link" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>kabag/kelola_admin">
                   <i class="fas fa-users-cog"></i>
                   <span>Kelola Akun Admin</span></a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="<?= base_url() ?>kabag/tambah_instansi_polsek">
+              <a class="nav-link" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>kabag/tambah_instansi_polsek">
                   <i class="fas fa-fw fa-cog"></i>
                   <span>Tambah Polsek</span></a>
           </li>
       <?php endif; ?>
 
-      <?php if ($this->session->userdata('akses') == 'kasium') : ?>
+      <?php if (filter_var($this->session->userdata('akses'), FILTER_DEFAULT) === 'kasium') : ?>
           <!-- Nav Item - Tables -->
           <li class="nav-item">
-              <a class="nav-link" href="<?= base_url() ?>sium/daftarPolsek">
+              <a class="nav-link" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>sium/daftarPolsek">
                   <i class="fas fa-fw fa-users-cog"></i>
                   <span>Kelola Data Personel Polsek</span></a>
           </li>
@@ -131,7 +118,7 @@
           Panduan
       </div>
       <li class="nav-item">
-          <a class="nav-link" href="<?= base_url() ?>panduan">
+          <a class="nav-link" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>panduan">
               <i class="fas fa-fw fa-file"></i>
               <span>Panduan Penggunaan Sistem</span></a>
       </li>
