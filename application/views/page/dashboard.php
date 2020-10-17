@@ -14,7 +14,7 @@
             </div>
             <div class="col-auto">
               <!-- <i class="fas fa-fw fa-user-secret fa-2x text-gray-300"></i> -->
-              <img height="60" width="45" src="<?= base_url('assets/img/polisi1.png') ?>" alt="police">
+              <img height="60" width="45" src="<?= filter_var(base_url('assets/img/polisi1.png'), FILTER_DEFAULT) ?>" alt="police">
             </div>
           </div>
         </div>
@@ -30,7 +30,7 @@
             </div>
             <div class="col-auto">
               <!-- <i class="fas fa-fw fa-police fa-2x text-gray-300"></i> -->
-              <img height="50" width="50" src="<?= base_url('assets/img/police-officer.png') ?>" alt="police">
+              <img height="50" width="50" src="<?= filter_var(base_url('assets/img/police-officer.png'), FILTER_DEFAULT) ?>" alt="police">
             </div>
           </div>
         </div>
@@ -87,13 +87,13 @@
             <?php $no = 1;
             foreach ($personel as $personel) : ?>
               <tr>
-                <td><?php echo $no;
+                <td><?= filter_var($no, FILTER_DEFAULT);
                     $no++ ?></td>
-                <td><?= $personel['nama']; ?></td>
-                <td><?= $personel['nrp']; ?></td>
-                <td><?= $personel['jabatan']; ?></td>
+                <td><?= filter_var($personel['nama'], FILTER_DEFAULT); ?></td>
+                <td><?= filter_var($personel['nrp'], FILTER_DEFAULT); ?></td>
+                <td><?= filter_var($personel['jabatan'], FILTER_DEFAULT); ?></td>
                 <td m-auto>
-                  <a href="<?= base_url(); ?>kabag/detail/<?= $personel['nrp']; ?>" class="badge badge-success"><i class="fas fa-fw fa-search"></i> Detail</a>
+                  <a href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>kabag/detail/<?= filter_var($personel['nrp'], FILTER_DEFAULT); ?>" class="badge badge-success"><i class="fas fa-fw fa-search"></i> Detail</a>
                 </td>
               </tr>
             <?php endforeach; ?>

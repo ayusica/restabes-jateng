@@ -142,7 +142,7 @@
       <script>
         $(document).ready(function() {
           // Ubah isi dari tag span dengan id jumlah_kosong dengan isi dari variabel kosong
-          $("#jumlah_kosong").html('<?php echo $kosong; ?>');
+          $("#jumlah_kosong").html("<?= $kosong; ?>");
 
           $("#kosong").show(); // Munculkan alert validasi kosong
         });

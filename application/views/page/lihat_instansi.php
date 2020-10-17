@@ -1,9 +1,8 @@
-<!-- <?= var_dump($instansi); ?> -->
 <div class="container-fluid">
     <!--DATA PERSONEL POLRESTABES SEMARANG -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-dark">TABEL PERSONEL <?php echo $instansi['nama_instansi'] ?></h6>
+            <h6 class="m-0 font-weight-bold text-dark">TABEL PERSONEL <?= filter_var($instansi['nama_instansi'], FILTER_DEFAULT) ?></h6>
         </div>
         <div class="card-body">
             <div class="row">
@@ -35,11 +34,11 @@
                         <?php $no = 1;
                         foreach ($instansi as $personel) : ?>
                             <tr>
-                                <td><?php echo $no;
+                                <td><?= filter_var($no, FILTER_DEFAULT);
                                     $no++ ?></td>
-                                <td><?= $personel['nama']; ?></td>
-                                <td><?= $personel['nrp']; ?></td>
-                                <td><?= $personel['jabatan']; ?></td>
+                                <td><?= filter_var($personel['nama'], FILTER_DEFAULT); ?></td>
+                                <td><?= filter_var($personel['nrp'], FILTER_DEFAULT); ?></td>
+                                <td><?= filter_var($personel['jabatan'], FILTER_DEFAULT); ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
