@@ -9,7 +9,7 @@ body {
 }
 
 .navbar-brand {
-  font-family: Arial, Verdana, Tahoma;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 25px;
 }
 
@@ -109,7 +109,7 @@ body {
   color: #000;
   font-weight: 200;
   margin: 30px 0;
-  font-family: Helvetica, Arial, Verdana, Tahoma;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 /* utility */

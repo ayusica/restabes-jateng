@@ -37,21 +37,21 @@
 <br>
 <br>
 <?php foreach ($personel as $personel) : ?>
-    <img width="120px" src="assets/img/profil/<?= $personel['gambar']?>" alt="foto">
+    <img width="120px" src="assets/img/profil/<?= filter_var($personel['gambar'], FILTER_DEFAULT)?>" alt="foto">
 <?php endforeach; ?>
 <br>
 <br>
 
-<p class="indent"><b>NAMA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= $personel['nama']?></p>
-<p class="indent"><b>NRP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= $personel['nrp']?></p>
-<p class="indent"><b>PKT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= $personel['pkt']?></p>
-<p class="indent"><b>JABATAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= $personel['jabatan']?></p>
-<p class="indent"><b>TEMPAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= $personel['tempat'];?></p> 
-<p class="indent"><b>TGL.LAHIR&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?=date("d-m-Y", strtotime($personel['tgl_lahir']));?></p> 
-<p class="indent"><b>AGAMA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= $personel['agama']?></p> 
-<p class="indent"><b>SUKU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= $personel['suku']?></p> 
-<p class="indent"><b>TMT.JAB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?=date("d-m-Y", strtotime($personel['tmt_jab']));?></p> 
-<p class="indent"style="text-transform:uppercase"><b>INSTANSI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= $personel['nama_instansi']?></p>  -->
+<p class="indent"><b>NAMA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['nama'], FILTER_DEFAULT)?></p>
+<p class="indent"><b>NRP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['nrp'], FILTER_DEFAULT)?></p>
+<p class="indent"><b>PKT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['pkt'], FILTER_DEFAULT)?></p>
+<p class="indent"><b>JABATAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['jabatan'], FILTER_DEFAULT)?></p>
+<p class="indent"><b>TEMPAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= $personel['tempat'], FILTER_DEFAULT);?></p> 
+<p class="indent"><b>TGL.LAHIR&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var(date("d-m-Y", strtotime($personel['tgl_lahir'])), FILTER_DEFAULT);?></p> 
+<p class="indent"><b>AGAMA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['agama'], FILTER_DEFAULT)?></p> 
+<p class="indent"><b>SUKU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['suku'], FILTER_DEFAULT)?></p> 
+<p class="indent"><b>TMT.JAB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var(date("d-m-Y", strtotime($personel['tmt_jab'])), FILTER_DEFAULT);?></p> 
+<p class="indent"style="text-transform:uppercase"><b>INSTANSI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['nama_instansi'], FILTER_DEFAULT)?></p>  -->
 
 
 <!-- COBA TABEL BARU BISMILLAH -->
@@ -59,7 +59,7 @@
    <tr>
       <td  style="background-color: #C0C0C0; text-align:center;"><img width="50px" src="assets/img/poldaa.png"><br><b>STAF SUMBER DAYA MANUSIA POLRI<br>BIRO PEMBINAAN KARIER</b></td>
     <th>
-    <img width="100px" class="foto m-auto" style="border: 3px solid #DCDCDC;" src="assets/img/profil/<?= $personel['gambar']?>" alt="foto"></th>
+    <img width="100px" class="foto m-auto" style="border: 3px solid #DCDCDC;" src="assets/img/profil/<?= filter_var($personel['gambar'], FILTER_DEFAULT)?>" alt="foto"></th>
   </tr>
    <tr>
    
@@ -68,7 +68,7 @@
   </tr>
   <tr>
    
-    <td colspan="2" style="text-transform:normal;">&nbsp;&nbsp;<?= $personel['nama']?></td>
+    <td colspan="2" style="text-transform:normal;">&nbsp;&nbsp;<?= filter_var($personel['nama'], FILTER_DEFAULT)?></td>
   
   </tr>
   <tr>
@@ -78,7 +78,7 @@
   </tr>
    <tr>
    
-    <td colspan="2">&nbsp;&nbsp;<?= $personel['nrp']?></td>
+    <td colspan="2">&nbsp;&nbsp;<?= filter_var($personel['nrp'], FILTER_DEFAULT)?></td>
   
   </tr>
    <tr>
@@ -88,7 +88,7 @@
   </tr>
    <tr>
    
-    <td colspan="2">&nbsp;&nbsp;<?= $personel['pkt']?></td>
+    <td colspan="2">&nbsp;&nbsp;<?= filter_var($personel['pkt'], FILTER_DEFAULT)?></td>
   
   </tr>
    <tr>
@@ -98,7 +98,7 @@
   </tr>
    <tr>
    
-    <td colspan="2">&nbsp;&nbsp;<?= $personel['jabatan']?></td>
+    <td colspan="2">&nbsp;&nbsp;<?= filter_var($personel['jabatan'], FILTER_DEFAULT)?></td>
     </tr>
      <tr>
    
@@ -107,7 +107,7 @@
   </tr>
    <tr>
    
-    <td colspan="2">&nbsp;&nbsp;<?= $personel['tempat']?></td>
+    <td colspan="2">&nbsp;&nbsp;<?= filter_var($personel['tempat'], FILTER_DEFAULT)?></td>
   
   </tr>
    <tr>
@@ -117,7 +117,7 @@
   </tr>
    <tr>
    
-    <td colspan="2">&nbsp;&nbsp;<?=date("d-m-Y", strtotime($personel['tgl_lahir']));?></td>
+    <td colspan="2">&nbsp;&nbsp;<?= filter_var(date("d-m-Y", strtotime($personel['tgl_lahir'])), FILTER_DEFAULT);?></td>
   
   </tr> 
   <tr>
@@ -127,7 +127,7 @@
   </tr>
    <tr>
    
-    <td colspan="2">&nbsp;&nbsp;<?= $personel['agama']?></td>
+    <td colspan="2">&nbsp;&nbsp;<?= filter_var($personel['agama'], FILTER_DEFAULT)?></td>
   
   </tr>
    <tr>
@@ -137,7 +137,7 @@
   </tr>
    <tr>
    
-    <td colspan="2">&nbsp;&nbsp;<?= $personel['suku']?></td>
+    <td colspan="2">&nbsp;&nbsp;<?= filter_var($personel['suku'], FILTER_DEFAULT)?></td>
   
   </tr>
    <tr>
@@ -147,7 +147,7 @@
   </tr>
    <tr>
    
-    <td colspan="2">&nbsp;&nbsp;<?=date("d-m-Y", strtotime($personel['tmt_jab']));?></td>
+    <td colspan="2">&nbsp;&nbsp;<?= filter_var(date("d-m-Y", strtotime($personel['tmt_jab'])), FILTER_DEFAULT);?></td>
   
   </tr>
    <tr>
@@ -157,7 +157,7 @@
   </tr>
    <tr>
    
-    <td colspan="2">&nbsp;&nbsp;<?= $personel['nama_instansi']?></td>
+    <td colspan="2">&nbsp;&nbsp;<?= filter_var($personel['nama_instansi'], FILTER_DEFAULT)?></td>
   
   </tr>
 </table>
