@@ -48,7 +48,7 @@
     foreach ($personel as $personel) : ?>
 
         <tr>
-            <td align="center"><?= $no++ ?></td>
+            <td align="center"><?= filter_var($no++, FILTER_DEFAULT) ?></td>
             <td><?= filter_var($personel['nama'], FILTER_DEFAULT) ?></td>
             <td><?= filter_var($personel['nrp'], FILTER_DEFAULT) ?></td>
             <td><?= filter_var($personel['pkt'], FILTER_DEFAULT) ?></td>
