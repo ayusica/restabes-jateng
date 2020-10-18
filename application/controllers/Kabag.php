@@ -109,10 +109,9 @@ class Kabag extends CI_Controller
             $this->load->model('Personel_model');
             $data = $this->Personel_model->geteditPersonel($nrp);
 
-            echo json_encode($data);
-        } else {
-            return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
+            return $this->output->set_output(json_encode($data));
         }
+        return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
     }
 
     //untuk update admin
@@ -121,9 +120,8 @@ class Kabag extends CI_Controller
         if ($this->session->userdata('akses') == 'kabag') {
             $this->Kabag_model->update_editPersonel();
             return $this->output->set_output(json_encode('success'));
-        } else {
-            return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
+        return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
     }
 
     //untuk ubah pass admin
@@ -132,9 +130,8 @@ class Kabag extends CI_Controller
         if ($this->session->userdata('akses') != 'personel') {
             $this->Kabag_model->ubahPassAdmin();
             return $this->output->set_output(json_encode('success'));
-        } else {
-            return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
+        return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
     }
 
     //tambah admin
