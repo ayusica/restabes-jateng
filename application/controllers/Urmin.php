@@ -47,7 +47,7 @@ class Urmin extends CI_Controller
             $this->load->view('page/personel_polrestabes', $data);
             $this->load->view('templates/user/footer');
         } else {
-            "Anda tidak berhak mengakses halaman ini!";
+            return $this->output->set_output("Anda tidak berhak mengakses halaman ini!");
         }
     }
 

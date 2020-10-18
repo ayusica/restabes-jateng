@@ -25,9 +25,9 @@
                         <?php $no = 1;
                         foreach ($instansi as $inst) : ?>
                             <tr>
-                                <td><?= $no++ ?></td>
-                                <td><?= $inst['nama_instansi']; ?></td>
-                                <td><?= $inst['alamat']; ?></td>
+                                <td><?= filter_var($no++, FILTER_DEFAULT) ?></td>
+                                <td><?= filter_var($inst['nama_instansi'], FILTER_DEFAULT); ?></td>
+                                <td><?= filter_var($inst['alamat'], FILTER_DEFAULT); ?></td>
                                 <td><img src="<?= filter_var(base_url('assets/img/g_instansi/') . $inst['foto'], FILTER_DEFAULT) ?>" style="width:145px;" alt="foto"></td>
                                 <td align="center" width="100px">
                                     <button type="button" class="badge badge-success" style="height: 2.5rem; width: 5rem;" id="edit_instansi" onclick="getEditInstansi(<?= filter_var($inst['id_instansi'], FILTER_DEFAULT) ?>)"><i class="fas fa-fw fa-edit"></i> Edit</button>

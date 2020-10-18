@@ -26,7 +26,7 @@
 
     </style>
 </head><body>
-<p style="text-align: center; text-transform:uppercase;">TABEL PERSONEL <?= $daftar_instansi[$this->uri->segment(3) - 1]['nama_instansi'] ?> POLRESTABES SEMARANG POLDA JATENG </p><br>
+<p style="text-align: center; text-transform:uppercase;">TABEL PERSONEL <?= filter_var($daftar_instansi[$this->uri->segment(3) - 1]['nama_instansi'], FILTER_DEFAULT) ?> POLRESTABES SEMARANG POLDA JATENG </p><br>
 
 <table style="width:100%">
     <tr>
@@ -49,16 +49,16 @@
 
         <tr>
             <td align="center"><?= $no++ ?></td>
-            <td><?= $personel['nama'] ?></td>
-            <td><?= $personel['nrp'] ?></td>
-            <td><?= $personel['pkt'] ?></td>
-            <td><?= $personel['jabatan'] ?></td>
-            <td><?= $personel['tempat'] ?></td>
-            <td><?= date("d-m-Y", strtotime($personel['tgl_lahir'])) ?></td>
-            <td><?= $personel['agama'] ?></td>
-            <td><?= $personel['suku'] ?></td>
-            <td><?= date("d-m-Y", strtotime($personel['tmt_jab'])) ?></td>
-            <td><?= $personel['nama_bagian'] ?></td>
+            <td><?= filter_var($personel['nama'], FILTER_DEFAULT) ?></td>
+            <td><?= filter_var($personel['nrp'], FILTER_DEFAULT) ?></td>
+            <td><?= filter_var($personel['pkt'], FILTER_DEFAULT) ?></td>
+            <td><?= filter_var($personel['jabatan'], FILTER_DEFAULT) ?></td>
+            <td><?= filter_var($personel['tempat'], FILTER_DEFAULT) ?></td>
+            <td><?= filter_var(date("d-m-Y", strtotime($personel['tgl_lahir'])), FILTER_DEFAULT) ?></td>
+            <td><?= filter_var($personel['agama'], FILTER_DEFAULT) ?></td>
+            <td><?= filter_var($personel['suku'], FILTER_DEFAULT) ?></td>
+            <td><?= filter_var(date("d-m-Y", strtotime($personel['tmt_jab'])), FILTER_DEFAULT) ?></td>
+            <td><?= filter_var($personel['nama_bagian'], FILTER_DEFAULT) ?></td>
         </tr>
     <?php endforeach; ?>
    

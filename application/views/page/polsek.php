@@ -75,7 +75,7 @@
                                     <td><?= filter_var($personel['nrp'], FILTER_DEFAULT); ?></td>
                                     <td><?= filter_var($personel['jabatan'], FILTER_DEFAULT); ?></td>
                                     <td>
-                                        <a href="<?= base_url(); ?>kabag/detail/<?= filter_var($personel['nrp'], FILTER_DEFAULT); ?>" class="badge badge-success"><i class="fas fa-fw fa-search"></i> Detail</a>
+                                        <a href="<?= filter_var(base_url("kabag/detail/"), FILTER_DEFAULT); ?><?= filter_var($personel['nrp'], FILTER_DEFAULT); ?>" class="badge badge-success"><i class="fas fa-fw fa-search"></i> Detail</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
