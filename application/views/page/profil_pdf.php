@@ -46,7 +46,7 @@
 <p class="indent"><b>NRP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['nrp'], FILTER_DEFAULT)?></p>
 <p class="indent"><b>PKT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['pkt'], FILTER_DEFAULT)?></p>
 <p class="indent"><b>JABATAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['jabatan'], FILTER_DEFAULT)?></p>
-<p class="indent"><b>TEMPAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= $personel['tempat'], FILTER_DEFAULT);?></p> 
+<p class="indent"><b>TEMPAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['tempat'], FILTER_DEFAULT);?></p> 
 <p class="indent"><b>TGL.LAHIR&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var(date("d-m-Y", strtotime($personel['tgl_lahir'])), FILTER_DEFAULT);?></p> 
 <p class="indent"><b>AGAMA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['agama'], FILTER_DEFAULT)?></p> 
 <p class="indent"><b>SUKU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </b>&nbsp;&nbsp;<?= filter_var($personel['suku'], FILTER_DEFAULT)?></p> 
