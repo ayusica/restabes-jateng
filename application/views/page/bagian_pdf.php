@@ -28,7 +28,7 @@
     <p style="text-align: left"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KEPOLISIAN NEGARA REPUBLIK INDONESIA<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DAERAH JAWA TENGAH<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RESOR KOTA BESAR SEMARANG</b></p><hr width="40%" align ="left">
     <br><br><br>
 
-    <?php filter_var($nama_bagian=  $this->uri->segment(3),FILTER_DEFAULT?>
+    <?php filter_var($nama_bagian=  $this->uri->segment(3),FILTER_DEFAULT)?>
     <?php if ($nama_bagian !=0) {?>
         <p style="text-align: center; text-transform:uppercase;"><?= filter_var($bag[$this->uri->segment(3)-1]['nama_bagian'], FILTER_DEFAULT) ?> POLRESTABES SEMARANG POLDA JATENG </p>
     <?php }else{?>
