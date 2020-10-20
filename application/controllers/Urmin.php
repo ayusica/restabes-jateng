@@ -31,24 +31,23 @@ class Urmin extends CI_Controller
 
     public function personel_polrestabes()
     {
-        if ($this->session->userdata('akses') == 'kaurmin') {
-            $data['judul'] = "Personel Polrestabes Semarang";
-
-            //load model
-            $data['personel'] = $this->Urmin_model->polrestabes_personel();
-
-            $data['instansi'] = $this->Instansi_model->daftar_instansi();
-
-            $data['bagian'] = $this->Instansi_model->unsur_bagian();
-
-            $this->load->view('templates/user/header_user', $data);
-            $this->load->view('templates/user/sidebar', $data);
-            $this->load->view('templates/user/topbar', $data);
-            $this->load->view('page/personel_polrestabes', $data);
-            $this->load->view('templates/user/footer');
-        } else {
+        if ($this->session->userdata('akses') !== 'kaurmin') {
             return $this->output->set_output("Anda tidak berhak mengakses halaman ini!");
         }
+        $data['judul'] = "Personel Polrestabes Semarang";
+
+        //load model
+        $data['personel'] = $this->Urmin_model->polrestabes_personel();
+
+        $data['instansi'] = $this->Instansi_model->daftar_instansi();
+
+        $data['bagian'] = $this->Instansi_model->unsur_bagian();
+
+        $this->load->view('templates/user/header_user', $data);
+        $this->load->view('templates/user/sidebar', $data);
+        $this->load->view('templates/user/topbar', $data);
+        $this->load->view('page/personel_polrestabes', $data);
+        $this->load->view('templates/user/footer');
     }
 
     public function tambah_Poltabes()
@@ -106,7 +105,7 @@ class Urmin extends CI_Controller
     {
         $data = array(); // Buat variabel $data sebagai array
 
-        if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form
+        if (isset($this->input->post['preview'])) { // Jika user menekan tombol Preview pada form
             // lakukan upload file dengan memanggil function upload
             $this->load->model('Excel_model');
             $upload = $this->Excel_model->upload_file($this->filename);
