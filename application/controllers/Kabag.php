@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') or $this->getResponse()->setBody('No direct script access allowed');
 
 class Kabag extends CI_Controller
 {
@@ -25,24 +25,23 @@ class Kabag extends CI_Controller
     //halaman dashboard kabag
     public function dashboard()
     {
-        if ($this->session->userdata('akses') == 'kabag') {
-            $data['judul'] = 'Selamat Datang';
-
-            $data['personel'] = $this->Kabag_model->getAllPersonel();
-            $data['jum'] = $this->Kabag_model->HitungJumlahPersonel();
-            $data['pol'] = $this->Kabag_model->HitungJumlahPolsek();
-
-            $this->load->model('Instansi_model');
-            $data['ins'] = $this->Instansi_model->daftar_instansi();
-
-            $this->load->view('templates/user/header_user', $data);
-            $this->load->view('templates/user/sidebar', $data);
-            $this->load->view('templates/user/topbar', $data);
-            $this->load->view('page/dashboard', $data);
-            $this->load->view('templates/user/footer');
-        } else {
+        if ($this->session->userdata('akses') !== 'kabag') {
             return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
+        $data['judul'] = 'Selamat Datang';
+
+        $data['personel'] = $this->Kabag_model->getAllPersonel();
+        $data['jum'] = $this->Kabag_model->HitungJumlahPersonel();
+        $data['pol'] = $this->Kabag_model->HitungJumlahPolsek();
+
+        $this->load->model('Instansi_model');
+        $data['ins'] = $this->Instansi_model->daftar_instansi();
+
+        $this->load->view('templates/user/header_user', $data);
+        $this->load->view('templates/user/sidebar', $data);
+        $this->load->view('templates/user/topbar', $data);
+        $this->load->view('page/dashboard', $data);
+        $this->load->view('templates/user/footer');
     }
 
     //grafik
@@ -172,18 +171,18 @@ class Kabag extends CI_Controller
     //tambah instansi polsek
     public function tambahInstansiPolsek()
     {
-        if ($this->session->userdata('akses') == 'kabag') {
-            $data['judul'] = 'Polsek';
-            $this->load->model('Instansi_model');
-            $data['instansi'] = $this->Instansi_model->daftar_instansi();
-
-            $this->load->view('templates/user/header_user', $data);
-            $this->load->view('templates/user/sidebar', $data);
-            $this->load->view('templates/user/topbar', $data);
-            $this->load->view('page/tambah_instansi_polsek', $data);
-            $this->load->view('templates/user/footer');
+        if ($this->session->userdata('akses') !== 'kabag') {
+            return $this->output->set_output("Anda tidak berhak mengakses halaman ini!");
         }
-        return $this->output->set_output("Anda tidak berhak mengakses halaman ini!");
+        $data['judul'] = 'Polsek';
+        $this->load->model('Instansi_model');
+        $data['instansi'] = $this->Instansi_model->daftar_instansi();
+
+        $this->load->view('templates/user/header_user', $data);
+        $this->load->view('templates/user/sidebar', $data);
+        $this->load->view('templates/user/topbar', $data);
+        $this->load->view('page/tambah_instansi_polsek', $data);
+        $this->load->view('templates/user/footer');
     }
 
     //get instansi berdasarkan id
@@ -220,7 +219,7 @@ class Kabag extends CI_Controller
                 $this->db->set('foto', $new_image);
             } else {
                 //notifikasi foto gagal upload
-                return $this->output->set_output($this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>'));
+                $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>');
             }
         }
         $data = [
@@ -232,7 +231,7 @@ class Kabag extends CI_Controller
         $this->db->update('instansi', $data);
 
 
-        redirect('kabag/tambah_instansi_polsek');
+        redirect('kabag/tambahInstansiPolsek');
     }
 
 
@@ -262,7 +261,7 @@ class Kabag extends CI_Controller
                 $this->db->set('foto', $new_image);
             } else {
                 //notifikasi foto gagal upload
-                return $this->output->set_output($this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>'));
+                $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>');
             }
         }
         $data = [

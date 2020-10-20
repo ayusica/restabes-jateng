@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') or $this->getResponse()->setBody('No direct script access allowed');
 
 class Urmin extends CI_Controller
 {
@@ -58,10 +58,9 @@ class Urmin extends CI_Controller
 
         if ($personel) {
             return $this->output->set_output(json_encode('sudah'));
-        } else {
-            $this->Urmin_model->tambah_personel_polrestabes();
-            return $this->output->set_output(json_encode('sukses'));
         }
+        $this->Urmin_model->tambah_personel_polrestabes();
+        return $this->output->set_output(json_encode('sukses'));
     }
 
     public function detail_poltabes($nrp)

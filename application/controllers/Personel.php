@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') or $this->getResponse()->setBody('No direct script access allowed');
 
 class Personel extends CI_Controller
 {
@@ -78,7 +78,7 @@ class Personel extends CI_Controller
                 $this->db->set('gambar', $new_image);
             }
             //notifikasi foto gagal upload
-            return $this->output->set_output($this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>'));
+            $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"> Maaf ukuran foto terlalu besar (Max 2MB)!</div>');
 
             // var_dump($upload_image);
             // die;
@@ -97,7 +97,7 @@ class Personel extends CI_Controller
         ];
         $this->db->where('nrp', $this->input->post('nrp_hid'));
         $this->db->update('personel', $data);
-        return $this->output->set_output($this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"> Data telah diubah!</div>'));
+        $this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"> Data telah diubah!</div>');
 
         // $this->Personel_model->update_Profil();
         // var_dump($data);

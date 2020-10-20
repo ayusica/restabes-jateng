@@ -98,7 +98,7 @@
                   <span>Kelola Akun Admin</span></a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>kabag/tambah_instansi_polsek">
+              <a class="nav-link" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>kabag/tambahInstansiPolsek">
                   <i class="fas fa-fw fa-cog"></i>
                   <span>Tambah Polsek</span></a>
           </li>
