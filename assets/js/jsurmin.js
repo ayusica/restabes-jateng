@@ -211,7 +211,7 @@ function tabelperBagian() {
 				"<table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'><thead><tr><th>No</th><th>Nama</th><th>NRP</th><th>Jabatan</th><th width='60'>Aksi</th></tr></thead><tbody style='text-transform: uppercase;'>";
 			for (var i = 0; i < Object.keys(data).length; i++) {
 				tabel +=
-					'<tr role="row" class="odd"><td>' +
+					"<tr role='row' class='odd'><td>" +
 					++no +
 					"</td><td>" +
 					data[i]["nama"] +
@@ -219,8 +219,8 @@ function tabelperBagian() {
 					data[i]["nrp"] +
 					"</td><td>" +
 					data[i]["jabatan"] +
-					'</td><td>';
-				if (data[i]["level"] == "personel") {
+					"</td><td>";
+				if (data[i]["level"] === "personel") {
 					var string = "'" + data[i]["nrp"] + "'";
 					tabel +=
 						"<button type='button' class='badge badge-info' id='detail_poltabes_button' onclick='detailPoltabes(" +

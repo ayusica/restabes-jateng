@@ -67,10 +67,10 @@ class Login extends CI_Controller
                     redirect('personel/profil');
                 }
             } else {
-                return $this->output->set_output($this->session->set_flashdata('msg', '<div class="text text-warning" role="alert"><small>Password Salah!</small></div>'));
+                $this->session->set_flashdata('msg', '<div class="text text-warning" role="alert"><small>Password Salah!</small></div>');
             }
         } else {
-            return $this->output->set_output($this->session->set_flashdata('msg', '<div class="text text-warning" role="alert"><small>NRP Belum Terdaftar!</small></div>'));
+            $this->session->set_flashdata('msg', '<div class="text text-warning" role="alert"><small>NRP Belum Terdaftar!</small></div>');
         }
         redirect('login/index');
     }

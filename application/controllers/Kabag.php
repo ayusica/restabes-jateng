@@ -59,17 +59,16 @@ class Kabag extends CI_Controller
         $this->load->model('Personel_model');
         $data['personel'] = $this->Personel_model->detailPersonel($nrp);
 
-        if ($this->session->userdata('akses') == 'kabag') {
-            $data['judul'] = 'Detail Data Personel';
-
-            $this->load->view('templates/user/header_user', $data);
-            $this->load->view('templates/user/sidebar', $data);
-            $this->load->view('templates/user/topbar', $data);
-            $this->load->view('page/detail', $data);
-            $this->load->view('templates/user/footer');
-        } else {
+        if ($this->session->userdata('akses') !== 'kabag') {
             return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
+        $data['judul'] = 'Detail Data Personel';
+
+        $this->load->view('templates/user/header_user', $data);
+        $this->load->view('templates/user/sidebar', $data);
+        $this->load->view('templates/user/topbar', $data);
+        $this->load->view('page/detail', $data);
+        $this->load->view('templates/user/footer');
     }
 
     //kelola admin
