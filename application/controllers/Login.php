@@ -22,9 +22,8 @@ class Login extends CI_Controller
         if ($this->session->userdata('masuk') == TRUE) {
             if ($this->session->userdata('akses') == 'kabag') {
                 redirect('kabag/dashboard');
-            } else {
-                redirect('personel/profil');
             }
+            redirect('personel/profil');
         } else {
             $data['judul'] = 'Halaman Masuk';
 
