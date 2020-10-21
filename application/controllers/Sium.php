@@ -149,7 +149,7 @@ class Sium extends CI_Controller
     {
         $data = array(); // Buat variabel $data sebagai array
 
-        if (isset($this->input->post['preview'])) { // Jika user menekan tombol Preview pada form
+        if (FILTER_INPUT(INPUT_POST, 'preview')) { // Jika user menekan tombol Preview pada form
             // lakukan upload file dengan memanggil function upload 
             $this->load->model('Excel_model');
             $upload = $this->Excel_model->upload_file($this->filename);

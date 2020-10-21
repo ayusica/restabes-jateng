@@ -74,7 +74,7 @@
 
       <?php if (filter_var($this->session->userdata('akses'), FILTER_DEFAULT)  === 'kaurmin') : ?>
           <li class="nav-item">
-              <a class="nav-link" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>urmin/personel_polrestabes">
+              <a class="nav-link" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>urmin/personelPolrestabes">
                   <i class="fas fa-fw fa-users-cog"></i>
                   <span>Kelola Data Personel Polrestabes</span>
               </a>

@@ -21,15 +21,15 @@ class Urmin_model extends CI_Model
             "pkt" => $this->input->post('pkt', true),
             "jabatan" => $this->input->post('jabatan', true),
             "tempat" => $this->input->post('tempat', true),
-            "tgl_lahir" => $this->input->post('tgl_lahir', true),
+            "tgl_lahir" => $this->input->post('tglLahir', true),
             "agama" => $this->input->post('agama', true),
             "suku" => $this->input->post('suku', true),
-            "tmt_jab" => $this->input->post('tmt_jab', true),
+            "tmt_jab" => $this->input->post('tmtJab', true),
             "pass" => md5(strrev($this->input->post('nrp', true))),
             "id_instansi" => 1,
             "level" => 'personel',
             "gambar" => 'default.png',
-            "id_bagian" => $this->input->post('id_bagian', true)
+            "id_bagian" => $this->input->post('idBagian', true)
         ];
         $this->db->insert('personel', $data);
     }

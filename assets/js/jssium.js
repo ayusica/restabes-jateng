@@ -106,7 +106,7 @@ function updatePolsek() {
 //get nrp untuk ganti password
 function getNrpPass(nrp) {
     $("#reset-pass").modal("show");
-    $("#save_password").attr("onclick", "ganti_password(" + nrp + ")");
+    $("#save_password").attr("onclick", "gantiPassword(" + nrp + ")");
 }
 
 //ganti password 

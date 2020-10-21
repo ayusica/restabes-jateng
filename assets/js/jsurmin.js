@@ -19,9 +19,9 @@ $("document").ready(function () {
 			bag += "<option value='0'>" + "SEMUA</option>";
 			for (var i = 0; i < 19; i++) {
 				bag +=
-					'<option value="' +
+					"<option value='" +
 					data[parseInt(i)]["id_bagian"] +
-					'">' +
+					"'>" +
 					data[parseInt(i)]["nama_bagian"] +
 					"</option>";
 			}
@@ -38,7 +38,7 @@ $("document").ready(function () {
 			success: function (data) {
 				if (data) {
 					window.open(
-						"http://localhost/restabes-jateng/urmin/pdf_bagian/" +
+						"http://localhost/restabes-jateng/urmin/pdfBagian/" +
 						$("#selectBagian").val(), "_blank"
 					);
 				} else {
@@ -55,7 +55,7 @@ $("document").ready(function () {
 //urmin
 function poltabes() {
 	$.ajax({
-		url: urlUrmin + "tambah_Poltabes",
+		url: urlUrmin + "tambahPoltabes",
 		type: "POST",
 		dataType: "JSON",
 		data: {
@@ -85,7 +85,7 @@ function poltabes() {
 
 function detailPoltabes(nrp) {
 	$.ajax({
-		url: urlUrmin + "detail_poltabes/" + nrp,
+		url: urlUrmin + "detailPoltabes/" + nrp,
 		type: "GET",
 		dataType: "JSON",
 		success: function (data) {
@@ -112,7 +112,7 @@ function hapusAja(nrp) {
 	$("#hapus-poltabes-modal").modal("show");
 	$("#konfirmasi_hapus_modal").click(function () {
 		$.ajax({
-			url: urlUrmin + "hapus_Pol",
+			url: urlUrmin + "hapusPol",
 			type: "POST",
 			dataType: "JSON",
 			data: {
@@ -140,7 +140,7 @@ function updatePoltabes() {
 		alert("Isi Tmt Jab");
 	} else {
 		$.ajax({
-			url: urlUrmin + "update_Poltabes",
+			url: urlUrmin + "updatePoltabes",
 			type: "POST",
 			dataType: "JSON",
 			data: {
@@ -167,18 +167,18 @@ function updatePoltabes() {
 }
 
 //get password dr nrp
-function get_nrpPass(nrp) {
+function getnrpPass(nrp) {
 	$("#reset-pass").modal("show");
-	$("#save_password").attr("onclick", "ganti_password(" + nrp + ")");
+	$("#save_password").attr("onclick", "gantipPassword(" + nrp + ")");
 }
 
 //ganti password urmin
-function ganti_password(nrp) {
+function gantipPassword(nrp) {
 	if ($("#new_password").val() === "") {
 		alert("Password Baru Harus Diisi!");
 	} else {
 		$.ajax({
-			url: urlUrmin + "ganti_Password",
+			url: urlUrmin + "gantiPassword",
 			type: "POST",
 			dataType: "JSON",
 			data: {
@@ -208,7 +208,7 @@ function tabelperBagian() {
 			var no = 0;
 			// if (data) {
 			tabel +=
-				'<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th>No</th><th>Nama</th><th>NRP</th><th>Jabatan</th><th width="60">Aksi</th></tr></thead><tbody style="text-transform: uppercase;">';
+				"<table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'><thead><tr><th>No</th><th>Nama</th><th>NRP</th><th>Jabatan</th><th width='60'>Aksi</th></tr></thead><tbody style='text-transform: uppercase;'>";
 			for (var i = 0; i < Object.keys(data).length; i++) {
 				tabel +=
 					'<tr role="row" class="odd"><td>' +
@@ -223,15 +223,15 @@ function tabelperBagian() {
 				if (data[i]["level"] == "personel") {
 					var string = "'" + data[i]["nrp"] + "'";
 					tabel +=
-						'<button type="button" class="badge badge-info" id="detail_poltabes_button" onclick="detailPoltabes(' +
+						"<button type='button' class='badge badge-info' id='detail_poltabes_button' onclick='detailPoltabes(" +
 						string +
-						')"><i class="fas fa-fw fa-edit"></i></button><button type = "submit" class="badge badge-success" onclick = "get_nrpPass(' +
+						")'><i class='fas fa-fw fa-edit'></i></button><button type = 'submit' class='badge badge-success' onclick = 'getnrpPass(" +
 						string +
-						')" > <i class="fas fa-fw fa-key"></i></button><button type="submit" class="badge badge-danger" id="hapus" onclick="hapusAja(' +
+						")' > <i class='fas fa-fw fa-key'></i></button><button type='submit' class='badge badge-danger' id='hapus' onclick='hapusAja(" +
 						string +
-						')"><i class="fas fa-fw fa-trash"></i></button><a target= "_blank" href="http://localhost/restabes-jateng/personel/pdf_profil/' +
+						")'><i class='fas fa-fw fa-trash'></i></button><a target= '_blank' href='http://localhost/restabes-jateng/personel/pdf_profil/" +
 						data[i]["nrp"] +
-						'"><button type="button" class="badge badge-warning"><i class="fas fa-fw fa-print"></i></button></a>';
+						"'><button type='button' class='badge badge-warning'><i class='fas fa-fw fa-print'></i></button></a>";
 				}
 			}
 			tabel += "</tbody></table>";

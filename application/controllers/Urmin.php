@@ -29,7 +29,7 @@ class Urmin extends CI_Controller
      * tanggal: 27 Januari 2020
      * -----------------------------------------------------*/
 
-    public function personel_polrestabes()
+    public function personelPolrestabes()
     {
         if ($this->session->userdata('akses') !== 'kaurmin') {
             return $this->output->set_output("Anda tidak berhak mengakses halaman ini!");
@@ -50,7 +50,7 @@ class Urmin extends CI_Controller
         $this->load->view('templates/user/footer');
     }
 
-    public function tambah_Poltabes()
+    public function tambahPoltabes()
     {
         $nrp = $this->input->post('nrp', true);
         // $level = 'personel';
@@ -63,7 +63,7 @@ class Urmin extends CI_Controller
         return $this->output->set_output(json_encode('sukses'));
     }
 
-    public function detail_poltabes($nrp)
+    public function detailPoltabes($nrp)
     {
         $data = $this->Personel_model->geteditPersonel($nrp);
 
@@ -71,7 +71,7 @@ class Urmin extends CI_Controller
     }
 
     //untuk hapus data personel poltabes
-    public function hapus_Pol()
+    public function hapusPol()
     {
         if ($this->session->userdata('akses') != 'personel') {
             $this->Urmin_model->hapusAja();
@@ -82,7 +82,7 @@ class Urmin extends CI_Controller
     }
 
     //update data poltabes
-    public function update_Poltabes()
+    public function updatePoltabes()
     {
         $this->load->model('Urmin_model');
         $this->Urmin_model->update_PolPersonel();
@@ -91,7 +91,7 @@ class Urmin extends CI_Controller
     }
 
     //ganti password
-    public function ganti_Password()
+    public function gantiPassword()
     {
         $this->load->model('Kabag_model');
         $this->Kabag_model->ubahPassAdmin();
@@ -100,11 +100,11 @@ class Urmin extends CI_Controller
     }
 
     //impor data dari excel ke sistem
-    public function form_polrestabes()
+    public function formPolrestabes()
     {
         $data = array(); // Buat variabel $data sebagai array
 
-        if (isset($this->input->post['preview'])) { // Jika user menekan tombol Preview pada form
+        if (FILTER_INPUT(INPUT_POST, 'preview')) { // Jika user menekan tombol Preview pada form
             // lakukan upload file dengan memanggil function upload
             $this->load->model('Excel_model');
             $upload = $this->Excel_model->upload_file($this->filename);
@@ -171,11 +171,11 @@ class Urmin extends CI_Controller
         $this->load->model('Excel_model');
         $this->Excel_model->insert_multiple($data);
 
-        redirect("urmin/personel_polrestabes"); // Redirect ke halaman awal
+        redirect("urmin/personelPolrestabes"); // Redirect ke halaman awal
     }
 
     //download data pdf perbagian
-    public function pdf_bagian($id_bagian)
+    public function pdfBagian($id_bagian)
     {
         require_once APPPATH . 'third_party/dompdf/dompdf_config.inc.php';
 

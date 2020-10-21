@@ -23,7 +23,7 @@
   <br>
 
   <!-- Buat sebuah tag form dan arahkan action nya ke controller ini lagi -->
-  <form method="post" action="<?= filter_var(base_url("urmin/form_polrestabes"), FILTER_DEFAULT); ?>" enctype="multipart/form-data">
+  <form method="post" action="<?= filter_var(base_url("urmin/formPolrestabes"), FILTER_DEFAULT); ?>" enctype="multipart/form-data">
     <!-- 
     -- Buat sebuah input type file
     -- class pull-left berfungsi agar file input berada di sebelah kiri
@@ -37,7 +37,7 @@
   </form>
 
   <?php
-  if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form 
+  if (FILTER_INPUT(INPUT_POST, 'preview')) { // Jika user menekan tombol Preview pada form 
     if (isset($upload_error)) { // Jika proses upload gagal
   ?>
       <!--Muncul pesan error upload-->
@@ -69,7 +69,7 @@
           <th>Suku</th>
           <th>Tmt.jab</th>
           <th>ID Bagian</th>
-        </tr>";
+        </tr>
         <?php
         $numrow = 1;
         $kosong = 0;
@@ -115,16 +115,16 @@
             } ?>
             <tr>
               <td <?= filter_var($nama_td, FILTER_DEFAULT) ?>> <?= filter_var($nama, FILTER_DEFAULT) ?></td>
-              <td <?= filter_var($nrp_td, FILTER_DEFAULT) ?>> <?= filter_var($nrp, FILTER_DEFAULT) ?> </td>;
-              <td <?= filter_var($pkt_td, FILTER_DEFAULT) ?>> <?= filter_var($pkt, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($jabatan_td, FILTER_DEFAULT) ?>> <?= filter_var($jabatan, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($tempat_td, FILTER_DEFAULT) ?>> <?= filter_var($tempat, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($tgl_lahir_td, FILTER_DEFAULT) ?>> <?= filter_var($tgl_lahir, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($agama_td, FILTER_DEFAULT) ?>> <?= filter_var($agama, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($suku_td, FILTER_DEFAULT) ?>> <?= filter_var($suku, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($tmt_jab_td, FILTER_DEFAULT) ?>> <?= filter_var($tmt_jab, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($id_bagian_td, FILTER_DEFAULT) ?>> <?= filter_var($id_bagian, FILTER_DEFAULT) ?></td>;
-            </tr>;
+              <td <?= filter_var($nrp_td, FILTER_DEFAULT) ?>> <?= filter_var($nrp, FILTER_DEFAULT) ?> </td>
+              <td <?= filter_var($pkt_td, FILTER_DEFAULT) ?>> <?= filter_var($pkt, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($jabatan_td, FILTER_DEFAULT) ?>> <?= filter_var($jabatan, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($tempat_td, FILTER_DEFAULT) ?>> <?= filter_var($tempat, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($tgl_lahir_td, FILTER_DEFAULT) ?>> <?= filter_var($tgl_lahir, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($agama_td, FILTER_DEFAULT) ?>> <?= filter_var($agama, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($suku_td, FILTER_DEFAULT) ?>> <?= filter_var($suku, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($tmt_jab_td, FILTER_DEFAULT) ?>> <?= filter_var($tmt_jab, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($id_bagian_td, FILTER_DEFAULT) ?>> <?= filter_var($id_bagian, FILTER_DEFAULT) ?></td>
+            </tr>
         <?php
           }
 
@@ -152,7 +152,7 @@
 
         <!-- Buat sebuah tombol untuk mengimport data ke database -->
         <button type='submit' name='import'>Kirim</button>
-        <a href="<?= filter_var(base_url("urmin/personel_polrestabes"), FILTER_DEFAULT) ?>"> Batalkan</a>
+        <a href="<?= filter_var(base_url("urmin/personelPolrestabes"), FILTER_DEFAULT) ?>"> Batalkan</a>
       <?php
       }
       ?>

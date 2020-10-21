@@ -10,7 +10,7 @@
                     <div class="tambah">
                         <button type="button" class="bagde btn-success" style="height: 2.5rem; border-radius:5px; font-size:12px;font-weight:bold;" id="tambah_personel_button"><i class="fas fa-fw fa-plus"></i> Tambah Personel</button>
                         <button type="button" class="badge btn-warning" style="height: 2.5rem" id="pdf_bagian"><i class="fas fa-fw fa-print"></i> Cetak PDF</button>
-                        <a href="<?= filter_var(base_url("urmin/form_polrestabes"), FILTER_DEFAULT); ?>" target="_blank"><button type="button" class="badge btn-primary" style="height: 2.5rem"><i class="fas fa-fw fa-file"></i> Impor Data</button></a>
+                        <a href="<?= filter_var(base_url("urmin/formPolrestabes"), FILTER_DEFAULT); ?>" target="_blank"><button type="button" class="badge btn-primary" style="height: 2.5rem"><i class="fas fa-fw fa-file"></i> Impor Data</button></a>
                     </div>
                     <br>
                     <span style=" font-weight: bold; float:inherit;">Bagian :</span>
@@ -97,7 +97,7 @@
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <a href="<?= filter_var(base_url("urmin/personel_polrestabes"), FILTER_DEFAULT) ?>"><button class="btn btn-primary">Kembali</button></a>
+                            <a href="<?= filter_var(base_url("urmin/personelPolrestabes"), FILTER_DEFAULT) ?>"><button class="btn btn-primary">Kembali</button></a>
                             <button type="button" class="btn btn-success" id="Poltabes-edit">Edit</button>
                         </div>
                     </form>
@@ -237,7 +237,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                    <button id="save_password" type="button" class="btn btn-success" data-dismiss="modal" onclick="ganti_password()">Simpan</button>
+                    <button id="save_password" type="button" class="btn btn-success" data-dismiss="modal" onclick="gantipPassword()">Simpan</button>
                 </div>
             </div>
         </div>

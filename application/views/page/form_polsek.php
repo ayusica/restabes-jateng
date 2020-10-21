@@ -38,7 +38,7 @@
   </form>
 
   <?php
-  if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form 
+  if (FILTER_INPUT(INPUT_POST, 'preview')) { // Jika user menekan tombol Preview pada form 
     if (isset($upload_error)) { // Jika proses upload gagal
   ?>
       <!--Muncul pesan error upload-->
@@ -71,7 +71,7 @@
           <th>Tmt.jab</th>
           <th>Bagian</th>
           <th>id_instansi</th>
-        </tr>";
+        </tr>
         <?php
         $numrow = 1;
         $kosong = 0;
@@ -120,17 +120,17 @@
 
             <tr>
               <td <?= filter_var($nama_td, FILTER_DEFAULT) ?>> <?= filter_var($nama, FILTER_DEFAULT) ?></td>
-              <td <?= filter_var($nrp_td, FILTER_DEFAULT) ?>> <?= filter_var($nrp, FILTER_DEFAULT) ?> </td>;
-              <td <?= filter_var($pkt_td, FILTER_DEFAULT) ?>> <?= filter_var($pkt, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($jabatan_td, FILTER_DEFAULT) ?>> <?= filter_var($jabatan, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($tempat_td, FILTER_DEFAULT) ?>> <?= filter_var($tempat, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($tgl_lahir_td, FILTER_DEFAULT) ?>> <?= filter_var($tgl_lahir, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($agama_td, FILTER_DEFAULT) ?>> <?= filter_var($agama, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($suku_td, FILTER_DEFAULT) ?>> <?= filter_var($suku, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($tmt_jab_td, FILTER_DEFAULT) ?>> <?= filter_var($tmt_jab, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($id_bagian_td, FILTER_DEFAULT) ?>> <?= filter_var($id_bagian, FILTER_DEFAULT) ?></td>;
-              <td <?= filter_var($id_instansi_td, FILTER_DEFAULT) ?>> <?= filter_var($instansi, FILTER_DEFAULT) ?> </td>;
-            </tr>;
+              <td <?= filter_var($nrp_td, FILTER_DEFAULT) ?>> <?= filter_var($nrp, FILTER_DEFAULT) ?> </td>
+              <td <?= filter_var($pkt_td, FILTER_DEFAULT) ?>> <?= filter_var($pkt, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($jabatan_td, FILTER_DEFAULT) ?>> <?= filter_var($jabatan, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($tempat_td, FILTER_DEFAULT) ?>> <?= filter_var($tempat, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($tgl_lahir_td, FILTER_DEFAULT) ?>> <?= filter_var($tgl_lahir, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($agama_td, FILTER_DEFAULT) ?>> <?= filter_var($agama, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($suku_td, FILTER_DEFAULT) ?>> <?= filter_var($suku, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($tmt_jab_td, FILTER_DEFAULT) ?>> <?= filter_var($tmt_jab, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($id_bagian_td, FILTER_DEFAULT) ?>> <?= filter_var($id_bagian, FILTER_DEFAULT) ?></td>
+              <td <?= filter_var($id_instansi_td, FILTER_DEFAULT) ?>> <?= filter_var($instansi, FILTER_DEFAULT) ?> </td>
+            </tr>
         <?php
           }
 
