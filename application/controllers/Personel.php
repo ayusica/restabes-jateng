@@ -51,7 +51,8 @@ class Personel extends CI_Controller
     {
         $nrp = $this->input->post('nrp_hid', true);
 
-        $upload_image = $_FILES['image']['name'];
+        // $upload_image = $_FILES['image']['name'];
+        $upload_image = filter_input_array(INPUT_POST, ['image' => FILTER_SANITIZE_STRING, 'name' => FILTER_SANITIZE_STRING]);
 
         if ($upload_image) {
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
