@@ -140,9 +140,8 @@ class Personel extends CI_Controller
 
 
             $dompdf->stream("Data Profil.pdf", array('Attachment' => 0));
-        } else {
-            return $this->output->set_output("Maaf Ini Bukan Halaman Anda!");
         }
+        return $this->output->set_output("Maaf Ini Bukan Halaman Anda!");
     }
 
 

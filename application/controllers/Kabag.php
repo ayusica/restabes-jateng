@@ -74,19 +74,18 @@ class Kabag extends CI_Controller
     //kelola admin
     public function kelola_admin()
     {
-        if ($this->session->userdata('akses') == 'kabag') {
-            $data['judul'] = 'Kelola Admin';
-
-            $data['personel'] = $this->Kabag_model->kelolaAdmin();
-
-            $this->load->view('templates/user/header_user', $data);
-            $this->load->view('templates/user/sidebar', $data);
-            $this->load->view('templates/user/topbar', $data);
-            $this->load->view('page/keladmin', $data);
-            $this->load->view('templates/user/footer');
-        } else {
+        if ($this->session->userdata('akses') !== 'kabag') {
             return $this->output->set_output("Anda tidak berhak mengakses halaman ini");
         }
+        $data['judul'] = 'Kelola Admin';
+
+        $data['personel'] = $this->Kabag_model->kelolaAdmin();
+
+        $this->load->view('templates/user/header_user', $data);
+        $this->load->view('templates/user/sidebar', $data);
+        $this->load->view('templates/user/topbar', $data);
+        $this->load->view('page/keladmin', $data);
+        $this->load->view('templates/user/footer');
     }
 
     //pilih instansi

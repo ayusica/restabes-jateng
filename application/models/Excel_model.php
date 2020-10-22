@@ -17,11 +17,10 @@ class Excel_model extends CI_Model
             // Jika berhasil :
             $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
             return $return;
-        } else {
-            // Jika gagal :
-            $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
-            return $return;
         }
+        // Jika gagal :
+        $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+        return $return;
     }
 
     // Buat sebuah fungsi untuk melakukan insert lebih dari 1 data
