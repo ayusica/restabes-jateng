@@ -14,7 +14,7 @@ $("document").ready(function () {
 		url: urlUrmin + "selectBagian",
 		type: "GET",
 		dataType: "JSON",
-		success: function (data) {
+		success(data) {
 			var bag = "";
 			bag += "<option value='0'>" + "SEMUA</option>";
 			for (var i = 0; i < 19; i++) {
@@ -35,7 +35,7 @@ $("document").ready(function () {
 			url: urlUrmin + "getPersonelBagian/" + $("#selectBagian").val(),
 			type: "GET",
 			dataType: "JSON",
-			success: function (data) {
+			success(data) {
 				if (data) {
 					window.open(
 						"http://localhost/restabes-jateng/urmin/pdfBagian/" +
@@ -45,7 +45,7 @@ $("document").ready(function () {
 					alert("maaf");
 				}
 			},
-			error: function (jqXHR, textStatus, errorThrown) {
+			error(jqXHR, textStatus, errorThrown) {
 				alert("error!");
 			}
 		});
@@ -70,14 +70,14 @@ function poltabes() {
 			idBagian: $("#bagian_poltabes").val(),
 			tmtJab: $("#tmt_jab_poltabes").val()
 		},
-		success: function (respon) {
+		success(respon) {
 			if (respon === "sudah") {
 				alert("Data Personel Sudah Terekam!");
 			} else {
 				alert("Data Berhasil Terekam!");
 			}
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
+		error(jqXHR, textStatus, errorThrown) {
 			alert("Lengkapi Data!");
 		}
 	});
@@ -88,7 +88,7 @@ function detailPoltabes(nrp) {
 		url: urlUrmin + "detailPoltabes/" + nrp,
 		type: "GET",
 		dataType: "JSON",
-		success: function (data) {
+		success(data) {
 			$("#poltabes_nama").val(data.nama);
 			$("#poltabes_nrp").val(data.nrp);
 			$("#poltabes_pkt").val(data.pkt);
@@ -102,7 +102,7 @@ function detailPoltabes(nrp) {
 			$("#poltabes_bagian").val(data.id_bagian);
 			$("#Detail_Poltabes_Modal").modal("show");
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
+		error(jqXHR, textStatus, errorThrown) {
 			alert("error!");
 		}
 	});
@@ -118,11 +118,11 @@ function hapusAja(nrp) {
 			data: {
 				nrp: nrp
 			},
-			success: function () {
+			success() {
 				alert("Data berhasil dihapus!");
 				location.reload();
 			},
-			error: function (jqXHR, textStatus, errorThrown) {
+			error(jqXHR, textStatus, errorThrown) {
 				alert("error!");
 			}
 		});

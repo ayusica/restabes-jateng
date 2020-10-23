@@ -144,10 +144,8 @@ class Kabag extends CI_Controller
             if ($admin['level'] == 'personel') {
                 $this->Kabag_model->update_admin();
                 return $this->output->set_output(json_encode('berhasil'));
-            } else {
-                return $this->output->set_output(json_encode('sudah'));
             }
-            // }else if(NOT $admin){
+            return $this->output->set_output(json_encode('sudah'));
         } else {
             $this->Kabag_model->tambahAdmin();
             return $this->output->set_output(json_encode('berhasil'));

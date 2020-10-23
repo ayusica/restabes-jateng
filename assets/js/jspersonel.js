@@ -18,7 +18,7 @@ function eProfil(nrp) {
         url: urlPersonel + "edit_Profil/" + nrp,
         type: "GET",
         dataType: "JSON",
-        success: function (data) {
+        success(data) {
             // alert(data);
             $("#nrp").val(data.nrp);
             $("#nama").val(data.nama);
@@ -35,7 +35,7 @@ function eProfil(nrp) {
 
             $("#editprofilModal").modal("show");
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error(jqXHR, textStatus, errorThrown) {
             alert("error!");
         }
     });
@@ -118,7 +118,7 @@ function gantiPass() {
                 reNewPassword: $("#re-new-password").val()
             },
             beforeSend: function () { },
-            success: function (respon) {
+            success(respon) {
                 if (respon === "berhasil") {
                     alert("Password behasil diubah!");
                     window.location.href = "http://localhost/restabes-jateng/login/logout";
@@ -140,8 +140,9 @@ function gantiPass() {
                     }
                 }
             },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log(jqXHR.responseText);
+            error(jqXHR, textStatus, errorThrown) {
+                // console.log(jqXHR.responseText);
+                alert("error!");
             },
         });
     }
@@ -177,7 +178,7 @@ function gantiPassPer() {
                 baruPassword: $("#baru_password").val(),
                 konfPassword: $("#konf-password").val()
             },
-            success: function (respon) {
+            success(respon) {
                 if (respon === "berhasil") {
                     alert("Password behasil diubah!");
                     window.location.href = "http://localhost/restabes-jateng/login/logout";
@@ -192,7 +193,7 @@ function gantiPassPer() {
                     $("#baru_password").val(""),
                     $("#konf-password").val("")
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error(jqXHR, textStatus, errorThrown) {
                 alert("error!");
             }
         });

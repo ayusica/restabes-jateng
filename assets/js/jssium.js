@@ -33,14 +33,14 @@ function tambahPolsek() {
             idInstansi: $("#instansi_polsek").val(),
             idBagian: $("#bagian_polsek").val()
         },
-        success: function (respon) {
+        success(respon) {
             if (respon === "sudah") {
                 alert("Data Personel Sudah Terekam!");
             } else {
                 alert("Data Berhasil Terekam!");
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error(jqXHR, textStatus, errorThrown) {
             alert("Lengkapi Data!");
         }
     });
@@ -66,7 +66,7 @@ function detailPolsek(nrp) {
 
             $("#Detail_Modal").modal("show");
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error(jqXHR, textStatus, errorThrown) {
             alert("error!");
         }
 
@@ -92,12 +92,12 @@ function updatePolsek() {
             idBagian: $("#polsek_bagian").val()
 
         },
-        success: function () {
+        success() {
             alert("data berhasil diubah!");
             // window.location.reload();
             history.go(0);
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error(jqXHR, textStatus, errorThrown) {
             alert("error!");
         }
     });
@@ -122,10 +122,10 @@ function gantiPassword(nrp) {
                 nrp: nrp,
                 newPassword: $("#new_password").val()
             },
-            success: function () {
+            success() {
                 alert("Password berhasil diubah!");
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error(jqXHR, textStatus, errorThrown) {
                 alert("error!");
             }
         });
@@ -143,11 +143,11 @@ function hapusPersonelpolsek(nrp) {
             data: {
                 nrp: nrp
             },
-            success: function () {
+            success() {
                 alert("Data berhasil dihapus!");
                 location.reload();
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error(jqXHR, textStatus, errorThrown) {
                 alert("error!");
             }
 

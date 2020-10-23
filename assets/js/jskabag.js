@@ -82,7 +82,7 @@ function edit(nrp) {
         url: urlKabag + "edit_Admin/" + nrp,
         type: "GET",
         dataType: "JSON",
-        success: function (data) {
+        success(data) {
             $("#nama").val(data.nama);
             $("#nrp").val(data.nrp);
             $("#jab").val(data.jabatan);
@@ -119,10 +119,10 @@ function updateEdit() {
                 // inst: $("#inst").val(),
                 level: $("#level").val()
             },
-            success: function () {
+            success() {
                 alert("Data berhasil diubah!");
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error(jqXHR, textStatus, errorThrown) {
                 alert("error!");
             }
         });
@@ -141,10 +141,10 @@ function changePassword() {
                 nrp: $("#nrp").val(),
                 newPassword: $("#new_password").val()
             },
-            success: function () {
+            success() {
                 alert("Password berhasil diubah!");
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error(jqXHR, textStatus, errorThrown) {
                 alert("error!");
             }
         });
@@ -161,12 +161,12 @@ function hapusAdmin(nrp) {
             data: {
                 nrp: nrp
             },
-            success: function () {
+            success() {
                 alert("Data berhasil dihapus!");
                 location.reload();
                 $("#dataTable");
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error(jqXHR, textStatus, errorThrown) {
                 alert("error!");
             }
 
@@ -187,7 +187,7 @@ function successTambahAdmin() {
             // id_instansi: $("#selectInstansi").val(),
             level: $("#levelAdmin").val()
         },
-        success: function (respon) {
+        success(respon) {
             if (respon === "berhasil") {
                 alert("Data Admin berhasil ditambahkan");
                 // history.go(0);
@@ -197,7 +197,7 @@ function successTambahAdmin() {
                 alert("Personel Sudah Menjadi Admin!");
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error(jqXHR, textStatus, errorThrown) {
             alert("Error!");
         }
     });
@@ -210,7 +210,7 @@ function pilInstansi() {
         url: urlKabag + "pilihInstansi",
         type: "GET",
         dataType: "JSON",
-        success: function (data) {
+        success(data) {
 
             if ($("#levelAdmin").val() === "kasium") {
                 isi += "<option value=''>--Pilih Instansi--</option>";
@@ -236,7 +236,7 @@ function getEditInstansi(idInstansi) {
         url: urlKabag + "getInstansi/" + idInstansi,
         type: "GET",
         dataType: "JSON",
-        success: function (data) {
+        success(data) {
             $("#id_instansi").val(data.id_instansi);
             $("#instansi_hid").val(data.id_instansi);
             $("#nama_instansi").val(data.nama_instansi);
