@@ -96,7 +96,7 @@ function edit(nrp) {
             }
             $("#editModal").modal("show");
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error(jqXHR, textStatus, errorThrown) {
             alert("error!");
         }
 
@@ -246,7 +246,7 @@ function getEditInstansi(idInstansi) {
 
             $("#Edit_Instansi_Modal").modal("show");
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error(jqXHR, textStatus, errorThrown) {
             alert("error!");
         }
 

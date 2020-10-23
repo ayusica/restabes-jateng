@@ -155,11 +155,11 @@ function updatePoltabes() {
 				idInstansi: $("#poltabes_instansi").val(),
 				idBagian: $("#poltabes_bagian").val()
 			},
-			success: function () {
+			success() {
 				alert("Data Berhasil Diubah!");
 				tabelperBagian();
 			},
-			error: function (jqXHR, textStatus, errorThrown) {
+			error(jqXHR, textStatus, errorThrown) {
 				alert("error!");
 			}
 		});
@@ -185,12 +185,12 @@ function gantipPassword(nrp) {
 				nrp: nrp,
 				newPassword: $("#new_password").val()
 			},
-			success: function () {
+			success() {
 				alert("Password berhasil diubah!");
 				$("#new_password").val("");
 
 			},
-			error: function (jqXHR, textStatus, errorThrown) {
+			error(jqXHR, textStatus, errorThrown) {
 				alert("Gagal Ubah Password!");
 			}
 		});
@@ -203,7 +203,7 @@ function tabelperBagian() {
 		url: urlUrmin + "getPersonelBagian/" + $("#selectBagian").val(),
 		type: "GET",
 		dataType: "JSON",
-		success: function (data) {
+		success(data) {
 			var tabel = "";
 			var no = 0;
 			// if (data) {
