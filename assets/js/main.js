@@ -5,8 +5,8 @@
     preloader
     ---------------------------- */
     $(window).on("load", function () {
-        var pre_loader = $("#preloader");
-        pre_loader.fadeOut("slow", function () {
+        var preLoader = $("#preloader");
+        preLoader.fadeOut("slow", function () {
             $(this).remove();
         });
     });
@@ -28,9 +28,9 @@
     /*----------------------------
      Navbar nav
     ------------------------------ */
-    var main_menu = $(".main-menu ul.navbar-nav li ");
-    main_menu.on("click", function () {
-        main_menu.removeClass("active");
+    var mainMenu = $(".main-menu ul.navbar-nav li ");
+    mainMenu.on("click", function () {
+        mainMenu.removeClass("active");
         $(this).addClass("active");
     });
 
@@ -72,14 +72,14 @@
     /*---------------------
       Venobox
     --------------------- */
-    var veno_box = $(".venobox");
-    veno_box.venobox();
+    var venoBox = $(".venobox");
+    venoBox.venobox();
 
     /*----------------------------
     Page Scroll
     ------------------------------ */
-    var page_scroll = $("a.page-scroll");
-    page_scroll.on("click", function (event) {
+    var pageScroll = $("a.page-scroll");
+    pageScroll.on("click", function (event) {
         var $anchor = $(this);
         $("html, body").stop().animate({
             scrollTop: $($anchor.attr("href")).offset().top - 55
@@ -106,25 +106,25 @@
     /*----------------------------
      Parallax
     ------------------------------ */
-    var well_lax = $(".wellcome-area");
-    well_lax.parallax("50%", 0.4);
-    var well_text = $(".wellcome-text");
-    well_text.parallax("50%", 0.6);
+    var wellLax = $(".wellcome-area");
+    wellLax.parallax("50%", 0.4);
+    var wellText = $(".wellcome-text");
+    wellText.parallax("50%", 0.6);
 
     /*--------------------------
      collapse
     ---------------------------- */
-    var panel_test = $(".panel-heading a");
-    panel_test.on("click", function () {
-        panel_test.removeClass("active");
+    var panelTest = $(".panel-heading a");
+    panelTest.on("click", function () {
+        panelTest.removeClass("active");
         $(this).addClass("active");
     });
 
     /*---------------------
      Testimonial carousel
     ---------------------*/
-    var test_carousel = $(".testimonial-carousel");
-    test_carousel.owlCarousel({
+    var testCarousel = $(".testimonial-carousel");
+    testCarousel.owlCarousel({
         loop: true,
         nav: false,
         dots: true,
@@ -155,10 +155,10 @@
                 queue: false
             }
         });
-        var pro_menu = $(".project-menu li a");
-        pro_menu.on("click", function () {
-            var pro_menu_active = $(".project-menu li a.active");
-            pro_menu_active.removeClass("active");
+        var proMenu = $(".project-menu li a");
+        proMenu.on("click", function () {
+            var proMenuActive = $(".project-menu li a.active");
+            proMenuActive.removeClass("active");
             $(this).addClass("active");
             var selector = $(this).attr("data-filter");
             $container.isotope({
@@ -179,8 +179,8 @@
      Circular Bars - Knob
   --------------------- */
     if (typeof ($.fn.knob) != "undefined") {
-        var knob_tex = $(".knob");
-        knob_tex.each(function () {
+        var knobTex = $(".knob");
+        knobTex.each(function () {
             var $this = $(this),
                 knobVal = $this.attr("data-rel");
 
