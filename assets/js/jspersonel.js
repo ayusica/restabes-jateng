@@ -117,7 +117,7 @@ function gantiPass() {
                 newPassword: $("#new_password").val(),
                 reNewPassword: $("#re-new-password").val()
             },
-            beforeSend: function () { },
+            beforeSend() { },
             success(respon) {
                 if (respon === "berhasil") {
                     alert("Password behasil diubah!");

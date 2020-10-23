@@ -51,7 +51,7 @@ function detailPolsek(nrp) {
         url: urlSium + "detailPolsek/" + nrp,
         type: "GET",
         dataType: "JSON",
-        success: function (data) {
+        success(data) {
             $("#polsek_nama").val(data.nama);
             $("#polsek_nrp").val(data.nrp);
             $("#polsek_pkt").val(data.pkt);
